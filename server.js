@@ -288,7 +288,7 @@ app.use((err, req, res, next) => {
 
 const startServer = async () => {
   await connectDB();
-  app.listen(PORT, () => {
+  app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Sports Betting Backend running on port ${PORT}`);
     console.log(`📊 Health check: http://localhost:${PORT}/api/health`);
     console.log('💾 Database: MongoDB');
