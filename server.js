@@ -67,12 +67,12 @@ app.post('/api/user', async (req, res) => {
     const pv = validatePassword(password);
     if (!pv.valid) return res.status(400).json({ error: pv.error });
 
-    const existingUser = await User.findOne({ username });
+    const existingUser = await User.findOne({ username: { $regex: new RegExp(`^${username.toLowerCase()}$`, 'i') } });
     if (existingUser) return res.status(409).json({ error: 'Username already exists' });
 
     const hashedPassword = await hashPassword(password);
     const newUser = new User({
-      username,
+      username: username.toLowerCase(),
       password: hashedPassword,
       balance: 1000,
       totalWagered: 0,
@@ -96,7 +96,7 @@ app.post('/api/auth/login', async (req, res) => {
     const { username, password } = req.body;
     if (!username || !password) return res.status(400).json({ error: 'Username and password are required' });
 
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ username: username.toLowerCase() });
     if (!user) return res.status(401).json({ error: 'Invalid username or password' });
 
     const isValidPassword = await verifyPassword(password, user.password);
