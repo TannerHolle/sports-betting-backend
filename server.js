@@ -17,7 +17,17 @@ const PORT = process.env.PORT || 8080;
 
 // Middleware
 app.use(cors());
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
+
+// Log middleware setup
+app.use((req, res, next) => {
+  if (req.method === 'POST' && req.path === '/api/user') {
+    console.log('Middleware - Content-Type:', req.headers['content-type']);
+    console.log('Middleware - Body keys:', req.body ? Object.keys(req.body) : 'no body');
+  }
+  next();
+});
 
 // Password helpers
 const validatePassword = (password) => {
@@ -62,17 +72,54 @@ app.get('/api/user/:username', async (req, res) => {
 
 app.post('/api/user', async (req, res) => {
   try {
+    // Log request body for debugging
+    console.log('Received user creation request:', { 
+      body: req.body, 
+      hasUsername: !!req.body?.username, 
+      hasPassword: !!req.body?.password 
+    });
+    
     const { username, password } = req.body;
-    if (!username || !password) return res.status(400).json({ error: 'Username and password are required' });
+    
+    // Validate request body exists
+    if (!req.body || typeof req.body !== 'object') {
+      return res.status(400).json({ error: 'Invalid request body' });
+    }
+    
+    // Validate username and password are provided and not empty
+    if (!username || typeof username !== 'string' || username.trim().length === 0) {
+      return res.status(400).json({ error: 'Username is required and must be a non-empty string' });
+    }
+    
+    // Validate username length and characters
+    const trimmedUsername = username.trim();
+    if (trimmedUsername.length < 3) {
+      return res.status(400).json({ error: 'Username must be at least 3 characters long' });
+    }
+    if (trimmedUsername.length > 30) {
+      return res.status(400).json({ error: 'Username must be no more than 30 characters long' });
+    }
+    
+    if (!password || typeof password !== 'string' || password.length === 0) {
+      return res.status(400).json({ error: 'Password is required and must be a non-empty string' });
+    }
+    
+    // Validate password strength
     const pv = validatePassword(password);
-    if (!pv.valid) return res.status(400).json({ error: pv.error });
+    if (!pv.valid) {
+      return res.status(400).json({ error: pv.error });
+    }
 
-    const existingUser = await User.findOne({ username: { $regex: new RegExp(`^${username.toLowerCase()}$`, 'i') } });
-    if (existingUser) return res.status(409).json({ error: 'Username already exists' });
+    // Check if user already exists
+    const existingUser = await User.findOne({ username: { $regex: new RegExp(`^${trimmedUsername.toLowerCase()}$`, 'i') } });
+    if (existingUser) {
+      return res.status(409).json({ error: 'Username already exists' });
+    }
 
+    // Create new user
     const hashedPassword = await hashPassword(password);
     const newUser = new User({
-      username: username.toLowerCase(),
+      username: trimmedUsername.toLowerCase(),
       password: hashedPassword,
       balance: 1000,
       totalWagered: 0,
@@ -87,7 +134,20 @@ app.post('/api/user', async (req, res) => {
     res.status(201).json(userResponse);
   } catch (error) {
     console.error('Error creating user:', error);
-    res.status(500).json({ error: 'Failed to create user' });
+    
+    // Handle Mongoose validation errors
+    if (error.name === 'ValidationError') {
+      const errors = Object.values(error.errors).map(e => e.message).join(', ');
+      return res.status(400).json({ error: `Validation error: ${errors}` });
+    }
+    
+    // Handle duplicate key error (unique constraint)
+    if (error.code === 11000 || error.code === 11001) {
+      return res.status(409).json({ error: 'Username already exists' });
+    }
+    
+    // Handle other errors
+    res.status(500).json({ error: 'Failed to create user', details: error.message });
   }
 });
 
