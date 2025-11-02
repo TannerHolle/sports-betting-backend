@@ -20,7 +20,7 @@ app.use(cors());
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '10mb' }));
 
-// Log middleware setup 
+// Log middleware setup
 app.use((req, res, next) => {
   if (req.method === 'POST' && req.path === '/api/user') {
     console.log('Middleware - Content-Type:', req.headers['content-type']);
