@@ -11,6 +11,7 @@ const betResolver = require('./services/betResolver');
 const connectDB = require('./config/database');
 const User = require('./models/User');
 const Bet = require('./models/Bet');
+const League = require('./models/League');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -265,11 +266,253 @@ app.put('/api/user/:username/bet/:betId', async (req, res) => {
 
 app.get('/api/users', async (req, res) => {
   try {
-    const users = await User.find({}).populate('bets');
+    const { leagueId } = req.query;
+    
+    let users;
+    if (leagueId) {
+      // Filter by league members
+      const league = await League.findById(leagueId);
+      if (!league) {
+        return res.status(404).json({ error: 'League not found' });
+      }
+      // Get member IDs directly (they're ObjectIds in the array)
+      const memberIds = league.members;
+      users = await User.find({ _id: { $in: memberIds } }).populate('bets');
+    } else {
+      // Get all users
+      users = await User.find({}).populate('bets');
+    }
+    
     res.json(users.map(u => { const o = u.toObject(); delete o.password; return o; }));
   } catch (error) {
     console.error('Error fetching users:', error);
     res.status(500).json({ error: 'Failed to load users' });
+  }
+});
+
+// Helper function to generate a unique invite code
+const generateInviteCode = async () => {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // Excluding confusing characters like I, O, 0, 1
+  let code = '';
+  let isUnique = false;
+  
+  while (!isUnique) {
+    code = '';
+    for (let i = 0; i < 6; i++) {
+      code += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    
+    const existing = await League.findOne({ inviteCode: code });
+    if (!existing) {
+      isUnique = true;
+    }
+  }
+  
+  return code;
+};
+
+// League endpoints
+app.post('/api/leagues', async (req, res) => {
+  try {
+    const { name, username } = req.body;
+    
+    if (!name || !username) {
+      return res.status(400).json({ error: 'League name and username are required' });
+    }
+    
+    const user = await User.findOne({ username: username.toLowerCase() });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    
+    // Check if league name already exists (unique per creator)
+    const existingLeague = await League.findOne({ name: name.trim(), creator: user._id });
+    if (existingLeague) {
+      return res.status(409).json({ error: 'You already have a league with this name' });
+    }
+    
+    // Generate unique invite code
+    const inviteCode = await generateInviteCode();
+    
+    const league = new League({
+      name: name.trim(),
+      creator: user._id,
+      members: [user._id],
+      inviteCode: inviteCode
+    });
+    
+    await league.save();
+    
+    // Add league to user's leagues
+    user.leagues.push(league._id);
+    await user.save();
+    
+    const leagueResponse = await League.findById(league._id)
+      .populate('creator', 'username')
+      .populate('members', 'username');
+    
+    res.status(201).json(leagueResponse);
+  } catch (error) {
+    console.error('Error creating league:', error);
+    res.status(500).json({ error: 'Failed to create league', details: error.message });
+  }
+});
+
+// Join by League ID (MongoDB ObjectId)
+app.post('/api/leagues/:leagueId/join', async (req, res) => {
+  try {
+    const { leagueId } = req.params;
+    const { username } = req.body;
+    
+    if (!username) {
+      return res.status(400).json({ error: 'Username is required' });
+    }
+    
+    const user = await User.findOne({ username: username.toLowerCase() });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    
+    const league = await League.findById(leagueId);
+    if (!league) {
+      return res.status(404).json({ error: 'League not found' });
+    }
+    
+    // Check if user is already a member
+    if (league.members.some(m => m.toString() === user._id.toString())) {
+      return res.status(409).json({ error: 'User is already a member of this league' });
+    }
+    
+    // Add user to league
+    league.members.push(user._id);
+    await league.save();
+    
+    // Add league to user's leagues
+    if (!user.leagues.some(l => l.toString() === league._id.toString())) {
+      user.leagues.push(league._id);
+      await user.save();
+    }
+    
+    const leagueResponse = await League.findById(league._id)
+      .populate('creator', 'username')
+      .populate('members', 'username');
+    
+    res.json(leagueResponse);
+  } catch (error) {
+    console.error('Error joining league:', error);
+    res.status(500).json({ error: 'Failed to join league', details: error.message });
+  }
+});
+
+// Join by invite code (easier shareable code)
+app.post('/api/leagues/join-by-code', async (req, res) => {
+  try {
+    const { inviteCode, username } = req.body;
+    
+    if (!inviteCode || !username) {
+      return res.status(400).json({ error: 'Invite code and username are required' });
+    }
+    
+    const user = await User.findOne({ username: username.toLowerCase() });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    
+    const league = await League.findOne({ inviteCode: inviteCode.toUpperCase() });
+    if (!league) {
+      return res.status(404).json({ error: 'Invalid invite code. Please check and try again.' });
+    }
+    
+    // Check if user is already a member
+    if (league.members.some(m => m.toString() === user._id.toString())) {
+      return res.status(409).json({ error: 'You are already a member of this league' });
+    }
+    
+    // Add user to league
+    league.members.push(user._id);
+    await league.save();
+    
+    // Add league to user's leagues
+    if (!user.leagues.some(l => l.toString() === league._id.toString())) {
+      user.leagues.push(league._id);
+      await user.save();
+    }
+    
+    const leagueResponse = await League.findById(league._id)
+      .populate('creator', 'username')
+      .populate('members', 'username');
+    
+    res.json(leagueResponse);
+  } catch (error) {
+    console.error('Error joining league by code:', error);
+    res.status(500).json({ error: 'Failed to join league', details: error.message });
+  }
+});
+
+app.get('/api/user/:username/leagues', async (req, res) => {
+  try {
+    const { username } = req.params;
+    const user = await User.findOne({ username: username.toLowerCase() });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    
+    // Get user's leagues
+    const leagues = await League.find({ _id: { $in: user.leagues } })
+      .populate('creator', 'username')
+      .populate('members', 'username')
+      .sort({ createdAt: -1 });
+    
+    // Generate invite codes for any leagues that don't have one (for backwards compatibility)
+    for (const league of leagues) {
+      if (!league.inviteCode) {
+        league.inviteCode = await generateInviteCode();
+        await league.save();
+      }
+    }
+    
+    // Fetch again to get updated codes
+    const updatedLeagues = await League.find({ _id: { $in: user.leagues } })
+      .populate('creator', 'username')
+      .populate('members', 'username')
+      .sort({ createdAt: -1 });
+    
+    res.json(updatedLeagues);
+  } catch (error) {
+    console.error('Error fetching user leagues:', error);
+    res.status(500).json({ error: 'Failed to load leagues' });
+  }
+});
+
+app.get('/api/leagues', async (req, res) => {
+  try {
+    // Get all leagues (for discovery - could add pagination later)
+    const leagues = await League.find({})
+      .populate('creator', 'username')
+      .populate('members', 'username')
+      .sort({ createdAt: -1 })
+      .limit(50);
+    
+    res.json(leagues);
+  } catch (error) {
+    console.error('Error fetching leagues:', error);
+    res.status(500).json({ error: 'Failed to load leagues' });
+  }
+});
+
+app.get('/api/leagues/:leagueId', async (req, res) => {
+  try {
+    const { leagueId } = req.params;
+    const league = await League.findById(leagueId)
+      .populate('creator', 'username')
+      .populate('members', 'username');
+    if (!league) {
+      return res.status(404).json({ error: 'League not found' });
+    }
+    res.json(league);
+  } catch (error) {
+    console.error('Error fetching league:', error);
+    res.status(500).json({ error: 'Failed to load league' });
   }
 });
 

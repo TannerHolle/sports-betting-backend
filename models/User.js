@@ -7,7 +7,8 @@ const userSchema = new mongoose.Schema({
   totalWagered: { type: Number, default: 0, min: 0 },
   totalWon: { type: Number, default: 0, min: 0 },
   totalLost: { type: Number, default: 0, min: 0 },
-  bets: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Bet' }]
+  bets: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Bet' }],
+  leagues: [{ type: mongoose.Schema.Types.ObjectId, ref: 'League' }]
 }, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema);
