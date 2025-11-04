@@ -62,8 +62,11 @@ class BetResolver {
       case 'spread':
         const spreadLine = this.extractLine(bet);
         if (spreadLine === null) return null;
-        if (this.teamNamesMatch(bet.selection, homeTeamName)) betWon = (homeScore - awayScore) > spreadLine;
-        else if (this.teamNamesMatch(bet.selection, awayTeamName)) betWon = (awayScore - homeScore) > spreadLine;
+        // For spread bets: (teamScore + spreadLine) > opponentScore
+        // Negative spread (favorite) means they must win by more than |spreadLine|
+        // Positive spread (underdog) means they win if they lose by less than spreadLine or win
+        if (this.teamNamesMatch(bet.selection, homeTeamName)) betWon = (homeScore + spreadLine) > awayScore;
+        else if (this.teamNamesMatch(bet.selection, awayTeamName)) betWon = (awayScore + spreadLine) > homeScore;
         break;
       case 'total':
         const totalLine = this.extractLine(bet);
