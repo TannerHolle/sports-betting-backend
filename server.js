@@ -80,7 +80,7 @@ app.post('/api/user', async (req, res) => {
       hasPassword: !!req.body?.password 
     });
     
-    const { username, password } = req.body;
+    const { username, password, name, email, phoneNumber } = req.body;
     
     // Validate request body exists
     if (!req.body || typeof req.body !== 'object') {
@@ -105,6 +105,25 @@ app.post('/api/user', async (req, res) => {
       return res.status(400).json({ error: 'Password is required and must be a non-empty string' });
     }
     
+    // Validate name
+    if (!name || typeof name !== 'string' || name.trim().length === 0) {
+      return res.status(400).json({ error: 'Name is required and must be a non-empty string' });
+    }
+    
+    // Validate email
+    if (!email || typeof email !== 'string' || email.trim().length === 0) {
+      return res.status(400).json({ error: 'Email is required and must be a non-empty string' });
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      return res.status(400).json({ error: 'Invalid email format' });
+    }
+    
+    // Validate phone number
+    if (!phoneNumber || typeof phoneNumber !== 'string' || phoneNumber.trim().length === 0) {
+      return res.status(400).json({ error: 'Phone number is required and must be a non-empty string' });
+    }
+    
     // Validate password strength
     const pv = validatePassword(password);
     if (!pv.valid) {
@@ -122,6 +141,9 @@ app.post('/api/user', async (req, res) => {
     const newUser = new User({
       username: trimmedUsername.toLowerCase(),
       password: hashedPassword,
+      name: name.trim(),
+      email: email.trim().toLowerCase(),
+      phoneNumber: phoneNumber.trim(),
       balance: 1000,
       totalWagered: 0,
       totalWon: 0,
