@@ -264,6 +264,39 @@ app.put('/api/user/:username/bet/:betId', async (req, res) => {
   }
 });
 
+app.delete('/api/user/:username/bet/:betId', async (req, res) => {
+  try {
+    const { username, betId } = req.params;
+    const user = await User.findOne({ username });
+    if (!user) return res.status(404).json({ error: 'User not found' });
+
+    const bet = await Bet.findOne({ _id: betId, user: user._id });
+    if (!bet) return res.status(404).json({ error: 'Bet not found' });
+
+    // Only allow cancellation of pending bets
+    if (bet.status !== 'pending') {
+      return res.status(400).json({ error: 'Only pending bets can be cancelled' });
+    }
+
+    // Refund the bet amount to user's balance
+    user.balance += bet.amount;
+    user.totalWagered -= bet.amount; // Subtract from total wagered since bet is cancelled
+    
+    // Remove bet from user's bets array
+    user.bets = user.bets.filter(betRef => betRef.toString() !== betId);
+    user.updatedAt = new Date();
+    await user.save();
+
+    // Delete the bet
+    await Bet.deleteOne({ _id: betId });
+
+    res.json({ success: true, user });
+  } catch (error) {
+    console.error('Error cancelling bet:', error);
+    res.status(500).json({ error: 'Failed to cancel bet' });
+  }
+});
+
 app.get('/api/users', async (req, res) => {
   try {
     const { leagueId } = req.query;
