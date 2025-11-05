@@ -41,9 +41,10 @@ router.get('/last-update', async (req, res) => {
   }
 });
 
-// Force update odds
+// Force update odds (bypasses daily limit - use with caution)
 router.post('/force-update', async (req, res) => {
   try {
+    console.log('[ODDS] Force update requested - bypassing daily limit check');
     const oddsService = require('../services/oddsService');
     const freshOdds = await oddsService.fetchAllOdds();
     const processedOdds = {};
@@ -51,9 +52,10 @@ router.post('/force-update', async (req, res) => {
       processedOdds[sport] = oddsService.processOddsData(oddsData, sport);
     }
     await oddsDatabase.updateOdds(processedOdds);
+    console.log('[ODDS] Force update completed successfully');
     res.json({ success: true, message: 'Odds updated successfully' });
   } catch (error) {
-    console.error('Error force updating odds:', error);
+    console.error('[ODDS] Error force updating odds:', error);
     res.status(500).json({ error: 'Failed to force update odds', details: error.message });
   }
 });

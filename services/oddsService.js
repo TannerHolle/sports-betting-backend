@@ -24,12 +24,14 @@ class OddsService {
     try {
       const sportKey = SPORTS_MAPPING[sport];
       if (!sportKey) throw new Error(`Unsupported sport: ${sport}`);
+      console.log(`[ODDS] Making API call for ${sport} (${sportKey})`);
       const response = await axios.get(`${ODDS_API_BASE_URL}/sports/${sportKey}/odds`, {
         params: { apiKey: ODDS_API_KEY, regions: 'us', markets: 'h2h,spreads,totals', oddsFormat: 'american', dateFormat: 'iso' }
       });
+      console.log(`[ODDS] Successfully fetched ${sport} - ${response.data?.length || 0} games`);
       return response.data;
     } catch (error) {
-      console.error(`Error fetching odds for ${sport}:`, error.message);
+      console.error(`[ODDS] Error fetching odds for ${sport}:`, error.message);
       return this.generateMockOdds(sport);
     }
   }
@@ -41,11 +43,13 @@ class OddsService {
   async fetchAllOdds() {
     const sports = Object.keys(SPORTS_MAPPING);
     const allOdds = {};
+    console.log(`[ODDS] Fetching odds for ${sports.length} sports: ${sports.join(', ')}`);
     for (const sport of sports) {
       try { allOdds[sport] = await this.fetchOdds(sport); } catch { allOdds[sport] = []; }
     }
     this.lastFetchDate = new Date().toDateString();
     this.cachedOdds = allOdds;
+    console.log(`[ODDS] Completed fetching all odds. Total API calls made: ${sports.length}`);
     return allOdds;
   }
 
