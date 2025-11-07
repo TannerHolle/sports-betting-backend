@@ -6,7 +6,8 @@ const ODDS_API_BASE_URL = 'https://api.the-odds-api.com/v4';
 const SPORTS_MAPPING = {
   'nba': 'basketball_nba',
   'ncaa-basketball': 'basketball_ncaab',
-  'ncaa-football': 'americanfootball_ncaaf'
+  'ncaa-football': 'americanfootball_ncaaf',
+  'nfl': 'americanfootball_nfl'
 };
 
 class OddsService {

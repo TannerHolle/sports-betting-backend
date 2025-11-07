@@ -7,9 +7,9 @@ const { checkAndUpdateOdds } = require('../middleware/oddsMiddleware');
 router.get('/:sport', checkAndUpdateOdds, async (req, res) => {
   try {
     const { sport } = req.params;
-    const validSports = ['nba', 'ncaa-basketball', 'ncaa-football'];
+    const validSports = ['nba', 'ncaa-basketball', 'ncaa-football', 'nfl'];
     if (!validSports.includes(sport)) {
-      return res.status(400).json({ error: 'Invalid sport. Supported sports: nba, ncaa-basketball, ncaa-football' });
+      return res.status(400).json({ error: 'Invalid sport. Supported sports: nba, ncaa-basketball, ncaa-football, nfl' });
     }
     const odds = await oddsDatabase.getOddsForSport(sport);
     res.json(odds);
