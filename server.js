@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const os = require('os');
 const betResolver = require('./services/betResolver');
 const connectDB = require('./config/database');
 
@@ -79,11 +80,30 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Something went wrong!' });
 });
 
+// Get network IP address
+function getNetworkIP() {
+  const interfaces = os.networkInterfaces();
+  for (const name of Object.keys(interfaces)) {
+    for (const iface of interfaces[name]) {
+      // Skip internal (loopback) and non-IPv4 addresses
+      if (iface.family === 'IPv4' && !iface.internal) {
+        return iface.address;
+      }
+    }
+  }
+  return 'localhost';
+}
+
 const startServer = async () => {
   await connectDB();
   app.listen(PORT, '0.0.0.0', () => {
+    const networkIP = getNetworkIP();
     console.log(`🚀 Sports Betting Backend running on port ${PORT}`);
-    console.log(`📊 Health check: http://localhost:${PORT}/api/health`);
+    console.log(`📊 Health check:`);
+    console.log(`   Local:   http://localhost:${PORT}/api/health`);
+    if (networkIP !== 'localhost') {
+      console.log(`   Network: http://${networkIP}:${PORT}/api/health`);
+    }
     console.log('💾 Database: MongoDB');
     betResolver.startAutoResolution(1);
   });
