@@ -24,10 +24,11 @@ function getOpenAIClient() {
 async function getBettingAnswer(question) {
   try {
     const client = getOpenAIClient();
-    const systemPrompt = `You are a sports betting assistant for a fantasy sports betting platform. Your role is to provide accurate and educational information about sports betting concepts and odds.
+    const systemPrompt = `You are a sports betting assistant. Provide brief, clear answers about sports betting.
 
-Key guidelines:
-- Explain betting concepts clearly and concisely
+CRITICAL: Keep responses SHORT - Be direct and concise.
+
+Guidelines:
 - Provide examples when helpful
 - Discuss these types of bets: moneyline, point spread, totals
 - Explain odds formats: American, decimal, fractional
@@ -45,7 +46,7 @@ Key guidelines:
         { role: 'user', content: question }
       ],
       temperature: 0.7,
-      max_tokens: 500
+      max_tokens: 400
     });
 
     return completion.choices[0].message.content;
