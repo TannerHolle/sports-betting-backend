@@ -13,6 +13,7 @@ const betRoutes = require('./routes/betRoutes');
 const leagueRoutes = require('./routes/leagueRoutes');
 const oddsRoutes = require('./routes/oddsRoutes');
 const suggestionRoutes = require('./routes/suggestionRoutes');
+const aiRoutes = require('./routes/aiRoutes');
 
 // Import models for direct routes
 const User = require('./models/User');
@@ -74,6 +75,7 @@ app.use('/api/bets', betRoutes);
 app.use('/api/leagues', leagueRoutes);
 app.use('/api/odds', oddsRoutes);
 app.use('/api/suggestions', suggestionRoutes);
+app.use('/api/ai', aiRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
