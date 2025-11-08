@@ -17,27 +17,106 @@ function getOpenAIClient() {
 }
 
 /**
+ * Format game context for AI prompt
+ * @param {Object} gameContext - Game data with teams, odds, etc.
+ * @returns {string} - Formatted context string
+ */
+function formatGameContext(gameContext) {
+  if (!gameContext) return '';
+
+  let context = `\n\n=== CURRENT GAME CONTEXT ===\n`;
+  context += `Teams: ${gameContext.awayTeam} @ ${gameContext.homeTeam}\n`;
+  context += `Sport: ${gameContext.sport.toUpperCase()}\n`;
+  
+  if (gameContext.commenceTime) {
+    const gameDate = new Date(gameContext.commenceTime);
+    context += `Game Time: ${gameDate.toLocaleString()}\n`;
+  }
+
+  if (gameContext.odds) {
+    context += `\n--- Betting Odds ---\n`;
+    
+    // Moneyline
+    if (gameContext.odds.homeMoneyline || gameContext.odds.awayMoneyline) {
+      context += `Moneyline:\n`;
+      if (gameContext.odds.homeMoneyline) {
+        context += `  ${gameContext.homeTeam}: ${gameContext.odds.homeMoneyline > 0 ? '+' : ''}${gameContext.odds.homeMoneyline}\n`;
+      }
+      if (gameContext.odds.awayMoneyline) {
+        context += `  ${gameContext.awayTeam}: ${gameContext.odds.awayMoneyline > 0 ? '+' : ''}${gameContext.odds.awayMoneyline}\n`;
+      }
+    }
+
+    // Point Spread
+    if (gameContext.odds.homeSpread || gameContext.odds.awaySpread) {
+      context += `Point Spread:\n`;
+      if (gameContext.odds.homeSpread) {
+        const spread = gameContext.odds.homeSpread;
+        context += `  ${gameContext.homeTeam}: ${spread.line > 0 ? '+' : ''}${spread.line} (${spread.price > 0 ? '+' : ''}${spread.price})\n`;
+      }
+      if (gameContext.odds.awaySpread) {
+        const spread = gameContext.odds.awaySpread;
+        context += `  ${gameContext.awayTeam}: ${spread.line > 0 ? '+' : ''}${spread.line} (${spread.price > 0 ? '+' : ''}${spread.price})\n`;
+      }
+    }
+
+    // Totals
+    if (gameContext.odds.overTotal || gameContext.odds.underTotal) {
+      context += `Total (Over/Under):\n`;
+      if (gameContext.odds.overTotal) {
+        const total = gameContext.odds.overTotal;
+        context += `  Over ${total.line}: ${total.price > 0 ? '+' : ''}${total.price}\n`;
+      }
+      if (gameContext.odds.underTotal) {
+        const total = gameContext.odds.underTotal;
+        context += `  Under ${total.line}: ${total.price > 0 ? '+' : ''}${total.price}\n`;
+      }
+    }
+  }
+
+  if (gameContext.venue) {
+    context += `\nVenue: ${gameContext.venue}\n`;
+  }
+
+  if (gameContext.status) {
+    context += `Status: ${gameContext.status}\n`;
+  }
+
+  context += `\nYou can now answer questions about this specific game, including betting recommendations, odds analysis, and game insights.`;
+
+  return context;
+}
+
+/**
  * Get AI response for betting-related questions
  * @param {string} question - User's question about betting
+ * @param {Object} gameContext - Optional game context with teams, odds, etc.
  * @returns {Promise<string>} - AI response
  */
-async function getBettingAnswer(question) {
+async function getBettingAnswer(question, gameContext = null) {
   try {
     const client = getOpenAIClient();
-    const systemPrompt = `You are a sports betting assistant. Provide brief, clear answers about sports betting.
+    let systemPrompt = `You are a sports betting assistant. Provide brief, clear answers about sports betting.
 
-CRITICAL: Keep responses SHORT - Be direct and concise.
+CRITICAL: Be direct and concise.
 
 Guidelines:
 - Provide examples when helpful
 - Discuss these types of bets: point spread, moneyline, totals (over/under). No other types of bets.
-- Explain odds formats: American, decimal, fractional
-- Help users understand betting strategies and how to read odds
-- If asked about specific games or odds, explain that you don't have real-time data but can explain how to interpret odds
-- Keep responses informative but not overly long
+- THe odds are always in american format
+- Help users understand betting strategies and how to read odds`;
+
+    // Add game context if provided
+    if (gameContext) {
+      systemPrompt += formatGameContext(gameContext);
+      systemPrompt += `\n\nWhen answering questions about this game, use the actual odds and teams provided above.`;
+    } else {
+      systemPrompt += `\n- If asked about specific games or odds, explain that you don't have real-time data but can explain how to interpret odds`;
+    }
+
+    systemPrompt += `\n- Keep responses informative but not overly long
 - Use a friendly, approachable tone
-- If the question is not related to sports betting, say that you are a sports betting assistant and ask the user to ask a question about sports betting.
-`;
+- If the question is not related to sports, say that you are a sports betting assistant and ask the user to ask a question about sports betting.`;
 
     const completion = await client.chat.completions.create({
       model: 'gpt-4o-mini',
@@ -46,7 +125,7 @@ Guidelines:
         { role: 'user', content: question }
       ],
       temperature: 0.7,
-      max_tokens: 400
+      max_tokens: 500
     });
 
     return completion.choices[0].message.content;
@@ -76,6 +155,7 @@ Guidelines:
 }
 
 module.exports = {
-  getBettingAnswer
+  getBettingAnswer,
+  formatGameContext
 };
 
