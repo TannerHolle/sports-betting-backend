@@ -54,8 +54,11 @@ function formatGameContext(gameContext) {
           : `${Math.abs(gameContext.awayTeamInfo.streak)}L`;
         context += ` | Streak: ${streakText}`;
       }
-      if (gameContext.awayTeamInfo.avgPointsFor !== null && gameContext.awayTeamInfo.avgPointsAgainst !== null) {
-        context += ` | Avg: ${gameContext.awayTeamInfo.avgPointsFor} PF / ${gameContext.awayTeamInfo.avgPointsAgainst} PA`;
+      if (gameContext.awayTeamInfo.avgPointsFor !== null) {
+        context += ` | ${gameContext.awayTeamInfo.avgPointsFor} PPG`;
+        if (gameContext.awayTeamInfo.avgPointsAgainst !== null) {
+          context += ` / ${gameContext.awayTeamInfo.avgPointsAgainst} PAG`;
+        }
       }
       if (gameContext.awayTeamInfo.standing) {
         context += ` | ${gameContext.awayTeamInfo.standing}`;
@@ -80,8 +83,11 @@ function formatGameContext(gameContext) {
           : `${Math.abs(gameContext.homeTeamInfo.streak)}L`;
         context += ` | Streak: ${streakText}`;
       }
-      if (gameContext.homeTeamInfo.avgPointsFor !== null && gameContext.homeTeamInfo.avgPointsAgainst !== null) {
-        context += ` | Avg: ${gameContext.homeTeamInfo.avgPointsFor} PF / ${gameContext.homeTeamInfo.avgPointsAgainst} PA`;
+      if (gameContext.homeTeamInfo.avgPointsFor !== null) {
+        context += ` | ${gameContext.homeTeamInfo.avgPointsFor} PPG`;
+        if (gameContext.homeTeamInfo.avgPointsAgainst !== null) {
+          context += ` / ${gameContext.homeTeamInfo.avgPointsAgainst} PAG`;
+        }
       }
       if (gameContext.homeTeamInfo.standing) {
         context += ` | ${gameContext.homeTeamInfo.standing}`;
@@ -153,27 +159,29 @@ function formatGameContext(gameContext) {
 async function getBettingAnswer(question, gameContext = null) {
   try {
     const client = getOpenAIClient();
-    let systemPrompt = `You are a sports betting assistant. Provide brief, clear answers about sports betting.
+    let systemPrompt = `You are a sports betting assistant. Provide brief, clear answers about sports betting and team information.
 
 CRITICAL: Be direct and concise.
 
 Guidelines:
 - Provide examples when helpful
 - Discuss these types of bets: point spread, moneyline, totals (over/under). No other types of bets.
-- THe odds are always in american format
-- Help users understand betting strategies and how to read odds`;
+- The odds are always in american format
+- Help users understand betting strategies and how to read odds
+- You can also provide team information, statistics, and analysis when relevant to betting decisions
+- Use team records, home/away performance, scoring averages, and streaks to inform betting recommendations`;
 
     // Add game context if provided
     if (gameContext) {
       systemPrompt += formatGameContext(gameContext);
-      systemPrompt += `\n\nWhen answering questions about this game, use the actual odds and teams provided above.`;
+      systemPrompt += `\n\nWhen answering questions about this game, use the actual odds, team statistics, and information provided above. You can discuss team performance, records, trends, and how they relate to the betting lines.`;
     } else {
       systemPrompt += `\n- If asked about specific games or odds, explain that you don't have real-time data but can explain how to interpret odds`;
     }
 
     systemPrompt += `\n- Keep responses informative but not overly long
 - Use a friendly, approachable tone
-- If the question is not related to sports, say that you are a sports betting assistant and ask the user to ask a question about sports betting.`;
+- If the question is not related to sports, say that you are a sports betting assistant and ask the user to ask a question about sports betting or team analysis.`;
 
     const completion = await client.chat.completions.create({
       model: 'gpt-4o-mini',
