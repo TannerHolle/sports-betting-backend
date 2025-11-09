@@ -14,34 +14,43 @@ class BetResolver {
     return `${year}${month}${day}`;
   }
 
-  async getLiveGameData(gameId, sport = '') {
+  async getLiveGameData(gameId, sport = '', searchDate = null) {
     try {
-      let apiUrl;
-      const currentDate = new Date();
-      const formattedDate = this.formatDateForAPI(currentDate);
-      switch (sport.toLowerCase()) {
-        case 'nba':
-          apiUrl = `https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=${formattedDate}`;
-          break;
-        case 'nfl':
-          apiUrl = `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard`;
-          break;
-        case 'ncaa-basketball':
-          apiUrl = `https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?dates=${formattedDate}`;
-          break;
-        case 'ncaa-football':
-          apiUrl = `https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=${formattedDate}`;
-          break;
-        default:
-          apiUrl = `https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=${formattedDate}`;
-      }
+      const date = searchDate || new Date();
+      const formattedDate = this.formatDateForAPI(date);
+      
+      const sportUrls = {
+        'nba': `https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=${formattedDate}`,
+        'nfl': `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=${formattedDate}`,
+        'ncaa-basketball': `https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?dates=${formattedDate}`,
+        'ncaa-football': `https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=${formattedDate}`
+      };
+      
+      const apiUrl = sportUrls[sport.toLowerCase()] || sportUrls['nba'];
       const response = await axios.get(apiUrl);
       const games = response.data.events || [];
-      return games.find(game => game.id === gameId);
+      return games.find(game => String(game.id) === String(gameId)) || null;
     } catch (error) {
-      console.error(`Error fetching game data for ${gameId}:`, error.message);
       return null;
     }
+  }
+
+  async findGame(gameId, sport) {
+    // Try yesterday, today, and tomorrow
+    const today = new Date();
+    const dates = [
+      new Date(today.getTime() - 24 * 60 * 60 * 1000), // yesterday
+      today,                                            // today
+      new Date(today.getTime() + 24 * 60 * 60 * 1000)  // tomorrow
+    ];
+    
+    // Try each date until we find the game
+    for (const date of dates) {
+      const gameData = await this.getLiveGameData(gameId, sport, date);
+      if (gameData) return gameData;
+    }
+    
+    return null;
   }
 
   determineBetOutcome(bet, gameData) {
@@ -111,24 +120,56 @@ class BetResolver {
 
   async processAllPendingBets() {
     const pendingBets = await Bet.find({ status: 'pending' }).populate('user');
-    if (!pendingBets.length) return;
+    if (!pendingBets.length) {
+      console.log('✓ No pending bets to resolve');
+      return;
+    }
 
+    console.log(`\n🔍 Checking ${pendingBets.length} pending bet(s)...`);
+
+    // Group bets by game
     const betsByGame = {};
     for (const bet of pendingBets) {
-      if (!betsByGame[bet.gameId]) betsByGame[bet.gameId] = { sport: bet.sport || '', bets: [] };
+      if (!betsByGame[bet.gameId]) {
+        betsByGame[bet.gameId] = {
+          sport: bet.sport || '',
+          bets: [],
+          gameDate: bet.gameData?.gameStartTime || bet.createdAt
+        };
+      }
       betsByGame[bet.gameId].bets.push(bet);
     }
 
-    for (const [gameId, group] of Object.entries(betsByGame)) {
-      const sport = group.sport;
-      const gameData = await this.getLiveGameData(gameId, sport);
-      if (!gameData) continue;
-      const status = gameData.competitions?.[0]?.status;
-      if (!status?.type?.completed) continue;
+    let resolvedCount = 0;
 
+    // Process each game
+    for (const [gameId, group] of Object.entries(betsByGame)) {
+      console.log(`  Checking game ${gameId} (${group.sport}, ${group.bets.length} bet(s))...`);
+      
+      const gameData = await this.findGame(gameId, group.sport);
+      if (!gameData) {
+        console.log(`    ⚠️  Game not found in API`);
+        continue;
+      }
+
+      const status = gameData.competitions?.[0]?.status;
+      const statusName = status?.type?.name || 'unknown';
+      
+      if (!status?.type?.completed) {
+        console.log(`    ⏳ Game not completed (status: ${statusName}, teams: ${gameData.competitions?.[0]?.competitors?.map(c => c.team?.shortDisplayName || c.team?.displayName).join(', ')})`);
+        continue;
+      }
+
+      console.log(`    ✅ Game completed! Resolving ${group.bets.length} bet(s)...`);
+
+      // Resolve all bets for this completed game
       for (const bet of group.bets) {
         const outcome = this.determineBetOutcome(bet, gameData);
-        if (!outcome) continue;
+        if (!outcome) {
+          console.log(`      ⚠️  Could not determine outcome for bet ${bet._id}`);
+          continue;
+        }
+
         try {
           bet.status = outcome.status;
           bet.resolvedAt = new Date();
@@ -137,20 +178,24 @@ class BetResolver {
 
           const user = await User.findById(bet.user);
           if (!user) continue;
+
           if (outcome.status === 'won') {
-            const totalWinnings = bet.amount + bet.potentialWin;
-            user.balance += totalWinnings;
+            user.balance += bet.amount + bet.potentialWin;
             user.totalWon += bet.potentialWin;
+            console.log(`      🎉 Bet WON: ${user.username} earned $${bet.potentialWin.toFixed(2)}`);
           } else {
             user.totalLost += bet.amount;
+            console.log(`      ❌ Bet LOST: ${user.username} lost $${bet.amount.toFixed(2)}`);
           }
-          user.updatedAt = new Date();
           await user.save();
+          resolvedCount++;
         } catch (err) {
-          console.error(`Error resolving bet ${bet._id}:`, err.message);
+          console.error(`      ❌ Error resolving bet ${bet._id}:`, err.message);
         }
       }
     }
+
+    console.log(`✓ Resolved ${resolvedCount} bet(s)\n`);
   }
 
   startAutoResolution(intervalMinutes = 1) {
