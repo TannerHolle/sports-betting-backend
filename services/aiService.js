@@ -33,6 +33,63 @@ function formatGameContext(gameContext) {
     context += `Game Time: ${gameDate.toLocaleString()}\n`;
   }
 
+  // Add team information if available (for NFL, NBA, NCAA Basketball, NCAA Football)
+  if (gameContext.homeTeamInfo || gameContext.awayTeamInfo) {
+    context += `\n--- Team Information ---\n`;
+    
+    if (gameContext.awayTeamInfo) {
+      context += `${gameContext.awayTeam}:`;
+      if (gameContext.awayTeamInfo.record) {
+        context += ` ${gameContext.awayTeamInfo.record}`;
+      }
+      if (gameContext.awayTeamInfo.winPercent !== null) {
+        context += ` (${gameContext.awayTeamInfo.winPercent}% win rate)`;
+      }
+      if (gameContext.awayTeamInfo.awayRecord) {
+        context += ` | Away: ${gameContext.awayTeamInfo.awayRecord}`;
+      }
+      if (gameContext.awayTeamInfo.streak !== null) {
+        const streakText = gameContext.awayTeamInfo.streak > 0 
+          ? `${gameContext.awayTeamInfo.streak}W` 
+          : `${Math.abs(gameContext.awayTeamInfo.streak)}L`;
+        context += ` | Streak: ${streakText}`;
+      }
+      if (gameContext.awayTeamInfo.avgPointsFor !== null && gameContext.awayTeamInfo.avgPointsAgainst !== null) {
+        context += ` | Avg: ${gameContext.awayTeamInfo.avgPointsFor} PF / ${gameContext.awayTeamInfo.avgPointsAgainst} PA`;
+      }
+      if (gameContext.awayTeamInfo.standing) {
+        context += ` | ${gameContext.awayTeamInfo.standing}`;
+      }
+      context += `\n`;
+    }
+    
+    if (gameContext.homeTeamInfo) {
+      context += `${gameContext.homeTeam}:`;
+      if (gameContext.homeTeamInfo.record) {
+        context += ` ${gameContext.homeTeamInfo.record}`;
+      }
+      if (gameContext.homeTeamInfo.winPercent !== null) {
+        context += ` (${gameContext.homeTeamInfo.winPercent}% win rate)`;
+      }
+      if (gameContext.homeTeamInfo.homeRecord) {
+        context += ` | Home: ${gameContext.homeTeamInfo.homeRecord}`;
+      }
+      if (gameContext.homeTeamInfo.streak !== null) {
+        const streakText = gameContext.homeTeamInfo.streak > 0 
+          ? `${gameContext.homeTeamInfo.streak}W` 
+          : `${Math.abs(gameContext.homeTeamInfo.streak)}L`;
+        context += ` | Streak: ${streakText}`;
+      }
+      if (gameContext.homeTeamInfo.avgPointsFor !== null && gameContext.homeTeamInfo.avgPointsAgainst !== null) {
+        context += ` | Avg: ${gameContext.homeTeamInfo.avgPointsFor} PF / ${gameContext.homeTeamInfo.avgPointsAgainst} PA`;
+      }
+      if (gameContext.homeTeamInfo.standing) {
+        context += ` | ${gameContext.homeTeamInfo.standing}`;
+      }
+      context += `\n`;
+    }
+  }
+
   if (gameContext.odds) {
     context += `\n--- Betting Odds ---\n`;
     

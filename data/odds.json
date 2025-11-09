@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2025-11-08T18:55:35.772Z",
+  "lastUpdated": "2025-11-09T18:46:33.426Z",
   "odds": {
     "nba": [
       {
-        "id": "9741d920f01ab1f8dfa3433b26083a13",
+        "id": "e1126435bd892fdc20b81dc1a286a11d",
         "sport": "nba",
-        "homeTeam": "Washington Wizards",
-        "awayTeam": "Dallas Mavericks",
-        "commenceTime": "2025-11-09T00:10:00Z",
+        "homeTeam": "Milwaukee Bucks",
+        "awayTeam": "Houston Rockets",
+        "commenceTime": "2025-11-09T20:30:00Z",
         "odds": {
-          "Dallas Mavericks_moneyline": -205,
-          "Washington Wizards_moneyline": 170,
-          "Dallas Mavericks_spread": {
-            "line": -5.5,
+          "Houston Rockets_moneyline": -175,
+          "Milwaukee Bucks_moneyline": 145,
+          "Houston Rockets_spread": {
+            "line": -4.5,
             "price": -105
           },
-          "Washington Wizards_spread": {
-            "line": 5.5,
+          "Milwaukee Bucks_spread": {
+            "line": 4.5,
             "price": -115
           },
           "Over_total": {
@@ -28,203 +28,175 @@
             "price": -112
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.769Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       },
       {
-        "id": "084b0e20e0e0c30eb2ab6c9b6bcc55f0",
+        "id": "60e92f0ebd0d4d4dd4e206c259b1198c",
+        "sport": "nba",
+        "homeTeam": "New York Knicks",
+        "awayTeam": "Brooklyn Nets",
+        "commenceTime": "2025-11-09T23:00:00Z",
+        "odds": {
+          "Brooklyn Nets_moneyline": 750,
+          "New York Knicks_moneyline": -1200,
+          "Brooklyn Nets_spread": {
+            "line": 15.5,
+            "price": -110
+          },
+          "New York Knicks_spread": {
+            "line": -15.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 227.5,
+            "price": -105
+          },
+          "Under_total": {
+            "line": 227.5,
+            "price": -115
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "ecdb0c72077ab263b31b45332b731195",
+        "sport": "nba",
+        "homeTeam": "Orlando Magic",
+        "awayTeam": "Boston Celtics",
+        "commenceTime": "2025-11-09T23:10:00Z",
+        "odds": {
+          "Boston Celtics_moneyline": 138,
+          "Orlando Magic_moneyline": -164,
+          "Boston Celtics_spread": {
+            "line": 4,
+            "price": -110
+          },
+          "Orlando Magic_spread": {
+            "line": -4,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 227.5,
+            "price": -115
+          },
+          "Under_total": {
+            "line": 227.5,
+            "price": -105
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "563e1ce28fbf2a9fdd4cda9c12861ea6",
+        "sport": "nba",
+        "homeTeam": "Memphis Grizzlies",
+        "awayTeam": "Oklahoma City Thunder",
+        "commenceTime": "2025-11-09T23:10:00Z",
+        "odds": {
+          "Memphis Grizzlies_moneyline": 385,
+          "Oklahoma City Thunder_moneyline": -500,
+          "Memphis Grizzlies_spread": {
+            "line": 10.5,
+            "price": -105
+          },
+          "Oklahoma City Thunder_spread": {
+            "line": -10.5,
+            "price": -115
+          },
+          "Over_total": {
+            "line": 231.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 231.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "f2720b00d74d6e545c3dbbccee08d0f0",
         "sport": "nba",
         "homeTeam": "Philadelphia 76ers",
-        "awayTeam": "Toronto Raptors",
-        "commenceTime": "2025-11-09T00:30:00Z",
+        "awayTeam": "Detroit Pistons",
+        "commenceTime": "2025-11-10T00:30:00Z",
         "odds": {
-          "Philadelphia 76ers_moneyline": -205,
-          "Toronto Raptors_moneyline": 170,
+          "Detroit Pistons_moneyline": -170,
+          "Philadelphia 76ers_moneyline": 142,
+          "Detroit Pistons_spread": {
+            "line": -4.5,
+            "price": -110
+          },
           "Philadelphia 76ers_spread": {
-            "line": -5.5,
-            "price": -105
-          },
-          "Toronto Raptors_spread": {
-            "line": 5.5,
-            "price": -115
-          },
-          "Over_total": {
-            "line": 236.5,
-            "price": -112
-          },
-          "Under_total": {
-            "line": 236.5,
-            "price": -108
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.769Z"
-      },
-      {
-        "id": "bfe6efdadc57b4bdb01fdd6f1123d564",
-        "sport": "nba",
-        "homeTeam": "Atlanta Hawks",
-        "awayTeam": "Los Angeles Lakers",
-        "commenceTime": "2025-11-09T01:00:00Z",
-        "odds": {
-          "Atlanta Hawks_moneyline": 160,
-          "Los Angeles Lakers_moneyline": -192,
-          "Atlanta Hawks_spread": {
-            "line": 5.5,
-            "price": -110
-          },
-          "Los Angeles Lakers_spread": {
-            "line": -5.5,
+            "line": 4.5,
             "price": -110
           },
           "Over_total": {
-            "line": 228.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 228.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.769Z"
-      },
-      {
-        "id": "0075d6ec419f23c1e6e3a7cc279ec2e2",
-        "sport": "nba",
-        "homeTeam": "San Antonio Spurs",
-        "awayTeam": "New Orleans Pelicans",
-        "commenceTime": "2025-11-09T01:00:00Z",
-        "odds": {
-          "New Orleans Pelicans_moneyline": 410,
-          "San Antonio Spurs_moneyline": -550,
-          "New Orleans Pelicans_spread": {
-            "line": 10.5,
+            "line": 233.5,
             "price": -108
           },
-          "San Antonio Spurs_spread": {
-            "line": -10.5,
-            "price": -112
-          },
-          "Over_total": {
-            "line": 224.5,
-            "price": -112
-          },
           "Under_total": {
-            "line": 224.5,
-            "price": -108
+            "line": 233.5,
+            "price": -112
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.769Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       },
       {
-        "id": "3794a894ae3da0a51df7ce06f5696197",
+        "id": "897d0135a47621fb920d0e9b7131026e",
         "sport": "nba",
-        "homeTeam": "Cleveland Cavaliers",
-        "awayTeam": "Chicago Bulls",
-        "commenceTime": "2025-11-09T01:10:00Z",
-        "odds": {
-          "Chicago Bulls_moneyline": 275,
-          "Cleveland Cavaliers_moneyline": -340,
-          "Chicago Bulls_spread": {
-            "line": 8,
-            "price": -110
-          },
-          "Cleveland Cavaliers_spread": {
-            "line": -8,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 238.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 238.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.769Z"
-      },
-      {
-        "id": "d56ad7ea90c45af73c0840a79030cbe6",
-        "sport": "nba",
-        "homeTeam": "Miami Heat",
-        "awayTeam": "Portland Trail Blazers",
-        "commenceTime": "2025-11-09T01:10:00Z",
-        "odds": {
-          "Miami Heat_moneyline": 136,
-          "Portland Trail Blazers_moneyline": -162,
-          "Miami Heat_spread": {
-            "line": 3.5,
-            "price": -108
-          },
-          "Portland Trail Blazers_spread": {
-            "line": -3.5,
-            "price": -112
-          },
-          "Over_total": {
-            "line": 240.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 240.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.769Z"
-      },
-      {
-        "id": "d1fbcc713503883345fd07dbbefc0238",
-        "sport": "nba",
-        "homeTeam": "Denver Nuggets",
+        "homeTeam": "Golden State Warriors",
         "awayTeam": "Indiana Pacers",
-        "commenceTime": "2025-11-09T02:10:00Z",
+        "commenceTime": "2025-11-10T01:40:00Z",
         "odds": {
-          "Denver Nuggets_moneyline": -620,
+          "Golden State Warriors_moneyline": -620,
           "Indiana Pacers_moneyline": 460,
-          "Denver Nuggets_spread": {
-            "line": -12,
-            "price": -106
+          "Golden State Warriors_spread": {
+            "line": -12.5,
+            "price": -110
           },
           "Indiana Pacers_spread": {
-            "line": 12,
-            "price": -114
-          },
-          "Over_total": {
-            "line": 235.5,
+            "line": 12.5,
             "price": -110
           },
-          "Under_total": {
-            "line": 235.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.769Z"
-      },
-      {
-        "id": "4a51c193617f1f42b668152595a3a6f5",
-        "sport": "nba",
-        "homeTeam": "Los Angeles Clippers",
-        "awayTeam": "Phoenix Suns",
-        "commenceTime": "2025-11-09T03:30:00Z",
-        "odds": {
-          "Los Angeles Clippers_moneyline": -205,
-          "Phoenix Suns_moneyline": 170,
-          "Los Angeles Clippers_spread": {
-            "line": -5.5,
-            "price": -105
-          },
-          "Phoenix Suns_spread": {
-            "line": 5.5,
-            "price": -115
-          },
           "Over_total": {
-            "line": 227.5,
+            "line": 230.5,
             "price": -112
           },
           "Under_total": {
-            "line": 227.5,
+            "line": 230.5,
             "price": -108
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.769Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "02ea5bff59e1d511ffeefcb8593d74a0",
+        "sport": "nba",
+        "homeTeam": "Sacramento Kings",
+        "awayTeam": "Minnesota Timberwolves",
+        "commenceTime": "2025-11-10T02:10:00Z",
+        "odds": {
+          "Minnesota Timberwolves_moneyline": -225,
+          "Sacramento Kings_moneyline": 190,
+          "Minnesota Timberwolves_spread": {
+            "line": -5.5,
+            "price": -108
+          },
+          "Sacramento Kings_spread": {
+            "line": 5.5,
+            "price": -112
+          },
+          "Over_total": {
+            "line": 237.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 237.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       },
       {
         "id": "f557c9173a46a3c7c87afb4bd68f6644",
@@ -252,7 +224,7 @@
             "price": -105
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.769Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       },
       {
         "id": "9010f7d8f26d5880c63b67355800f997",
@@ -280,7 +252,7 @@
             "price": -105
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.769Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       },
       {
         "id": "6b9d46fb1b22af30b771b5f6b8a4c6f8",
@@ -308,1629 +280,65 @@
             "price": -105
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.769Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       }
     ],
     "ncaa-basketball": [
       {
-        "id": "e299d66583cf172143396bff0423cb52",
+        "id": "d6bb30c8a7624d1c8f47d771539731b1",
         "sport": "ncaa-basketball",
-        "homeTeam": "Minnesota Golden Gophers",
-        "awayTeam": "Alcorn St Braves",
-        "commenceTime": "2025-11-08T17:00:00Z",
+        "homeTeam": "Harvard Crimson",
+        "awayTeam": "New Hampshire Wildcats",
+        "commenceTime": "2025-11-09T17:04:00Z",
         "odds": {
-          "Alcorn St Braves_spread": {
-            "line": 48.5,
+          "Harvard Crimson_moneyline": -700,
+          "New Hampshire Wildcats_moneyline": 440,
+          "Harvard Crimson_spread": {
+            "line": -3.5,
             "price": -138
           },
-          "Minnesota Golden Gophers_spread": {
-            "line": -48.5,
-            "price": 104
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.769Z"
-      },
-      {
-        "id": "628e7233501673e3818abdb301cf37df",
-        "sport": "ncaa-basketball",
-        "homeTeam": "St. John's Red Storm",
-        "awayTeam": "Alabama Crimson Tide",
-        "commenceTime": "2025-11-08T17:01:34Z",
-        "odds": {
-          "Alabama Crimson Tide_moneyline": 120,
-          "St. John's Red Storm_moneyline": -154,
-          "Alabama Crimson Tide_spread": {
-            "line": 1.5,
-            "price": -115
-          },
-          "St. John's Red Storm_spread": {
-            "line": -1.5,
-            "price": -115
-          },
-          "Over_total": {
-            "line": 202.5,
-            "price": -120
-          },
-          "Under_total": {
-            "line": 202.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.769Z"
-      },
-      {
-        "id": "31f789cfc22af4e268397161dc3e702c",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Akron Zips",
-        "awayTeam": "Princeton Tigers",
-        "commenceTime": "2025-11-08T17:02:58Z",
-        "odds": {
-          "Akron Zips_spread": {
-            "line": -34.5,
-            "price": -195
-          },
-          "Princeton Tigers_spread": {
-            "line": 34.5,
-            "price": 150
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.770Z"
-      },
-      {
-        "id": "1b4b5376f2c30de2b9708268526ff088",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Nebraska Cornhuskers",
-        "awayTeam": "Florida Int'l Golden Panthers",
-        "commenceTime": "2025-11-08T18:01:11Z",
-        "odds": {
-          "Florida Int'l Golden Panthers_spread": {
-            "line": 28.5,
-            "price": -115
-          },
-          "Nebraska Cornhuskers_spread": {
-            "line": -28.5,
-            "price": -115
-          },
-          "Over_total": {
-            "line": 158.5,
-            "price": -120
-          },
-          "Under_total": {
-            "line": 158.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.770Z"
-      },
-      {
-        "id": "7d679103825c2cb4e2ab1bf6ce44df15",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Syracuse Orange",
-        "awayTeam": "Delaware St Hornets",
-        "commenceTime": "2025-11-08T18:01:55Z",
-        "odds": {
-          "Delaware St Hornets_spread": {
-            "line": 33.5,
-            "price": -110
-          },
-          "Syracuse Orange_spread": {
-            "line": -33.5,
-            "price": -120
-          },
-          "Over_total": {
-            "line": 137.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 137.5,
-            "price": -120
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.770Z"
-      },
-      {
-        "id": "739f16cf6447d418fe1635c666ea67a6",
-        "sport": "ncaa-basketball",
-        "homeTeam": "New Haven Chargers",
-        "awayTeam": "Penn State Nittany Lions",
-        "commenceTime": "2025-11-08T18:02:20Z",
-        "odds": {
-          "New Haven Chargers_spread": {
-            "line": 26.5,
-            "price": -120
-          },
-          "Penn State Nittany Lions_spread": {
-            "line": -26.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 136.5,
-            "price": -120
-          },
-          "Under_total": {
-            "line": 136.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.770Z"
-      },
-      {
-        "id": "9aaeda8a76bf119e734902ca33256e09",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Saint Joseph's Hawks",
-        "awayTeam": "Drexel Dragons",
-        "commenceTime": "2025-11-08T18:03:24Z",
-        "odds": {
-          "Drexel Dragons_moneyline": 160,
-          "Saint Joseph's Hawks_moneyline": -210,
-          "Drexel Dragons_spread": {
+          "New Hampshire Wildcats_spread": {
             "line": 3.5,
-            "price": -120
-          },
-          "Saint Joseph's Hawks_spread": {
-            "line": -3.5,
-            "price": -110
+            "price": 104
           },
           "Over_total": {
-            "line": 146.5,
-            "price": -110
+            "line": 156.5,
+            "price": -118
           },
           "Under_total": {
-            "line": 146.5,
-            "price": -120
+            "line": 156.5,
+            "price": -112
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       },
       {
-        "id": "c8a4a71c79bacd364f27765c79a7780e",
+        "id": "ef3d73d256caf0af1d2984f4a1a03e7a",
         "sport": "ncaa-basketball",
-        "homeTeam": "Florida A&M Rattlers",
-        "awayTeam": "Kennesaw St Owls",
-        "commenceTime": "2025-11-08T18:06:27Z",
+        "homeTeam": "Campbell Fighting Camels",
+        "awayTeam": "Western Michigan Broncos",
+        "commenceTime": "2025-11-09T17:35:00Z",
         "odds": {
-          "Florida A&M Rattlers_moneyline": 2500,
-          "Kennesaw St Owls_moneyline": -15000,
-          "Florida A&M Rattlers_spread": {
-            "line": 18.5,
-            "price": -120
-          },
-          "Kennesaw St Owls_spread": {
-            "line": -18.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 170.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 170.5,
-            "price": -115
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "d5ee5f099832fe4eb8b0245c45470cc1",
-        "sport": "ncaa-basketball",
-        "homeTeam": "GW Revolutionaries",
-        "awayTeam": "South Florida Bulls",
-        "commenceTime": "2025-11-08T18:32:59Z",
-        "odds": {
-          "GW Revolutionaries_moneyline": -105,
-          "South Florida Bulls_moneyline": -125,
-          "GW Revolutionaries_spread": {
-            "line": 1.5,
+          "Campbell Fighting Camels_moneyline": -1100,
+          "Western Michigan Broncos_moneyline": 600,
+          "Campbell Fighting Camels_spread": {
+            "line": -8.5,
             "price": -125
           },
-          "South Florida Bulls_spread": {
-            "line": -1.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 159.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 159.5,
-            "price": -115
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "e88afe419986d2e03c91829af041acec",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Duke Blue Devils",
-        "awayTeam": "Western Carolina Catamounts",
-        "commenceTime": "2025-11-08T18:50:00Z",
-        "odds": {
-          "Duke Blue Devils_spread": {
-            "line": -35.5,
-            "price": -114
-          },
-          "Western Carolina Catamounts_spread": {
-            "line": 35.5,
-            "price": -114
-          },
-          "Over_total": {
-            "line": 150.5,
-            "price": -120
-          },
-          "Under_total": {
-            "line": 150.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "18077621fd2153f2cda8cf51507f2c53",
-        "sport": "ncaa-basketball",
-        "homeTeam": "NJIT Highlanders",
-        "awayTeam": "Fairfield Stags",
-        "commenceTime": "2025-11-08T19:00:00Z",
-        "odds": {
-          "Fairfield Stags_moneyline": -250,
-          "NJIT Highlanders_moneyline": 205,
-          "Fairfield Stags_spread": {
-            "line": -6.5,
-            "price": -115
-          },
-          "NJIT Highlanders_spread": {
-            "line": 6.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 146.5,
-            "price": -108
-          },
-          "Under_total": {
-            "line": 146.5,
-            "price": -112
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "6fb522051bd1746de6d22c7553b65cdb",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Toledo Rockets",
-        "awayTeam": "Marshall Thundering Herd",
-        "commenceTime": "2025-11-08T19:00:00Z",
-        "odds": {
-          "Marshall Thundering Herd_moneyline": 114,
-          "Toledo Rockets_moneyline": -135,
-          "Marshall Thundering Herd_spread": {
-            "line": 2.5,
-            "price": -112
-          },
-          "Toledo Rockets_spread": {
-            "line": -2.5,
-            "price": -108
-          },
-          "Over_total": {
-            "line": 160.5,
-            "price": -112
-          },
-          "Under_total": {
-            "line": 160.5,
-            "price": -108
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "bdb51249f85c432609fe876b1e74d38b",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Tulane Green Wave",
-        "awayTeam": "Texas State Bobcats",
-        "commenceTime": "2025-11-08T19:00:00Z",
-        "odds": {
-          "Texas State Bobcats_moneyline": 625,
-          "Tulane Green Wave_moneyline": -950,
-          "Texas State Bobcats_spread": {
-            "line": 12.5,
-            "price": -108
-          },
-          "Tulane Green Wave_spread": {
-            "line": -12.5,
-            "price": -112
-          },
-          "Over_total": {
-            "line": 147.5,
-            "price": -105
-          },
-          "Under_total": {
-            "line": 147.5,
-            "price": -115
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "72bf1c18fad136611d270f29515e1368",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Binghamton Bearcats",
-        "awayTeam": "Niagara Purple Eagles",
-        "commenceTime": "2025-11-08T19:05:00Z",
-        "odds": {
-          "Binghamton Bearcats_moneyline": -162,
-          "Niagara Purple Eagles_moneyline": 136,
-          "Binghamton Bearcats_spread": {
-            "line": -2.5,
-            "price": -115
-          },
-          "Niagara Purple Eagles_spread": {
-            "line": 2.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 139.5,
-            "price": -108
-          },
-          "Under_total": {
-            "line": 139.5,
-            "price": -112
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "e2d5a074437aa1b2161ba088e0a5dcad",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Dayton Flyers",
-        "awayTeam": "UMBC Retrievers",
-        "commenceTime": "2025-11-08T19:05:00Z",
-        "odds": {
-          "Dayton Flyers_moneyline": -10000,
-          "UMBC Retrievers_moneyline": 3000,
-          "Dayton Flyers_spread": {
-            "line": -26.5,
-            "price": -102
-          },
-          "UMBC Retrievers_spread": {
-            "line": 26.5,
-            "price": -118
-          },
-          "Over_total": {
-            "line": 154.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 154.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "e30461b449ef438eef2a02318b846215",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Saint Peter's Peacocks",
-        "awayTeam": "Fairleigh Dickinson Knights",
-        "commenceTime": "2025-11-08T19:05:00Z",
-        "odds": {
-          "Fairleigh Dickinson Knights_moneyline": 220,
-          "Saint Peter's Peacocks_moneyline": -270,
-          "Fairleigh Dickinson Knights_spread": {
-            "line": 6.5,
-            "price": -115
-          },
-          "Saint Peter's Peacocks_spread": {
-            "line": -6.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 137.5,
-            "price": -108
-          },
-          "Under_total": {
-            "line": 137.5,
-            "price": -112
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "5e229ab726184ea5eeb87839ecc1e1e1",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Wofford Terriers",
-        "awayTeam": "Milwaukee Panthers",
-        "commenceTime": "2025-11-08T19:05:00Z",
-        "odds": {
-          "Milwaukee Panthers_moneyline": -162,
-          "Wofford Terriers_moneyline": 136,
-          "Milwaukee Panthers_spread": {
-            "line": -3.5,
-            "price": -108
-          },
-          "Wofford Terriers_spread": {
-            "line": 3.5,
-            "price": -112
-          },
-          "Over_total": {
-            "line": 150.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 150.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "155a3d8cf32d35f92153086ef668a54c",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Georgia Southern Eagles",
-        "awayTeam": "UNC Asheville Bulldogs",
-        "commenceTime": "2025-11-08T20:00:00Z",
-        "odds": {
-          "Georgia Southern Eagles_moneyline": -245,
-          "UNC Asheville Bulldogs_moneyline": 200,
-          "Georgia Southern Eagles_spread": {
-            "line": -5.5,
-            "price": -112
-          },
-          "UNC Asheville Bulldogs_spread": {
-            "line": 5.5,
-            "price": -108
-          },
-          "Over_total": {
-            "line": 162.5,
-            "price": -108
-          },
-          "Under_total": {
-            "line": 162.5,
-            "price": -112
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "027ce862cb0fd4960844e345fc94c6e0",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Houston Cougars",
-        "awayTeam": "Towson Tigers",
-        "commenceTime": "2025-11-08T20:00:00Z",
-        "odds": {
-          "Houston Cougars_moneyline": -20000,
-          "Towson Tigers_moneyline": 3500,
-          "Houston Cougars_spread": {
-            "line": -26.5,
-            "price": -110
-          },
-          "Towson Tigers_spread": {
-            "line": 26.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 130.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 130.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "385e574cf4a6f21d78068ef359415f9e",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Texas Longhorns",
-        "awayTeam": "Lafayette Leopards",
-        "commenceTime": "2025-11-08T20:00:00Z",
-        "odds": {
-          "Lafayette Leopards_spread": {
-            "line": 25.5,
-            "price": -112
-          },
-          "Texas Longhorns_spread": {
-            "line": -25.5,
-            "price": -108
-          },
-          "Over_total": {
-            "line": 152.5,
-            "price": -108
-          },
-          "Under_total": {
-            "line": 152.5,
-            "price": -112
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "872f3942bb3156b18861302f0409eff9",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Memphis Tigers",
-        "awayTeam": "San Francisco Dons",
-        "commenceTime": "2025-11-08T20:00:00Z",
-        "odds": {
-          "Memphis Tigers_moneyline": -152,
-          "San Francisco Dons_moneyline": 126,
-          "Memphis Tigers_spread": {
-            "line": -2.5,
-            "price": -110
-          },
-          "San Francisco Dons_spread": {
-            "line": 2.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 156.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 156.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "06ed387b1d4010aa27b3e1df17531f82",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Tennessee Volunteers",
-        "awayTeam": "Northern Kentucky Norse",
-        "commenceTime": "2025-11-08T20:00:00Z",
-        "odds": {
-          "Northern Kentucky Norse_moneyline": 4000,
-          "Tennessee Volunteers_moneyline": -30000,
-          "Northern Kentucky Norse_spread": {
-            "line": 27.5,
-            "price": -110
-          },
-          "Tennessee Volunteers_spread": {
-            "line": -27.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 137.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 137.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "295f92c072091d3b8d29f74d6660e611",
-        "sport": "ncaa-basketball",
-        "homeTeam": "La Salle Explorers",
-        "awayTeam": "Monmouth Hawks",
-        "commenceTime": "2025-11-08T20:30:00Z",
-        "odds": {
-          "La Salle Explorers_moneyline": -198,
-          "Monmouth Hawks_moneyline": 164,
-          "La Salle Explorers_spread": {
-            "line": -4.5,
-            "price": -112
-          },
-          "Monmouth Hawks_spread": {
-            "line": 4.5,
-            "price": -108
-          },
-          "Over_total": {
-            "line": 143.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 143.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "d2f2dc90c9532c682ea6db7a9559d859",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Air Force Falcons",
-        "awayTeam": "Austin Peay Governors",
-        "commenceTime": "2025-11-08T21:00:00Z",
-        "odds": {
-          "Air Force Falcons_moneyline": 120,
-          "Austin Peay Governors_moneyline": -142,
-          "Air Force Falcons_spread": {
-            "line": 2.5,
-            "price": -108
-          },
-          "Austin Peay Governors_spread": {
-            "line": -2.5,
-            "price": -112
-          },
-          "Over_total": {
-            "line": 136.5,
-            "price": -112
-          },
-          "Under_total": {
-            "line": 136.5,
-            "price": -108
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "a3a773e2eaa723eb60c59e32f11a9e51",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Boise State Broncos",
-        "awayTeam": "Utah Valley Wolverines",
-        "commenceTime": "2025-11-08T21:00:00Z",
-        "odds": {
-          "Boise State Broncos_moneyline": -850,
-          "Utah Valley Wolverines_moneyline": 575,
-          "Boise State Broncos_spread": {
-            "line": -11.5,
-            "price": -112
-          },
-          "Utah Valley Wolverines_spread": {
-            "line": 11.5,
-            "price": -108
-          },
-          "Over_total": {
-            "line": 151.5,
-            "price": -108
-          },
-          "Under_total": {
-            "line": 151.5,
-            "price": -112
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "7b8a7a81e885a80cadaf27972fd20cf8",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Wyoming Cowboys",
-        "awayTeam": "CSU Fullerton Titans",
-        "commenceTime": "2025-11-08T21:00:00Z",
-        "odds": {
-          "CSU Fullerton Titans_moneyline": 700,
-          "Wyoming Cowboys_moneyline": -1100,
-          "CSU Fullerton Titans_spread": {
-            "line": 13.5,
-            "price": -105
-          },
-          "Wyoming Cowboys_spread": {
-            "line": -13.5,
-            "price": -115
-          },
-          "Over_total": {
-            "line": 153.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 153.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "eeba772ab69ed50659f1fe86b0586cdc",
-        "sport": "ncaa-basketball",
-        "homeTeam": "St. Bonaventure Bonnies",
-        "awayTeam": "Canisius Golden Griffins",
-        "commenceTime": "2025-11-08T21:00:00Z",
-        "odds": {
-          "Canisius Golden Griffins_moneyline": 2000,
-          "St. Bonaventure Bonnies_moneyline": -6500,
-          "Canisius Golden Griffins_spread": {
-            "line": 21.5,
-            "price": -108
-          },
-          "St. Bonaventure Bonnies_spread": {
-            "line": -21.5,
-            "price": -112
-          },
-          "Over_total": {
-            "line": 136.5,
-            "price": -112
-          },
-          "Under_total": {
-            "line": 136.5,
-            "price": -108
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "7b9c1547b39433a7db8e82bc4d53c9bf",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Colorado Buffaloes",
-        "awayTeam": "Eastern Washington Eagles",
-        "commenceTime": "2025-11-08T21:00:00Z",
-        "odds": {
-          "Colorado Buffaloes_moneyline": -1800,
-          "Eastern Washington Eagles_moneyline": 1000,
-          "Colorado Buffaloes_spread": {
-            "line": -15.5,
-            "price": -115
-          },
-          "Eastern Washington Eagles_spread": {
-            "line": 15.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 152.5,
-            "price": -112
-          },
-          "Under_total": {
-            "line": 152.5,
-            "price": -108
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "9b7f9190296bd648210a92244b354bf4",
-        "sport": "ncaa-basketball",
-        "homeTeam": "UNC Greensboro Spartans",
-        "awayTeam": "Elon Phoenix",
-        "commenceTime": "2025-11-08T21:00:00Z",
-        "odds": {
-          "Elon Phoenix_moneyline": 170,
-          "UNC Greensboro Spartans_moneyline": -205,
-          "Elon Phoenix_spread": {
-            "line": 4.5,
-            "price": -105
-          },
-          "UNC Greensboro Spartans_spread": {
-            "line": -4.5,
-            "price": -115
-          },
-          "Over_total": {
-            "line": 142.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 142.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "9c232e8f404374ee474cc20c724723df",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Stanford Cardinal",
-        "awayTeam": "Montana Grizzlies",
-        "commenceTime": "2025-11-08T21:00:00Z",
-        "odds": {
-          "Montana Grizzlies_moneyline": 610,
-          "Stanford Cardinal_moneyline": -950,
-          "Montana Grizzlies_spread": {
-            "line": 11.5,
-            "price": -102
-          },
-          "Stanford Cardinal_spread": {
-            "line": -11.5,
-            "price": -120
-          },
-          "Over_total": {
-            "line": 151.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 151.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "68a3c6a32597bdc4541583e30bacf078",
-        "sport": "ncaa-basketball",
-        "homeTeam": "New Mexico Lobos",
-        "awayTeam": "UT-Arlington Mavericks",
-        "commenceTime": "2025-11-08T21:00:00Z",
-        "odds": {
-          "New Mexico Lobos_moneyline": -1100,
-          "UT-Arlington Mavericks_moneyline": 700,
-          "New Mexico Lobos_spread": {
-            "line": -13.5,
-            "price": -110
-          },
-          "UT-Arlington Mavericks_spread": {
-            "line": 13.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 147.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 147.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "07c8d235bcfe31ad56bd96136b6ec5c2",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Norfolk St Spartans",
-        "awayTeam": "William & Mary Tribe",
-        "commenceTime": "2025-11-08T21:00:00Z",
-        "odds": {
-          "Norfolk St Spartans_moneyline": 105,
-          "William & Mary Tribe_moneyline": -125,
-          "Norfolk St Spartans_spread": {
-            "line": 1.5,
-            "price": -102
-          },
-          "William & Mary Tribe_spread": {
-            "line": -1.5,
-            "price": -118
-          },
-          "Over_total": {
-            "line": 158.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 158.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "d14d0721db53ac655d702133f337c800",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Virginia Tech Hokies",
-        "awayTeam": "Providence Friars",
-        "commenceTime": "2025-11-08T21:00:00Z",
-        "odds": {
-          "Providence Friars_moneyline": -134,
-          "Virginia Tech Hokies_moneyline": 112,
-          "Providence Friars_spread": {
-            "line": -1.5,
-            "price": -114
-          },
-          "Virginia Tech Hokies_spread": {
-            "line": 1.5,
+          "Western Michigan Broncos_spread": {
+            "line": 8.5,
             "price": -106
           },
           "Over_total": {
-            "line": 158.5,
-            "price": -104
-          },
-          "Under_total": {
-            "line": 158.5,
-            "price": -118
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "114251182f8261e7ceb13c0b5fabcf57",
-        "sport": "ncaa-basketball",
-        "homeTeam": "UC Santa Barbara Gauchos",
-        "awayTeam": "San José St Spartans",
-        "commenceTime": "2025-11-08T21:00:00Z",
-        "odds": {
-          "San José St Spartans_moneyline": 360,
-          "UC Santa Barbara Gauchos_moneyline": -470,
-          "San José St Spartans_spread": {
-            "line": 9.5,
-            "price": -112
-          },
-          "UC Santa Barbara Gauchos_spread": {
-            "line": -9.5,
-            "price": -108
-          },
-          "Over_total": {
-            "line": 146.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 146.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "67f3d0fdadef97d1b0c453e96c4eb3a0",
-        "sport": "ncaa-basketball",
-        "homeTeam": "UCF Knights",
-        "awayTeam": "Vanderbilt Commodores",
-        "commenceTime": "2025-11-08T21:00:00Z",
-        "odds": {
-          "UCF Knights_moneyline": 480,
-          "Vanderbilt Commodores_moneyline": -690,
-          "UCF Knights_spread": {
-            "line": 10.5,
-            "price": -110
-          },
-          "Vanderbilt Commodores_spread": {
-            "line": -10.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 166.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 166.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "3a960a75c33004673144aa9b6b651300",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Butler Bulldogs",
-        "awayTeam": "IUPUI Jaguars",
-        "commenceTime": "2025-11-08T22:00:00Z",
-        "odds": {
-          "Butler Bulldogs_moneyline": -4000,
-          "IUPUI Jaguars_moneyline": 1600,
-          "Butler Bulldogs_spread": {
-            "line": -20.5,
-            "price": -105
-          },
-          "IUPUI Jaguars_spread": {
-            "line": 20.5,
-            "price": -115
-          },
-          "Over_total": {
-            "line": 192.5,
-            "price": -112
-          },
-          "Under_total": {
-            "line": 192.5,
-            "price": -108
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "d298cc025e2ab9bb1be48282547d8445",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Fresno St Bulldogs",
-        "awayTeam": "Long Beach St 49ers",
-        "commenceTime": "2025-11-08T22:00:00Z",
-        "odds": {
-          "Fresno St Bulldogs_moneyline": -285,
-          "Long Beach St 49ers_moneyline": 230,
-          "Fresno St Bulldogs_spread": {
-            "line": -6.5,
-            "price": -110
-          },
-          "Long Beach St 49ers_spread": {
-            "line": 6.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 142.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 142.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "cab291e231006875eeeb6f60dfc0cc1a",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Stony Brook Seawolves",
-        "awayTeam": "Maine Black Bears",
-        "commenceTime": "2025-11-08T22:00:00Z",
-        "odds": {
-          "Maine Black Bears_moneyline": 164,
-          "Stony Brook Seawolves_moneyline": -198,
-          "Maine Black Bears_spread": {
-            "line": 3.5,
-            "price": -105
-          },
-          "Stony Brook Seawolves_spread": {
-            "line": -3.5,
-            "price": -115
-          },
-          "Over_total": {
-            "line": 132.5,
-            "price": -108
-          },
-          "Under_total": {
-            "line": 132.5,
-            "price": -112
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "441755f44e2f728980fd2fd3251a24cc",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Massachusetts Minutemen",
-        "awayTeam": "Albany Great Danes",
-        "commenceTime": "2025-11-08T23:00:00Z",
-        "odds": {
-          "Albany Great Danes_moneyline": 390,
-          "Massachusetts Minutemen_moneyline": -520,
-          "Albany Great Danes_spread": {
-            "line": 9.5,
-            "price": -105
-          },
-          "Massachusetts Minutemen_spread": {
-            "line": -9.5,
-            "price": -115
-          },
-          "Over_total": {
-            "line": 156.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 156.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "92fb73c039a04b3fe0841b1e0336d64f",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Florida Atlantic Owls",
-        "awayTeam": "Charleston Cougars",
-        "commenceTime": "2025-11-08T23:00:00Z",
-        "odds": {
-          "Charleston Cougars_moneyline": 235,
-          "Florida Atlantic Owls_moneyline": -295,
-          "Charleston Cougars_spread": {
-            "line": 5.5,
-            "price": -102
-          },
-          "Florida Atlantic Owls_spread": {
-            "line": -5.5,
-            "price": -120
-          },
-          "Over_total": {
-            "line": 157.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 157.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "ada21de32dcee452e6710fb948f118a8",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Richmond Spiders",
-        "awayTeam": "East Carolina Pirates",
-        "commenceTime": "2025-11-08T23:00:00Z",
-        "odds": {
-          "East Carolina Pirates_moneyline": 205,
-          "Richmond Spiders_moneyline": -255,
-          "East Carolina Pirates_spread": {
-            "line": 5.5,
-            "price": -110
-          },
-          "Richmond Spiders_spread": {
-            "line": -5.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 143.5,
-            "price": -105
-          },
-          "Under_total": {
-            "line": 143.5,
-            "price": -115
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "537b0c877fbb0ca90664f1f70b06bdf0",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Presbyterian Blue Hose",
-        "awayTeam": "East Tennessee St Buccaneers",
-        "commenceTime": "2025-11-08T23:00:00Z",
-        "odds": {
-          "East Tennessee St Buccaneers_moneyline": -230,
-          "Presbyterian Blue Hose_moneyline": 190,
-          "East Tennessee St Buccaneers_spread": {
-            "line": -5.5,
-            "price": -115
-          },
-          "Presbyterian Blue Hose_spread": {
-            "line": 5.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 141.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 141.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "4f2ca93b20eb97f001d88f449f14bc29",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Michigan St Spartans",
-        "awayTeam": "Arkansas Razorbacks",
-        "commenceTime": "2025-11-09T00:00:00Z",
-        "odds": {
-          "Arkansas Razorbacks_moneyline": 124,
-          "Michigan St Spartans_moneyline": -148,
-          "Arkansas Razorbacks_spread": {
-            "line": 2.5,
-            "price": -112
-          },
-          "Michigan St Spartans_spread": {
-            "line": -2.5,
-            "price": -108
-          },
-          "Over_total": {
-            "line": 154.5,
-            "price": -112
-          },
-          "Under_total": {
-            "line": 154.5,
-            "price": -108
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "8e4306c9145ffe600a69919f18cdb534",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Wichita St Shockers",
-        "awayTeam": "Prairie View Panthers",
-        "commenceTime": "2025-11-09T00:00:00Z",
-        "odds": {
-          "Prairie View Panthers_moneyline": 1400,
-          "Wichita St Shockers_moneyline": -4000,
-          "Prairie View Panthers_spread": {
-            "line": 18.5,
-            "price": -102
-          },
-          "Wichita St Shockers_spread": {
-            "line": -18.5,
-            "price": -120
-          },
-          "Over_total": {
-            "line": 156.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 156.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "3d67a573febf8d86147efea9b26a608c",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Villanova Wildcats",
-        "awayTeam": "Queens University Royals",
-        "commenceTime": "2025-11-09T00:00:00Z",
-        "odds": {
-          "Queens University Royals_moneyline": 1280,
-          "Villanova Wildcats_moneyline": -3500,
-          "Queens University Royals_spread": {
-            "line": 17.5,
-            "price": -102
-          },
-          "Villanova Wildcats_spread": {
-            "line": -17.5,
-            "price": -120
-          },
-          "Over_total": {
-            "line": 150.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 150.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "9fd2103e9330c9324f7a1f06cf8c8e89",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Tarleton State Texans",
-        "awayTeam": "Texas A&M-CC Islanders",
-        "commenceTime": "2025-11-09T00:00:00Z",
-        "odds": {
-          "Tarleton State Texans_moneyline": -148,
-          "Texas A&M-CC Islanders_moneyline": 124,
-          "Tarleton State Texans_spread": {
-            "line": -3.5,
-            "price": -108
-          },
-          "Texas A&M-CC Islanders_spread": {
-            "line": 3.5,
-            "price": -112
-          },
-          "Over_total": {
-            "line": 142.5,
-            "price": -105
-          },
-          "Under_total": {
-            "line": 142.5,
-            "price": -115
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "3554fad7231562dcf6d6a2474527b726",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Utah Utes",
-        "awayTeam": "Weber State Wildcats",
-        "commenceTime": "2025-11-09T00:00:00Z",
-        "odds": {
-          "Utah Utes_moneyline": -2000,
-          "Weber State Wildcats_moneyline": 980,
-          "Utah Utes_spread": {
-            "line": -15.5,
-            "price": -110
-          },
-          "Weber State Wildcats_spread": {
-            "line": 15.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 147.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 147.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "dc81017ca32e1b4180318e2cc4d86377",
-        "sport": "ncaa-basketball",
-        "homeTeam": "St. Thomas (MN) Tommies",
-        "awayTeam": "Army Knights",
-        "commenceTime": "2025-11-09T01:00:00Z",
-        "odds": {
-          "Army Knights_moneyline": 850,
-          "St. Thomas (MN) Tommies_moneyline": -1450,
-          "Army Knights_spread": {
-            "line": 18.5,
-            "price": -108
-          },
-          "St. Thomas (MN) Tommies_spread": {
-            "line": -18.5,
-            "price": -112
-          },
-          "Over_total": {
-            "line": 151.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 151.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "50236bac81f6c6a71c30f5f036637077",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Kansas St Wildcats",
-        "awayTeam": "Bellarmine Knights",
-        "commenceTime": "2025-11-09T01:00:00Z",
-        "odds": {
-          "Bellarmine Knights_moneyline": 4000,
-          "Kansas St Wildcats_moneyline": -30000,
-          "Bellarmine Knights_spread": {
-            "line": 27.5,
-            "price": -102
-          },
-          "Kansas St Wildcats_spread": {
-            "line": -27.5,
-            "price": -120
-          },
-          "Over_total": {
-            "line": 169.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 169.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "7459c5c408cdd5ba33fd3a409056d79a",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Belmont Bruins",
-        "awayTeam": "Tennessee St Tigers",
-        "commenceTime": "2025-11-09T01:00:00Z",
-        "odds": {
-          "Belmont Bruins_moneyline": -1050,
-          "Tennessee St Tigers_moneyline": 675,
-          "Belmont Bruins_spread": {
-            "line": -13.5,
-            "price": -102
-          },
-          "Tennessee St Tigers_spread": {
-            "line": 13.5,
-            "price": -118
-          },
-          "Over_total": {
-            "line": 156.5,
-            "price": -112
-          },
-          "Under_total": {
-            "line": 156.5,
-            "price": -108
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "f3b0ac5289bb103b3d8214d6309a8168",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Bradley Braves",
-        "awayTeam": "Central Michigan Chippewas",
-        "commenceTime": "2025-11-09T01:00:00Z",
-        "odds": {
-          "Bradley Braves_moneyline": -485,
-          "Central Michigan Chippewas_moneyline": 370,
-          "Bradley Braves_spread": {
-            "line": -9.5,
-            "price": -115
-          },
-          "Central Michigan Chippewas_spread": {
-            "line": 9.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 147.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 147.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "30d2fb6536ecd4bfade494995ef5eaae",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Southern Utah Thunderbirds",
-        "awayTeam": "UT Rio Grande Valley Vaqueros",
-        "commenceTime": "2025-11-09T01:30:00Z",
-        "odds": {
-          "Southern Utah Thunderbirds_moneyline": 110,
-          "UT Rio Grande Valley Vaqueros_moneyline": -130,
-          "Southern Utah Thunderbirds_spread": {
-            "line": 1.5,
-            "price": -105
-          },
-          "UT Rio Grande Valley Vaqueros_spread": {
-            "line": -1.5,
-            "price": -115
-          },
-          "Over_total": {
-            "line": 160.5,
-            "price": -108
-          },
-          "Under_total": {
-            "line": 160.5,
-            "price": -112
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "2e68ac96133f2d9130c74c88b56c8b3d",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Loyola Marymount Lions",
-        "awayTeam": "Arkansas-Pine Bluff Golden Lions",
-        "commenceTime": "2025-11-09T02:00:00Z",
-        "odds": {
-          "Arkansas-Pine Bluff Golden Lions_moneyline": 1400,
-          "Loyola Marymount Lions_moneyline": -3200,
-          "Arkansas-Pine Bluff Golden Lions_spread": {
-            "line": 19.5,
-            "price": -105
-          },
-          "Loyola Marymount Lions_spread": {
-            "line": -19.5,
-            "price": -115
-          },
-          "Over_total": {
-            "line": 157.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 157.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "689aaee44c828e436d6f64e87a86b11c",
-        "sport": "ncaa-basketball",
-        "homeTeam": "BYU Cougars",
-        "awayTeam": "Holy Cross Crusaders",
-        "commenceTime": "2025-11-09T02:00:00Z",
-        "odds": {
-          "BYU Cougars_spread": {
-            "line": -38.5,
-            "price": -110
-          },
-          "Holy Cross Crusaders_spread": {
-            "line": 38.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 164.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 164.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "dc42f63eb40bf9e37ac8d9822ac7644e",
-        "sport": "ncaa-basketball",
-        "homeTeam": "UNLV Rebels",
-        "awayTeam": "Chattanooga Mocs",
-        "commenceTime": "2025-11-09T02:00:00Z",
-        "odds": {
-          "Chattanooga Mocs_moneyline": 315,
-          "UNLV Rebels_moneyline": -410,
-          "Chattanooga Mocs_spread": {
-            "line": 7.5,
-            "price": -102
-          },
-          "UNLV Rebels_spread": {
-            "line": -7.5,
-            "price": -120
-          },
-          "Over_total": {
-            "line": 155.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 155.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "0acc11865a03449d8cfc23fbdc5777a4",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Seattle Redhawks",
-        "awayTeam": "Cal Poly Mustangs",
-        "commenceTime": "2025-11-09T03:00:00Z",
-        "odds": {
-          "Cal Poly Mustangs_moneyline": 380,
-          "Seattle Redhawks_moneyline": -500,
-          "Cal Poly Mustangs_spread": {
-            "line": 9.5,
-            "price": -108
-          },
-          "Seattle Redhawks_spread": {
-            "line": -9.5,
-            "price": -112
-          },
-          "Over_total": {
             "line": 161.5,
-            "price": -115
+            "price": -122
           },
           "Under_total": {
             "line": 161.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "357c329d7b3a1cbe22d4492dd9bbb97a",
-        "sport": "ncaa-basketball",
-        "homeTeam": "UC San Diego Tritons",
-        "awayTeam": "Houston Christian Huskies",
-        "commenceTime": "2025-11-09T03:00:00Z",
-        "odds": {
-          "Houston Christian Huskies_moneyline": 285,
-          "UC San Diego Tritons_moneyline": -360,
-          "Houston Christian Huskies_spread": {
-            "line": 7.5,
-            "price": -112
-          },
-          "UC San Diego Tritons_spread": {
-            "line": -7.5,
             "price": -108
-          },
-          "Over_total": {
-            "line": 140.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 140.5,
-            "price": -105
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "091755b3be929a5eba96f2cd876fe74b",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Nevada Wolf Pack",
-        "awayTeam": "Pacific Tigers",
-        "commenceTime": "2025-11-09T03:00:00Z",
-        "odds": {
-          "Nevada Wolf Pack_moneyline": -950,
-          "Pacific Tigers_moneyline": 610,
-          "Nevada Wolf Pack_spread": {
-            "line": -12.5,
-            "price": -110
-          },
-          "Pacific Tigers_spread": {
-            "line": 12.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 140.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 140.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "fc5ec818f5cff17ec1c5206b95908b80",
-        "sport": "ncaa-basketball",
-        "homeTeam": "Gonzaga Bulldogs",
-        "awayTeam": "Oklahoma Sooners",
-        "commenceTime": "2025-11-09T03:30:00Z",
-        "odds": {
-          "Gonzaga Bulldogs_moneyline": -750,
-          "Oklahoma Sooners_moneyline": 525,
-          "Gonzaga Bulldogs_spread": {
-            "line": -11.5,
-            "price": -105
-          },
-          "Oklahoma Sooners_spread": {
-            "line": 11.5,
-            "price": -115
-          },
-          "Over_total": {
-            "line": 166.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 166.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       },
       {
         "id": "1915817e54e7a06e86ab101bc4b975b8",
@@ -1939,1229 +347,753 @@
         "awayTeam": "Indiana Hoosiers",
         "commenceTime": "2025-11-09T18:00:00Z",
         "odds": {
-          "Indiana Hoosiers_moneyline": -138,
-          "Marquette Golden Eagles_moneyline": 115,
+          "Indiana Hoosiers_moneyline": -700,
+          "Marquette Golden Eagles_moneyline": 440,
           "Indiana Hoosiers_spread": {
-            "line": -2.5,
-            "price": -102
+            "line": -9.5,
+            "price": -114
           },
           "Marquette Golden Eagles_spread": {
-            "line": 2.5,
-            "price": -120
+            "line": 9.5,
+            "price": -114
           },
           "Over_total": {
-            "line": 151.5,
-            "price": -110
+            "line": 183.5,
+            "price": -108
           },
           "Under_total": {
-            "line": 151.5,
-            "price": -110
+            "line": 183.5,
+            "price": -122
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      }
-    ],
-    "ncaa-football": [
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
       {
-        "id": "b41044c11856a02c999522fe8f4977e4",
-        "sport": "ncaa-football",
-        "homeTeam": "Mississippi State Bulldogs",
-        "awayTeam": "Georgia Bulldogs",
-        "commenceTime": "2025-11-08T16:54:00Z",
+        "id": "2ef5b06b83bbcadaa13d33c8d8868286",
+        "sport": "ncaa-basketball",
+        "homeTeam": "James Madison Dukes",
+        "awayTeam": "Coppin St Eagles",
+        "commenceTime": "2025-11-09T18:02:34Z",
         "odds": {
-          "Georgia Bulldogs_moneyline": -15000,
-          "Mississippi State Bulldogs_moneyline": 2500,
-          "Georgia Bulldogs_spread": {
-            "line": -24.5,
-            "price": -110
-          },
-          "Mississippi State Bulldogs_spread": {
+          "Coppin St Eagles_spread": {
             "line": 24.5,
+            "price": -110
+          },
+          "James Madison Dukes_spread": {
+            "line": -24.5,
             "price": -120
           },
           "Over_total": {
-            "line": 57.5,
+            "line": 146.5,
+            "price": -115
+          },
+          "Under_total": {
+            "line": 146.5,
+            "price": -115
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "b7c2c02a2d096cc9099cd5aa664b79d6",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Appalachian St Mountaineers",
+        "awayTeam": "North Carolina Central Eagles",
+        "commenceTime": "2025-11-09T18:03:11Z",
+        "odds": {
+          "Appalachian St Mountaineers_moneyline": -15000,
+          "North Carolina Central Eagles_moneyline": 2500,
+          "Appalachian St Mountaineers_spread": {
+            "line": -20.5,
+            "price": -120
+          },
+          "North Carolina Central Eagles_spread": {
+            "line": 20.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 131.5,
             "price": -120
           },
           "Under_total": {
-            "line": 57.5,
+            "line": 131.5,
             "price": -110
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       },
       {
-        "id": "2307b8527e5d6be27f3190e5243b8c7f",
-        "sport": "ncaa-football",
-        "homeTeam": "Purdue Boilermakers",
-        "awayTeam": "Ohio State Buckeyes",
-        "commenceTime": "2025-11-08T16:55:00Z",
+        "id": "3cdcdf0a19b1384a4399c842b4be7dcd",
+        "sport": "ncaa-basketball",
+        "homeTeam": "American Eagles",
+        "awayTeam": "Pennsylvania Quakers",
+        "commenceTime": "2025-11-09T18:08:09Z",
         "odds": {
-          "Ohio State Buckeyes_spread": {
-            "line": -25.5,
-            "price": -118
+          "American Eagles_moneyline": -315,
+          "Pennsylvania Quakers_moneyline": 230,
+          "American Eagles_spread": {
+            "line": -6.5,
+            "price": -110
           },
-          "Purdue Boilermakers_spread": {
-            "line": 25.5,
-            "price": -112
+          "Pennsylvania Quakers_spread": {
+            "line": 6.5,
+            "price": -120
           },
           "Over_total": {
-            "line": 44.5,
+            "line": 157.5,
+            "price": -120
+          },
+          "Under_total": {
+            "line": 157.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "933e098aef26e13ca197fe4aa648e7e1",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Bowling Green Falcons",
+        "awayTeam": "Le Moyne Dolphins",
+        "commenceTime": "2025-11-09T19:00:00Z",
+        "odds": {
+          "Bowling Green Falcons_moneyline": -850,
+          "Le Moyne Dolphins_moneyline": 575,
+          "Bowling Green Falcons_spread": {
+            "line": -11.5,
+            "price": -105
+          },
+          "Le Moyne Dolphins_spread": {
+            "line": 11.5,
+            "price": -115
+          },
+          "Over_total": {
+            "line": 154.5,
             "price": -112
           },
           "Under_total": {
-            "line": 44.5,
-            "price": -118
+            "line": 154.5,
+            "price": -108
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       },
       {
-        "id": "eba18280b341d7cbd8e9ed1dcd18bf05",
-        "sport": "ncaa-football",
-        "homeTeam": "West Virginia Mountaineers",
-        "awayTeam": "Colorado Buffaloes",
-        "commenceTime": "2025-11-08T16:57:00Z",
+        "id": "ee15422816e17b312da2f99ab9f44f13",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Brown Bears",
+        "awayTeam": "Vermont Catamounts",
+        "commenceTime": "2025-11-09T19:00:00Z",
         "odds": {
-          "Colorado Buffaloes_moneyline": 800,
-          "West Virginia Mountaineers_moneyline": -1800,
-          "Colorado Buffaloes_spread": {
-            "line": 13.5,
+          "Brown Bears_moneyline": 210,
+          "Vermont Catamounts_moneyline": -265,
+          "Brown Bears_spread": {
+            "line": 5.5,
+            "price": -110
+          },
+          "Vermont Catamounts_spread": {
+            "line": -5.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 131.5,
+            "price": -105
+          },
+          "Under_total": {
+            "line": 131.5,
+            "price": -115
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "c96898e027cb1762d09a25a3be2c8a09",
+        "sport": "ncaa-basketball",
+        "homeTeam": "North Dakota Fighting Hawks",
+        "awayTeam": "CSU Northridge Matadors",
+        "commenceTime": "2025-11-09T19:00:00Z",
+        "odds": {
+          "CSU Northridge Matadors_moneyline": -265,
+          "North Dakota Fighting Hawks_moneyline": 215,
+          "CSU Northridge Matadors_spread": {
+            "line": -6.5,
+            "price": -105
+          },
+          "North Dakota Fighting Hawks_spread": {
+            "line": 6.5,
+            "price": -115
+          },
+          "Over_total": {
+            "line": 159.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 159.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "aa06ea62daa492f858767e41ade80d4c",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Illinois St Redbirds",
+        "awayTeam": "Cornell Big Red",
+        "commenceTime": "2025-11-09T19:00:00Z",
+        "odds": {
+          "Cornell Big Red_moneyline": 245,
+          "Illinois St Redbirds_moneyline": -305,
+          "Cornell Big Red_spread": {
+            "line": 6.5,
+            "price": -108
+          },
+          "Illinois St Redbirds_spread": {
+            "line": -6.5,
+            "price": -112
+          },
+          "Over_total": {
+            "line": 164.5,
+            "price": -105
+          },
+          "Under_total": {
+            "line": 164.5,
+            "price": -115
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "b5cec35835139d6cd1f4f5ac56fdee6f",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Dartmouth Big Green",
+        "awayTeam": "Marist Red Foxes",
+        "commenceTime": "2025-11-09T19:00:00Z",
+        "odds": {
+          "Dartmouth Big Green_moneyline": -125,
+          "Marist Red Foxes_moneyline": 105,
+          "Dartmouth Big Green_spread": {
+            "line": -1.5,
+            "price": -110
+          },
+          "Marist Red Foxes_spread": {
+            "line": 1.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 138.5,
+            "price": -112
+          },
+          "Under_total": {
+            "line": 138.5,
+            "price": -108
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "44379efad8195c7f003f87b874896bf0",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Georgia Bulldogs",
+        "awayTeam": "Morehead St Eagles",
+        "commenceTime": "2025-11-09T19:00:00Z",
+        "odds": {
+          "Georgia Bulldogs_spread": {
+            "line": -28.5,
+            "price": -118
+          },
+          "Morehead St Eagles_spread": {
+            "line": 28.5,
+            "price": -104
+          },
+          "Over_total": {
+            "line": 149.5,
+            "price": -115
+          },
+          "Under_total": {
+            "line": 149.5,
+            "price": -105
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "3cc356012b870a2dc415dbdcbbe9e83d",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Mercer Bears",
+        "awayTeam": "Lipscomb Bisons",
+        "commenceTime": "2025-11-09T19:00:00Z",
+        "odds": {
+          "Lipscomb Bisons_moneyline": 145,
+          "Mercer Bears_moneyline": -175,
+          "Lipscomb Bisons_spread": {
+            "line": 4.5,
+            "price": -115
+          },
+          "Mercer Bears_spread": {
+            "line": -4.5,
+            "price": -105
+          },
+          "Over_total": {
+            "line": 158.5,
+            "price": -112
+          },
+          "Under_total": {
+            "line": 158.5,
+            "price": -108
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "f4d6be277e279b446b8b36ab28e38077",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Northern Iowa Panthers",
+        "awayTeam": "South Dakota St Jackrabbits",
+        "commenceTime": "2025-11-09T19:00:00Z",
+        "odds": {
+          "Northern Iowa Panthers_moneyline": -550,
+          "South Dakota St Jackrabbits_moneyline": 410,
+          "Northern Iowa Panthers_spread": {
+            "line": -10.5,
+            "price": -108
+          },
+          "South Dakota St Jackrabbits_spread": {
+            "line": 10.5,
+            "price": -112
+          },
+          "Over_total": {
+            "line": 150.5,
+            "price": -108
+          },
+          "Under_total": {
+            "line": 150.5,
+            "price": -112
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "a234c864240c38ec9551a23445ce3bf8",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Oklahoma St Cowboys",
+        "awayTeam": "Texas A&M Aggies",
+        "commenceTime": "2025-11-09T19:00:00Z",
+        "odds": {
+          "Oklahoma St Cowboys_moneyline": 126,
+          "Texas A&M Aggies_moneyline": -152,
+          "Oklahoma St Cowboys_spread": {
+            "line": 2.5,
+            "price": -110
+          },
+          "Texas A&M Aggies_spread": {
+            "line": -2.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 173.5,
+            "price": -115
+          },
+          "Under_total": {
+            "line": 173.5,
+            "price": -105
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "b0ee811ace05fb86b873f0aa0924e15f",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Arizona St Sun Devils",
+        "awayTeam": "Utah Tech Trailblazers",
+        "commenceTime": "2025-11-09T20:00:00Z",
+        "odds": {
+          "Arizona St Sun Devils_moneyline": -1050,
+          "Utah Tech Trailblazers_moneyline": 675,
+          "Arizona St Sun Devils_spread": {
+            "line": -12.5,
+            "price": -115
+          },
+          "Utah Tech Trailblazers_spread": {
+            "line": 12.5,
+            "price": -105
+          },
+          "Over_total": {
+            "line": 152.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 152.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "f5c0c8210187f7f5d88ed11f9c532154",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Montana St Bobcats",
+        "awayTeam": "Denver Pioneers",
+        "commenceTime": "2025-11-09T20:00:00Z",
+        "odds": {
+          "Denver Pioneers_moneyline": 270,
+          "Montana St Bobcats_moneyline": -340,
+          "Denver Pioneers_spread": {
+            "line": 7.5,
+            "price": -112
+          },
+          "Montana St Bobcats_spread": {
+            "line": -7.5,
+            "price": -108
+          },
+          "Over_total": {
+            "line": 145.5,
+            "price": -115
+          },
+          "Under_total": {
+            "line": 145.5,
+            "price": -105
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "afde19e0508fadf6a85314a8710aa2c6",
+        "sport": "ncaa-basketball",
+        "homeTeam": "West Virginia Mountaineers",
+        "awayTeam": "Lehigh Mountain Hawks",
+        "commenceTime": "2025-11-09T20:00:00Z",
+        "odds": {
+          "Lehigh Mountain Hawks_moneyline": 1280,
+          "West Virginia Mountaineers_moneyline": -3500,
+          "Lehigh Mountain Hawks_spread": {
+            "line": 18.5,
             "price": -112
           },
           "West Virginia Mountaineers_spread": {
-            "line": -13.5,
-            "price": -118
+            "line": -18.5,
+            "price": -108
           },
           "Over_total": {
-            "line": 51.5,
-            "price": -125
-          },
-          "Under_total": {
-            "line": 51.5,
-            "price": -106
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "53806a8547cd26b21d866aec355f1285",
-        "sport": "ncaa-football",
-        "homeTeam": "Boston College Eagles",
-        "awayTeam": "SMU Mustangs",
-        "commenceTime": "2025-11-08T16:58:00Z",
-        "odds": {
-          "Boston College Eagles_moneyline": 900,
-          "SMU Mustangs_moneyline": -2500,
-          "Boston College Eagles_spread": {
-            "line": 14.5,
-            "price": -114
-          },
-          "SMU Mustangs_spread": {
-            "line": -14.5,
-            "price": -114
-          },
-          "Over_total": {
-            "line": 47.5,
-            "price": 100
-          },
-          "Under_total": {
-            "line": 47.5,
-            "price": -132
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "5ab48663d7528b3705a647d83aadaf19",
-        "sport": "ncaa-football",
-        "homeTeam": "Marshall Thundering Herd",
-        "awayTeam": "James Madison Dukes",
-        "commenceTime": "2025-11-08T17:00:00Z",
-        "odds": {
-          "James Madison Dukes_moneyline": -4500,
-          "Marshall Thundering Herd_moneyline": 1200,
-          "James Madison Dukes_spread": {
-            "line": -16.5,
+            "line": 140.5,
             "price": -110
           },
-          "Marshall Thundering Herd_spread": {
-            "line": 16.5,
-            "price": -120
-          },
-          "Over_total": {
-            "line": 59.5,
-            "price": -102
-          },
           "Under_total": {
-            "line": 59.5,
-            "price": -130
+            "line": 140.5,
+            "price": -110
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       },
       {
-        "id": "d1ac1162aa4955bcb20a428c2b662152",
-        "sport": "ncaa-football",
-        "homeTeam": "Army Black Knights",
-        "awayTeam": "Temple Owls",
-        "commenceTime": "2025-11-08T17:04:00Z",
+        "id": "de5a07a305718f3330412cc74f2395b4",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Missouri Tigers",
+        "awayTeam": "VMI Keydets",
+        "commenceTime": "2025-11-09T20:30:44Z",
         "odds": {
-          "Army Black Knights_moneyline": -210,
-          "Temple Owls_moneyline": 162,
-          "Army Black Knights_spread": {
+          "Missouri Tigers_moneyline": -10000,
+          "VMI Keydets_moneyline": 2400,
+          "Missouri Tigers_spread": {
+            "line": -23.5,
+            "price": -120
+          },
+          "VMI Keydets_spread": {
+            "line": 23.5,
+            "price": -102
+          },
+          "Over_total": {
+            "line": 162.5,
+            "price": -105
+          },
+          "Under_total": {
+            "line": 162.5,
+            "price": -115
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "00fe6d434f45c233a5547af1fbaa0a6f",
+        "sport": "ncaa-basketball",
+        "homeTeam": "San Diego St Aztecs",
+        "awayTeam": "Idaho State Bengals",
+        "commenceTime": "2025-11-09T22:00:00Z",
+        "odds": {
+          "Idaho State Bengals_moneyline": 1800,
+          "San Diego St Aztecs_moneyline": -5000,
+          "Idaho State Bengals_spread": {
+            "line": 21.5,
+            "price": -105
+          },
+          "San Diego St Aztecs_spread": {
+            "line": -21.5,
+            "price": -115
+          },
+          "Over_total": {
+            "line": 136.5,
+            "price": -112
+          },
+          "Under_total": {
+            "line": 136.5,
+            "price": -108
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "d78082c850ea7cebb7d080cb17007b5e",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Loyola (Chi) Ramblers",
+        "awayTeam": "North Texas Mean Green",
+        "commenceTime": "2025-11-09T22:00:00Z",
+        "odds": {
+          "Loyola (Chi) Ramblers_moneyline": -126,
+          "North Texas Mean Green_moneyline": 105,
+          "Loyola (Chi) Ramblers_spread": {
+            "line": -1.5,
+            "price": -105
+          },
+          "North Texas Mean Green_spread": {
+            "line": 1.5,
+            "price": -115
+          },
+          "Over_total": {
+            "line": 140.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 140.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "8bbf78855e5aa268d26eaf617fb412df",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Portland Pilots",
+        "awayTeam": "UC Davis Aggies",
+        "commenceTime": "2025-11-09T22:00:00Z",
+        "odds": {
+          "Portland Pilots_moneyline": -138,
+          "UC Davis Aggies_moneyline": 115,
+          "Portland Pilots_spread": {
+            "line": -1.5,
+            "price": -120
+          },
+          "UC Davis Aggies_spread": {
+            "line": 1.5,
+            "price": -102
+          },
+          "Over_total": {
+            "line": 150.5,
+            "price": -112
+          },
+          "Under_total": {
+            "line": 150.5,
+            "price": -108
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "cc8302fba47c4cba073908c0eaff040f",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Colorado St Rams",
+        "awayTeam": "Omaha Mavericks",
+        "commenceTime": "2025-11-09T23:00:00Z",
+        "odds": {
+          "Colorado St Rams_moneyline": -1600,
+          "Omaha Mavericks_moneyline": 860,
+          "Colorado St Rams_spread": {
+            "line": -14.5,
+            "price": -110
+          },
+          "Omaha Mavericks_spread": {
+            "line": 14.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 154.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 154.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "7e08ac32f4554132b863940674934c14",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Liberty Flames",
+        "awayTeam": "Florida Atlantic Owls",
+        "commenceTime": "2025-11-09T23:00:00Z",
+        "odds": {
+          "Florida Atlantic Owls_moneyline": 310,
+          "Liberty Flames_moneyline": -400,
+          "Florida Atlantic Owls_spread": {
+            "line": 7.5,
+            "price": -105
+          },
+          "Liberty Flames_spread": {
+            "line": -7.5,
+            "price": -115
+          },
+          "Over_total": {
+            "line": 151.5,
+            "price": -106
+          },
+          "Under_total": {
+            "line": 151.5,
+            "price": -114
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "0161a97ed858292ebead6baafac137b6",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Howard Bison",
+        "awayTeam": "Grambling St Tigers",
+        "commenceTime": "2025-11-09T23:00:00Z",
+        "odds": {
+          "Grambling St Tigers_moneyline": 168,
+          "Howard Bison_moneyline": -205,
+          "Grambling St Tigers_spread": {
+            "line": 3.5,
+            "price": -102
+          },
+          "Howard Bison_spread": {
             "line": -3.5,
             "price": -120
           },
-          "Temple Owls_spread": {
-            "line": 3.5,
-            "price": -110
-          },
           "Over_total": {
-            "line": 38.5,
-            "price": 100
-          },
-          "Under_total": {
-            "line": 38.5,
-            "price": -132
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "524a2e816a5a5ddc923714f0a7bf78e7",
-        "sport": "ncaa-football",
-        "homeTeam": "Arkansas State Red Wolves",
-        "awayTeam": "Southern Mississippi Golden Eagles",
-        "commenceTime": "2025-11-08T17:05:34Z",
-        "odds": {
-          "Arkansas State Red Wolves_moneyline": 650,
-          "Southern Mississippi Golden Eagles_moneyline": -1150,
-          "Arkansas State Red Wolves_spread": {
-            "line": 13.5,
-            "price": -120
-          },
-          "Southern Mississippi Golden Eagles_spread": {
-            "line": -13.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 51.5,
+            "line": 153.5,
             "price": -110
           },
           "Under_total": {
-            "line": 51.5,
-            "price": -120
+            "line": 153.5,
+            "price": -110
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       },
       {
-        "id": "7492442a7d4ea720e20334407be28836",
-        "sport": "ncaa-football",
-        "homeTeam": "Texas Tech Red Raiders",
-        "awayTeam": "BYU Cougars",
-        "commenceTime": "2025-11-08T17:08:25Z",
+        "id": "a07e0a10c8ba0a7b88e8681a32a5a87b",
+        "sport": "ncaa-basketball",
+        "homeTeam": "USC Trojans",
+        "awayTeam": "Manhattan Jaspers",
+        "commenceTime": "2025-11-09T23:00:00Z",
         "odds": {
-          "BYU Cougars_moneyline": 1700,
-          "Texas Tech Red Raiders_moneyline": -10000,
-          "BYU Cougars_spread": {
+          "Manhattan Jaspers_moneyline": 4000,
+          "USC Trojans_moneyline": -30000,
+          "Manhattan Jaspers_spread": {
+            "line": 27.5,
+            "price": -105
+          },
+          "USC Trojans_spread": {
+            "line": -27.5,
+            "price": -115
+          },
+          "Over_total": {
+            "line": 157.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 157.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "f4a693ed7e4426c2b25a08e1fee45f1b",
+        "sport": "ncaa-basketball",
+        "homeTeam": "South Carolina Gamecocks",
+        "awayTeam": "Southern Miss Golden Eagles",
+        "commenceTime": "2025-11-09T23:30:00Z",
+        "odds": {
+          "South Carolina Gamecocks_moneyline": -2800,
+          "Southern Miss Golden Eagles_moneyline": 1160,
+          "South Carolina Gamecocks_spread": {
+            "line": -16.5,
+            "price": -120
+          },
+          "Southern Miss Golden Eagles_spread": {
+            "line": 16.5,
+            "price": -102
+          },
+          "Over_total": {
+            "line": 147.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 147.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "1b8550b6811d1e0df0dad31441c63bff",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Baylor Bears",
+        "awayTeam": "Washington Huskies",
+        "commenceTime": "2025-11-10T01:30:00Z",
+        "odds": {
+          "Baylor Bears_moneyline": -258,
+          "Washington Huskies_moneyline": 210,
+          "Baylor Bears_spread": {
+            "line": -5.5,
+            "price": -115
+          },
+          "Washington Huskies_spread": {
+            "line": 5.5,
+            "price": -105
+          },
+          "Over_total": {
+            "line": 156.5,
+            "price": -112
+          },
+          "Under_total": {
+            "line": 156.5,
+            "price": -108
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "4faae2452be6b91fb6ba81194d1ee346",
+        "sport": "ncaa-basketball",
+        "homeTeam": "Hawai'i Rainbow Warriors",
+        "awayTeam": "East Texas A&M Lions",
+        "commenceTime": "2025-11-10T06:00:00Z",
+        "odds": {
+          "East Texas A&M Lions_moneyline": 1100,
+          "Hawai'i Rainbow Warriors_moneyline": -2100,
+          "East Texas A&M Lions_spread": {
             "line": 19.5,
             "price": -110
           },
-          "Texas Tech Red Raiders_spread": {
+          "Hawai'i Rainbow Warriors_spread": {
             "line": -19.5,
-            "price": -120
-          },
-          "Over_total": {
-            "line": 35.5,
-            "price": -104
-          },
-          "Under_total": {
-            "line": 35.5,
-            "price": -128
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "7f8f24a59d3218a96bb68c20dbc593de",
-        "sport": "ncaa-football",
-        "homeTeam": "Penn State Nittany Lions",
-        "awayTeam": "Indiana Hoosiers",
-        "commenceTime": "2025-11-08T17:10:46Z",
-        "odds": {
-          "Indiana Hoosiers_moneyline": -3500,
-          "Penn State Nittany Lions_moneyline": 1060,
-          "Indiana Hoosiers_spread": {
-            "line": -16.5,
-            "price": -106
-          },
-          "Penn State Nittany Lions_spread": {
-            "line": 16.5,
-            "price": -125
-          },
-          "Over_total": {
-            "line": 47.5,
-            "price": -108
-          },
-          "Under_total": {
-            "line": 47.5,
-            "price": -122
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "221e7ddb221193456934c87f32d38956",
-        "sport": "ncaa-football",
-        "homeTeam": "Ole Miss Rebels",
-        "awayTeam": "Citadel Bulldogs",
-        "commenceTime": "2025-11-08T18:00:00Z",
-        "odds": {
-          "Citadel Bulldogs_spread": {
-            "line": 61.5,
-            "price": -113
-          },
-          "Ole Miss Rebels_spread": {
-            "line": -61.5,
-            "price": -115
-          },
-          "Over_total": {
-            "line": 68.5,
-            "price": -114
-          },
-          "Under_total": {
-            "line": 68.5,
-            "price": -114
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "552a14f5a8b493a2b807777b77f77f55",
-        "sport": "ncaa-football",
-        "homeTeam": "Eastern Michigan Eagles",
-        "awayTeam": "Bowling Green Falcons",
-        "commenceTime": "2025-11-08T18:02:55Z",
-        "odds": {
-          "Bowling Green Falcons_moneyline": 230,
-          "Eastern Michigan Eagles_moneyline": -315,
-          "Bowling Green Falcons_spread": {
-            "line": 6.5,
-            "price": -125
-          },
-          "Eastern Michigan Eagles_spread": {
-            "line": -6.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 52.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 52.5,
-            "price": -120
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "14a129638d680c27d25390e3783d7ea2",
-        "sport": "ncaa-football",
-        "homeTeam": "Liberty Flames",
-        "awayTeam": "Missouri State Bears",
-        "commenceTime": "2025-11-08T18:04:20Z",
-        "odds": {
-          "Liberty Flames_moneyline": -750,
-          "Missouri State Bears_moneyline": 470,
-          "Liberty Flames_spread": {
-            "line": -11.5,
-            "price": -110
-          },
-          "Missouri State Bears_spread": {
-            "line": 11.5,
-            "price": -120
-          },
-          "Over_total": {
-            "line": 38.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 38.5,
-            "price": -120
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "f007c65cee3245c0f25a8121fb8d2126",
-        "sport": "ncaa-football",
-        "homeTeam": "Rice Owls",
-        "awayTeam": "UAB Blazers",
-        "commenceTime": "2025-11-08T19:00:00Z",
-        "odds": {
-          "Rice Owls_moneyline": -108,
-          "UAB Blazers_moneyline": -112,
-          "Rice Owls_spread": {
-            "line": 1.5,
-            "price": -118
-          },
-          "UAB Blazers_spread": {
-            "line": -1.5,
-            "price": -102
-          },
-          "Over_total": {
-            "line": 51.5,
-            "price": -108
-          },
-          "Under_total": {
-            "line": 51.5,
-            "price": -112
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "5447f4e28c65233177a96786054ec7a9",
-        "sport": "ncaa-football",
-        "homeTeam": "Rutgers Scarlet Knights",
-        "awayTeam": "Maryland Terrapins",
-        "commenceTime": "2025-11-08T19:30:00Z",
-        "odds": {
-          "Maryland Terrapins_moneyline": 110,
-          "Rutgers Scarlet Knights_moneyline": -130,
-          "Maryland Terrapins_spread": {
-            "line": 2.5,
-            "price": -115
-          },
-          "Rutgers Scarlet Knights_spread": {
-            "line": -2.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 56.5,
-            "price": -112
-          },
-          "Under_total": {
-            "line": 56.5,
-            "price": -108
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "8573ff0ded9e7d3ed63b1179a615e847",
-        "sport": "ncaa-football",
-        "homeTeam": "East Carolina Pirates",
-        "awayTeam": "Charlotte 49ers",
-        "commenceTime": "2025-11-08T20:00:00Z",
-        "odds": {
-          "Charlotte 49ers_moneyline": 2400,
-          "East Carolina Pirates_moneyline": -10000,
-          "Charlotte 49ers_spread": {
-            "line": 29.5,
-            "price": -110
-          },
-          "East Carolina Pirates_spread": {
-            "line": -29.5,
             "price": -110
           },
           "Over_total": {
-            "line": 56.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 56.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "1400414373023c7d699f70c811b981c0",
-        "sport": "ncaa-football",
-        "homeTeam": "Delaware Blue Hens",
-        "awayTeam": "Louisiana Tech Bulldogs",
-        "commenceTime": "2025-11-08T20:00:00Z",
-        "odds": {
-          "Delaware Blue Hens_moneyline": 190,
-          "Louisiana Tech Bulldogs_moneyline": -230,
-          "Delaware Blue Hens_spread": {
-            "line": 6,
-            "price": -108
-          },
-          "Louisiana Tech Bulldogs_spread": {
-            "line": -6,
-            "price": -112
-          },
-          "Over_total": {
-            "line": 56.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 56.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "afdaf6b3f429f827b1f864dc0597ba02",
-        "sport": "ncaa-football",
-        "homeTeam": "Florida Atlantic Owls",
-        "awayTeam": "Tulsa Golden Hurricane",
-        "commenceTime": "2025-11-08T20:00:00Z",
-        "odds": {
-          "Florida Atlantic Owls_moneyline": -180,
-          "Tulsa Golden Hurricane_moneyline": 152,
-          "Florida Atlantic Owls_spread": {
-            "line": -3.5,
-            "price": -122
-          },
-          "Tulsa Golden Hurricane_spread": {
-            "line": 3.5,
-            "price": 100
-          },
-          "Over_total": {
-            "line": 61.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 61.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "df5bb6e14637f00bfb4cdcf30c97eef7",
-        "sport": "ncaa-football",
-        "homeTeam": "Middle Tennessee Blue Raiders",
-        "awayTeam": "Florida International Panthers",
-        "commenceTime": "2025-11-08T20:00:00Z",
-        "odds": {
-          "Florida International Panthers_moneyline": -108,
-          "Middle Tennessee Blue Raiders_moneyline": -112,
-          "Florida International Panthers_spread": {
-            "line": 1.5,
-            "price": -115
-          },
-          "Middle Tennessee Blue Raiders_spread": {
-            "line": -1.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 50.5,
-            "price": -118
-          },
-          "Under_total": {
-            "line": 50.5,
-            "price": -102
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "79503d71656345e764cb595a53aeb4f8",
-        "sport": "ncaa-football",
-        "homeTeam": "UTEP Miners",
-        "awayTeam": "Jacksonville State Gamecocks",
-        "commenceTime": "2025-11-08T20:00:00Z",
-        "odds": {
-          "Jacksonville State Gamecocks_moneyline": -105,
-          "UTEP Miners_moneyline": -115,
-          "Jacksonville State Gamecocks_spread": {
-            "line": 1.5,
-            "price": -115
-          },
-          "UTEP Miners_spread": {
-            "line": -1.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 46.5,
-            "price": -112
-          },
-          "Under_total": {
-            "line": 46.5,
-            "price": -108
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "60f69546f72b1cb5dc22aa0096258e19",
-        "sport": "ncaa-football",
-        "homeTeam": "Arizona Wildcats",
-        "awayTeam": "Kansas Jayhawks",
-        "commenceTime": "2025-11-08T20:30:00Z",
-        "odds": {
-          "Arizona Wildcats_moneyline": -184,
-          "Kansas Jayhawks_moneyline": 154,
-          "Arizona Wildcats_spread": {
-            "line": -4.5,
-            "price": -112
-          },
-          "Kansas Jayhawks_spread": {
-            "line": 4.5,
-            "price": -108
-          },
-          "Over_total": {
-            "line": 55.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 55.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "a5c302e7a8e94cf154a833afdb676594",
-        "sport": "ncaa-football",
-        "homeTeam": "UConn Huskies",
-        "awayTeam": "Duke Blue Devils",
-        "commenceTime": "2025-11-08T20:30:00Z",
-        "odds": {
-          "Duke Blue Devils_moneyline": -310,
-          "UConn Huskies_moneyline": 250,
-          "Duke Blue Devils_spread": {
-            "line": -7.5,
-            "price": -115
-          },
-          "UConn Huskies_spread": {
-            "line": 7.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 64.5,
-            "price": -105
-          },
-          "Under_total": {
-            "line": 64.5,
-            "price": -115
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "398c47249f361616ea373b30dc8acbf1",
-        "sport": "ncaa-football",
-        "homeTeam": "Iowa Hawkeyes",
-        "awayTeam": "Oregon Ducks",
-        "commenceTime": "2025-11-08T20:30:00Z",
-        "odds": {
-          "Iowa Hawkeyes_moneyline": 172,
-          "Oregon Ducks_moneyline": -205,
-          "Iowa Hawkeyes_spread": {
-            "line": 5.5,
-            "price": -115
-          },
-          "Oregon Ducks_spread": {
-            "line": -5.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 41.5,
-            "price": -105
-          },
-          "Under_total": {
-            "line": 41.5,
-            "price": -115
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "c205a1246ae9fe0764f768737f975def",
-        "sport": "ncaa-football",
-        "homeTeam": "TCU Horned Frogs",
-        "awayTeam": "Iowa State Cyclones",
-        "commenceTime": "2025-11-08T20:30:00Z",
-        "odds": {
-          "Iowa State Cyclones_moneyline": 225,
-          "TCU Horned Frogs_moneyline": -278,
-          "Iowa State Cyclones_spread": {
-            "line": 7.5,
-            "price": -112
-          },
-          "TCU Horned Frogs_spread": {
-            "line": -7.5,
-            "price": -108
-          },
-          "Over_total": {
-            "line": 57.5,
-            "price": -112
-          },
-          "Under_total": {
-            "line": 57.5,
-            "price": -108
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "ed3ba19ab5726f4f03c2b8bdeebfc142",
-        "sport": "ncaa-football",
-        "homeTeam": "Miami Hurricanes",
-        "awayTeam": "Syracuse Orange",
-        "commenceTime": "2025-11-08T20:30:00Z",
-        "odds": {
-          "Miami Hurricanes_moneyline": -10000,
-          "Syracuse Orange_moneyline": 2500,
-          "Miami Hurricanes_spread": {
-            "line": -28.5,
-            "price": -110
-          },
-          "Syracuse Orange_spread": {
-            "line": 28.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 47.5,
+            "line": 146.5,
             "price": -110
           },
           "Under_total": {
-            "line": 47.5,
+            "line": 146.5,
             "price": -110
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "4bf0ba6b4a8a5231ae6fd7ea67a97bc8",
-        "sport": "ncaa-football",
-        "homeTeam": "Missouri Tigers",
-        "awayTeam": "Texas A&M Aggies",
-        "commenceTime": "2025-11-08T20:30:00Z",
-        "odds": {
-          "Missouri Tigers_moneyline": 210,
-          "Texas A&M Aggies_moneyline": -255,
-          "Missouri Tigers_spread": {
-            "line": 6.5,
-            "price": 100
-          },
-          "Texas A&M Aggies_spread": {
-            "line": -6.5,
-            "price": -122
-          },
-          "Over_total": {
-            "line": 48.5,
-            "price": -108
-          },
-          "Under_total": {
-            "line": 48.5,
-            "price": -112
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "29f2b8725ab86e10209d0e64a3128330",
-        "sport": "ncaa-football",
-        "homeTeam": "Coastal Carolina Chanticleers",
-        "awayTeam": "Georgia State Panthers",
-        "commenceTime": "2025-11-08T21:00:00Z",
-        "odds": {
-          "Coastal Carolina Chanticleers_moneyline": -305,
-          "Georgia State Panthers_moneyline": 245,
-          "Coastal Carolina Chanticleers_spread": {
-            "line": -7.5,
-            "price": -108
-          },
-          "Georgia State Panthers_spread": {
-            "line": 7.5,
-            "price": -112
-          },
-          "Over_total": {
-            "line": 56.5,
-            "price": -112
-          },
-          "Under_total": {
-            "line": 56.5,
-            "price": -108
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "5589a6fb0147c472aa8d1222bad27271",
-        "sport": "ncaa-football",
-        "homeTeam": "New Mexico State Aggies",
-        "awayTeam": "Kennesaw State Owls",
-        "commenceTime": "2025-11-08T21:00:00Z",
-        "odds": {
-          "Kennesaw State Owls_moneyline": -355,
-          "New Mexico State Aggies_moneyline": 280,
-          "Kennesaw State Owls_spread": {
-            "line": -10,
-            "price": -110
-          },
-          "New Mexico State Aggies_spread": {
-            "line": 10,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 51.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 51.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "23e16c37a89c4381943ed6dda736199b",
-        "sport": "ncaa-football",
-        "homeTeam": "Vanderbilt Commodores",
-        "awayTeam": "Auburn Tigers",
-        "commenceTime": "2025-11-08T21:01:00Z",
-        "odds": {
-          "Auburn Tigers_moneyline": 190,
-          "Vanderbilt Commodores_moneyline": -230,
-          "Auburn Tigers_spread": {
-            "line": 6,
-            "price": -110
-          },
-          "Vanderbilt Commodores_spread": {
-            "line": -6,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 46.5,
-            "price": -108
-          },
-          "Under_total": {
-            "line": 46.5,
-            "price": -112
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "27541ef6d74cf828a2d977a93d5dffd4",
-        "sport": "ncaa-football",
-        "homeTeam": "North Carolina Tar Heels",
-        "awayTeam": "Stanford Cardinal",
-        "commenceTime": "2025-11-08T21:30:00Z",
-        "odds": {
-          "North Carolina Tar Heels_moneyline": -295,
-          "Stanford Cardinal_moneyline": 240,
-          "North Carolina Tar Heels_spread": {
-            "line": -7.5,
-            "price": -110
-          },
-          "Stanford Cardinal_spread": {
-            "line": 7.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 42.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 42.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "ed52f478980429ecf4e19140ba17b1cd",
-        "sport": "ncaa-football",
-        "homeTeam": "Wisconsin Badgers",
-        "awayTeam": "Washington Huskies",
-        "commenceTime": "2025-11-08T21:30:00Z",
-        "odds": {
-          "Washington Huskies_moneyline": -450,
-          "Wisconsin Badgers_moneyline": 350,
-          "Washington Huskies_spread": {
-            "line": -10.5,
-            "price": -115
-          },
-          "Wisconsin Badgers_spread": {
-            "line": 10.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 44.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 44.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "a69f6a6be64a31d8e22809160b63b969",
-        "sport": "ncaa-football",
-        "homeTeam": "Louisiana Ragin Cajuns",
-        "awayTeam": "Texas State Bobcats",
-        "commenceTime": "2025-11-08T22:00:00Z",
-        "odds": {
-          "Louisiana Ragin Cajuns_moneyline": 140,
-          "Texas State Bobcats_moneyline": -166,
-          "Louisiana Ragin Cajuns_spread": {
-            "line": 3.5,
-            "price": -118
-          },
-          "Texas State Bobcats_spread": {
-            "line": -3.5,
-            "price": -102
-          },
-          "Over_total": {
-            "line": 63.5,
-            "price": -108
-          },
-          "Under_total": {
-            "line": 63.5,
-            "price": -112
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "1305956eb98f14b25577b43c51660d82",
-        "sport": "ncaa-football",
-        "homeTeam": "San Jose State Spartans",
-        "awayTeam": "Air Force Falcons",
-        "commenceTime": "2025-11-08T23:00:00Z",
-        "odds": {
-          "Air Force Falcons_moneyline": 190,
-          "San Jose State Spartans_moneyline": -230,
-          "Air Force Falcons_spread": {
-            "line": 6,
-            "price": -112
-          },
-          "San Jose State Spartans_spread": {
-            "line": -6,
-            "price": -108
-          },
-          "Over_total": {
-            "line": 66.5,
-            "price": -105
-          },
-          "Under_total": {
-            "line": 66.5,
-            "price": -115
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "a99979f2428b8243c82e4a02562a947a",
-        "sport": "ncaa-football",
-        "homeTeam": "Louisville Cardinals",
-        "awayTeam": "California Golden Bears",
-        "commenceTime": "2025-11-09T00:00:00Z",
-        "odds": {
-          "California Golden Bears_moneyline": 700,
-          "Louisville Cardinals_moneyline": -1100,
-          "California Golden Bears_spread": {
-            "line": 18.5,
-            "price": -115
-          },
-          "Louisville Cardinals_spread": {
-            "line": -18.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 49.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 49.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "10199f7e5c5b453746cded34d0b34e6f",
-        "sport": "ncaa-football",
-        "homeTeam": "Clemson Tigers",
-        "awayTeam": "Florida State Seminoles",
-        "commenceTime": "2025-11-09T00:00:00Z",
-        "odds": {
-          "Clemson Tigers_moneyline": -125,
-          "Florida State Seminoles_moneyline": 105,
-          "Clemson Tigers_spread": {
-            "line": -1.5,
-            "price": -112
-          },
-          "Florida State Seminoles_spread": {
-            "line": 1.5,
-            "price": -108
-          },
-          "Over_total": {
-            "line": 56.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 56.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "3dec9604577d82e2589fe2319f14dbdc",
-        "sport": "ncaa-football",
-        "homeTeam": "Virginia Cavaliers",
-        "awayTeam": "Wake Forest Demon Deacons",
-        "commenceTime": "2025-11-09T00:00:00Z",
-        "odds": {
-          "Virginia Cavaliers_moneyline": -230,
-          "Wake Forest Demon Deacons_moneyline": 190,
-          "Virginia Cavaliers_spread": {
-            "line": -6.5,
-            "price": -110
-          },
-          "Wake Forest Demon Deacons_spread": {
-            "line": 6.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 47.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 47.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "a4fd5ab6f224d271ca76719ac8277176",
-        "sport": "ncaa-football",
-        "homeTeam": "Alabama Crimson Tide",
-        "awayTeam": "LSU Tigers",
-        "commenceTime": "2025-11-09T00:30:00Z",
-        "odds": {
-          "Alabama Crimson Tide_moneyline": -395,
-          "LSU Tigers_moneyline": 310,
-          "Alabama Crimson Tide_spread": {
-            "line": -10.5,
-            "price": -110
-          },
-          "LSU Tigers_spread": {
-            "line": 10.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 49.5,
-            "price": -108
-          },
-          "Under_total": {
-            "line": 49.5,
-            "price": -112
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "3c44dd1ba67c8192815306b5bb894fcd",
-        "sport": "ncaa-football",
-        "homeTeam": "Kentucky Wildcats",
-        "awayTeam": "Florida Gators",
-        "commenceTime": "2025-11-09T00:30:00Z",
-        "odds": {
-          "Florida Gators_moneyline": -162,
-          "Kentucky Wildcats_moneyline": 136,
-          "Florida Gators_spread": {
-            "line": -3.5,
-            "price": -106
-          },
-          "Kentucky Wildcats_spread": {
-            "line": 3.5,
-            "price": -114
-          },
-          "Over_total": {
-            "line": 44.5,
-            "price": -112
-          },
-          "Under_total": {
-            "line": 44.5,
-            "price": -108
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "b0065a8740c11ddd389e3c3b2e169bca",
-        "sport": "ncaa-football",
-        "homeTeam": "Notre Dame Fighting Irish",
-        "awayTeam": "Navy Midshipmen",
-        "commenceTime": "2025-11-09T00:30:00Z",
-        "odds": {
-          "Navy Midshipmen_moneyline": 1600,
-          "Notre Dame Fighting Irish_moneyline": -4000,
-          "Navy Midshipmen_spread": {
-            "line": 27.5,
-            "price": -102
-          },
-          "Notre Dame Fighting Irish_spread": {
-            "line": -27.5,
-            "price": -118
-          },
-          "Over_total": {
-            "line": 55.5,
-            "price": -112
-          },
-          "Under_total": {
-            "line": 55.5,
-            "price": -108
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "786dd84b9d3aa51537d4ed4bf0ebb6a1",
-        "sport": "ncaa-football",
-        "homeTeam": "Utah State Aggies",
-        "awayTeam": "Nevada Wolf Pack",
-        "commenceTime": "2025-11-09T00:30:00Z",
-        "odds": {
-          "Nevada Wolf Pack_moneyline": 285,
-          "Utah State Aggies_moneyline": -360,
-          "Nevada Wolf Pack_spread": {
-            "line": 9.5,
-            "price": -110
-          },
-          "Utah State Aggies_spread": {
-            "line": -9.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 53.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 53.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "9c020bd7d3fb34116f63a1e56ef90b74",
-        "sport": "ncaa-football",
-        "homeTeam": "UCLA Bruins",
-        "awayTeam": "Nebraska Cornhuskers",
-        "commenceTime": "2025-11-09T02:00:00Z",
-        "odds": {
-          "Nebraska Cornhuskers_moneyline": -108,
-          "UCLA Bruins_moneyline": -112,
-          "Nebraska Cornhuskers_spread": {
-            "line": 1.5,
-            "price": -118
-          },
-          "UCLA Bruins_spread": {
-            "line": -1.5,
-            "price": -102
-          },
-          "Over_total": {
-            "line": 45.5,
-            "price": -105
-          },
-          "Under_total": {
-            "line": 45.5,
-            "price": -115
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "cd38558312e1cb427ace0dd9bac1b4c2",
-        "sport": "ncaa-football",
-        "homeTeam": "Colorado State Rams",
-        "awayTeam": "UNLV Rebels",
-        "commenceTime": "2025-11-09T02:30:00Z",
-        "odds": {
-          "Colorado State Rams_moneyline": 160,
-          "UNLV Rebels_moneyline": -192,
-          "Colorado State Rams_spread": {
-            "line": 4.5,
-            "price": -112
-          },
-          "UNLV Rebels_spread": {
-            "line": -4.5,
-            "price": -108
-          },
-          "Over_total": {
-            "line": 61.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 61.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "31abe905b4b9ec98ab5d77869ca46d6c",
-        "sport": "ncaa-football",
-        "homeTeam": "Oregon State Beavers",
-        "awayTeam": "Sam Houston State Bearkats",
-        "commenceTime": "2025-11-09T03:00:00Z",
-        "odds": {
-          "Oregon State Beavers_moneyline": -1350,
-          "Sam Houston State Bearkats_moneyline": 800,
-          "Oregon State Beavers_spread": {
-            "line": -20.5,
-            "price": -115
-          },
-          "Sam Houston State Bearkats_spread": {
-            "line": 20.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 52.5,
-            "price": -112
-          },
-          "Under_total": {
-            "line": 52.5,
-            "price": -108
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "c5771e4204e8803e7ed806a0a72f14a2",
-        "sport": "ncaa-football",
-        "homeTeam": "Hawaii Rainbow Warriors",
-        "awayTeam": "San Diego State Aztecs",
-        "commenceTime": "2025-11-09T04:00:00Z",
-        "odds": {
-          "Hawaii Rainbow Warriors_moneyline": 210,
-          "San Diego State Aztecs_moneyline": -258,
-          "Hawaii Rainbow Warriors_spread": {
-            "line": 6.5,
-            "price": -108
-          },
-          "San Diego State Aztecs_spread": {
-            "line": -6.5,
-            "price": -112
-          },
-          "Over_total": {
-            "line": 48.5,
-            "price": -108
-          },
-          "Under_total": {
-            "line": 48.5,
-            "price": -112
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      }
+    ],
+    "ncaa-football": [
       {
         "id": "a262301eedaacdcf2d2f66b6e774d284",
         "sport": "ncaa-football",
@@ -3169,26 +1101,26 @@
         "awayTeam": "Kent State Golden Flashes",
         "commenceTime": "2025-11-12T00:00:00Z",
         "odds": {
-          "Akron Zips_moneyline": -215,
-          "Kent State Golden Flashes_moneyline": 176,
+          "Akron Zips_moneyline": -196,
+          "Kent State Golden Flashes_moneyline": 164,
           "Akron Zips_spread": {
             "line": -5.5,
-            "price": -112
+            "price": -105
           },
           "Kent State Golden Flashes_spread": {
             "line": 5.5,
-            "price": -108
+            "price": -115
           },
           "Over_total": {
-            "line": 48.5,
+            "line": 47.5,
             "price": -105
           },
           "Under_total": {
-            "line": 48.5,
+            "line": 47.5,
             "price": -115
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       },
       {
         "id": "3e0b12f621379f7492aabe9f44a74477",
@@ -3197,15 +1129,15 @@
         "awayTeam": "Ohio Bobcats",
         "commenceTime": "2025-11-12T00:30:00Z",
         "odds": {
-          "Ohio Bobcats_moneyline": -150,
-          "Western Michigan Broncos_moneyline": 125,
+          "Ohio Bobcats_moneyline": -136,
+          "Western Michigan Broncos_moneyline": 116,
           "Ohio Bobcats_spread": {
             "line": -2.5,
-            "price": -120
+            "price": -110
           },
           "Western Michigan Broncos_spread": {
             "line": 2.5,
-            "price": -102
+            "price": -110
           },
           "Over_total": {
             "line": 47.5,
@@ -3216,7 +1148,7 @@
             "price": -110
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       },
       {
         "id": "9ab397bd666c0c0bfe6f8ad0305a0120",
@@ -3225,15 +1157,15 @@
         "awayTeam": "Buffalo Bulls",
         "commenceTime": "2025-11-13T00:00:00Z",
         "odds": {
-          "Buffalo Bulls_moneyline": 118,
-          "Central Michigan Chippewas_moneyline": -142,
+          "Buffalo Bulls_moneyline": 112,
+          "Central Michigan Chippewas_moneyline": -134,
           "Buffalo Bulls_spread": {
             "line": 2.5,
-            "price": -105
+            "price": -112
           },
           "Central Michigan Chippewas_spread": {
             "line": -2.5,
-            "price": -115
+            "price": -108
           },
           "Over_total": {
             "line": 43.5,
@@ -3244,7 +1176,7 @@
             "price": -110
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       },
       {
         "id": "abb21e9ff3fecf0e831ca3109c84bb92",
@@ -3253,15 +1185,15 @@
         "awayTeam": "Toledo Rockets",
         "commenceTime": "2025-11-13T00:00:00Z",
         "odds": {
-          "Miami (OH) RedHawks_moneyline": 112,
-          "Toledo Rockets_moneyline": -134,
+          "Miami (OH) RedHawks_moneyline": 132,
+          "Toledo Rockets_moneyline": -160,
           "Miami (OH) RedHawks_spread": {
-            "line": 2.5,
-            "price": -110
+            "line": 3.5,
+            "price": -115
           },
           "Toledo Rockets_spread": {
-            "line": -2.5,
-            "price": -110
+            "line": -3.5,
+            "price": -105
           },
           "Over_total": {
             "line": 44.5,
@@ -3272,7 +1204,7 @@
             "price": -110
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       },
       {
         "id": "400e78d747b851ab6b491404d939c700",
@@ -3281,252 +1213,1588 @@
         "awayTeam": "Northern Illinois Huskies",
         "commenceTime": "2025-11-13T00:00:00Z",
         "odds": {
-          "Northern Illinois Huskies_moneyline": -600,
-          "UMass Minutemen_moneyline": 430,
+          "Northern Illinois Huskies_moneyline": -465,
+          "UMass Minutemen_moneyline": 350,
           "Northern Illinois Huskies_spread": {
-            "line": -13.5,
-            "price": -108
+            "line": -10.5,
+            "price": -110
           },
           "UMass Minutemen_spread": {
-            "line": 13.5,
-            "price": -112
+            "line": 10.5,
+            "price": -110
           },
           "Over_total": {
-            "line": 44.5,
+            "line": 42.5,
             "price": -110
           },
           "Under_total": {
-            "line": 44.5,
+            "line": 42.5,
             "price": -110
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      }
-    ],
-    "nfl": [
-      {
-        "id": "42473c1ddf8f424069ff3f264dd8dca4",
-        "sport": "nfl",
-        "homeTeam": "Indianapolis Colts",
-        "awayTeam": "Atlanta Falcons",
-        "commenceTime": "2025-11-09T14:30:00Z",
-        "odds": {
-          "Atlanta Falcons_moneyline": 250,
-          "Indianapolis Colts_moneyline": -310,
-          "Atlanta Falcons_spread": {
-            "line": 6.5,
-            "price": -112
-          },
-          "Indianapolis Colts_spread": {
-            "line": -6.5,
-            "price": -108
-          },
-          "Over_total": {
-            "line": 48.5,
-            "price": -108
-          },
-          "Under_total": {
-            "line": 48.5,
-            "price": -112
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       },
       {
-        "id": "9900b89c4776c5b47dd26ca4c755edf9",
-        "sport": "nfl",
-        "homeTeam": "Minnesota Vikings",
-        "awayTeam": "Baltimore Ravens",
-        "commenceTime": "2025-11-09T18:00:00Z",
+        "id": "5222230f425c1618238b84e01d1f63f0",
+        "sport": "ncaa-football",
+        "homeTeam": "Old Dominion Monarchs",
+        "awayTeam": "Troy Trojans",
+        "commenceTime": "2025-11-14T00:30:00Z",
         "odds": {
-          "Baltimore Ravens_moneyline": -218,
-          "Minnesota Vikings_moneyline": 180,
-          "Baltimore Ravens_spread": {
-            "line": -3.5,
+          "Old Dominion Monarchs_moneyline": -465,
+          "Troy Trojans_moneyline": 350,
+          "Old Dominion Monarchs_spread": {
+            "line": -10.5,
             "price": -115
           },
-          "Minnesota Vikings_spread": {
+          "Troy Trojans_spread": {
+            "line": 10.5,
+            "price": -105
+          },
+          "Over_total": {
+            "line": 52.5,
+            "price": -115
+          },
+          "Under_total": {
+            "line": 52.5,
+            "price": -105
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "42cca8d28245b1fbf784f639a81f2542",
+        "sport": "ncaa-football",
+        "homeTeam": "Louisville Cardinals",
+        "awayTeam": "Clemson Tigers",
+        "commenceTime": "2025-11-15T01:00:00Z",
+        "odds": {
+          "Clemson Tigers_moneyline": 136,
+          "Louisville Cardinals_moneyline": -162,
+          "Clemson Tigers_spread": {
             "line": 3.5,
+            "price": -110
+          },
+          "Louisville Cardinals_spread": {
+            "line": -3.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 51.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 51.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "e6f69472213fa5c127d39a0c4db53a3e",
+        "sport": "ncaa-football",
+        "homeTeam": "Oregon Ducks",
+        "awayTeam": "Minnesota Golden Gophers",
+        "commenceTime": "2025-11-15T02:00:00Z",
+        "odds": {
+          "Minnesota Golden Gophers_moneyline": 1280,
+          "Oregon Ducks_moneyline": -3500,
+          "Minnesota Golden Gophers_spread": {
+            "line": 21.5,
+            "price": -104
+          },
+          "Oregon Ducks_spread": {
+            "line": -21.5,
+            "price": -118
+          },
+          "Over_total": {
+            "line": 46.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 46.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "014f34fb67363402c0c5d90db5115c55",
+        "sport": "ncaa-football",
+        "homeTeam": "UConn Huskies",
+        "awayTeam": "Air Force Falcons",
+        "commenceTime": "2025-11-15T17:00:00Z",
+        "odds": {
+          "Air Force Falcons_moneyline": 270,
+          "UConn Huskies_moneyline": -345,
+          "Air Force Falcons_spread": {
+            "line": 8.5,
+            "price": -110
+          },
+          "UConn Huskies_spread": {
+            "line": -8.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 63.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 63.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "4097313a7b920350f695d5ebf4441e25",
+        "sport": "ncaa-football",
+        "homeTeam": "Cincinnati Bearcats",
+        "awayTeam": "Arizona Wildcats",
+        "commenceTime": "2025-11-15T17:00:00Z",
+        "odds": {
+          "Arizona Wildcats_moneyline": 180,
+          "Cincinnati Bearcats_moneyline": -220,
+          "Arizona Wildcats_spread": {
+            "line": 6.5,
+            "price": -115
+          },
+          "Cincinnati Bearcats_spread": {
+            "line": -6.5,
             "price": -105
           },
           "Over_total": {
-            "line": 48.5,
-            "price": -115
+            "line": 56.5,
+            "price": -110
           },
           "Under_total": {
-            "line": 48.5,
-            "price": -105
+            "line": 56.5,
+            "price": -110
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
       },
       {
-        "id": "3c10bc18680995136017c3bfd3152334",
-        "sport": "nfl",
-        "homeTeam": "Miami Dolphins",
-        "awayTeam": "Buffalo Bills",
-        "commenceTime": "2025-11-09T18:00:00Z",
+        "id": "88aa7ebc4cd199227641753c6f027e5c",
+        "sport": "ncaa-football",
+        "homeTeam": "Ball State Cardinals",
+        "awayTeam": "Eastern Michigan Eagles",
+        "commenceTime": "2025-11-15T17:00:00Z",
         "odds": {
-          "Buffalo Bills_moneyline": -520,
-          "Miami Dolphins_moneyline": 390,
-          "Buffalo Bills_spread": {
-            "line": -9.5,
+          "Ball State Cardinals_spread": {
+            "line": 3,
+            "price": -110
+          },
+          "Eastern Michigan Eagles_spread": {
+            "line": -3,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.425Z"
+      },
+      {
+        "id": "228355203b7cb130a9276d7b3f01c1e7",
+        "sport": "ncaa-football",
+        "homeTeam": "Charlotte 49ers",
+        "awayTeam": "UTSA Roadrunners",
+        "commenceTime": "2025-11-15T17:00:00Z",
+        "odds": {
+          "Charlotte 49ers_moneyline": 680,
+          "UTSA Roadrunners_moneyline": -1100,
+          "Charlotte 49ers_spread": {
+            "line": 17.5,
+            "price": -115
+          },
+          "UTSA Roadrunners_spread": {
+            "line": -17.5,
+            "price": -105
+          },
+          "Over_total": {
+            "line": 59.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 59.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "c3f4a939fa4e8748810ff0e16a85c224",
+        "sport": "ncaa-football",
+        "homeTeam": "Indiana Hoosiers",
+        "awayTeam": "Wisconsin Badgers",
+        "commenceTime": "2025-11-15T17:00:00Z",
+        "odds": {
+          "Indiana Hoosiers_moneyline": -20000,
+          "Wisconsin Badgers_moneyline": 3500,
+          "Indiana Hoosiers_spread": {
+            "line": -30.5,
+            "price": -110
+          },
+          "Wisconsin Badgers_spread": {
+            "line": 30.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 45.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 45.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "d86064b6f9a69da0f1fe77f95eafcfd8",
+        "sport": "ncaa-football",
+        "homeTeam": "Oklahoma State Cowboys",
+        "awayTeam": "Kansas State Wildcats",
+        "commenceTime": "2025-11-15T17:00:00Z",
+        "odds": {
+          "Kansas State Wildcats_moneyline": -1600,
+          "Oklahoma State Cowboys_moneyline": 860,
+          "Kansas State Wildcats_spread": {
+            "line": -19.5,
+            "price": -110
+          },
+          "Oklahoma State Cowboys_spread": {
+            "line": 19.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 55.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 55.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "221109619a512745557119257181ec71",
+        "sport": "ncaa-football",
+        "homeTeam": "Northwestern Wildcats",
+        "awayTeam": "Michigan Wolverines",
+        "commenceTime": "2025-11-15T17:00:00Z",
+        "odds": {
+          "Michigan Wolverines_moneyline": -395,
+          "Northwestern Wildcats_moneyline": 310,
+          "Michigan Wolverines_spread": {
+            "line": -10.5,
+            "price": -108
+          },
+          "Northwestern Wildcats_spread": {
+            "line": 10.5,
             "price": -112
           },
-          "Miami Dolphins_spread": {
-            "line": 9.5,
-            "price": -108
-          },
           "Over_total": {
-            "line": 50.5,
-            "price": -105
+            "line": 40.5,
+            "price": -110
           },
           "Under_total": {
-            "line": 50.5,
-            "price": -115
+            "line": 40.5,
+            "price": -110
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
       },
       {
-        "id": "21f47a328fb2ab65c01360a7a2bd9571",
-        "sport": "nfl",
-        "homeTeam": "Carolina Panthers",
-        "awayTeam": "New Orleans Saints",
-        "commenceTime": "2025-11-09T18:00:00Z",
+        "id": "3e96265c0539c2de97577de90c2b992a",
+        "sport": "ncaa-football",
+        "homeTeam": "Navy Midshipmen",
+        "awayTeam": "South Florida Bulls",
+        "commenceTime": "2025-11-15T17:00:00Z",
         "odds": {
-          "Carolina Panthers_moneyline": -245,
-          "New Orleans Saints_moneyline": 200,
-          "Carolina Panthers_spread": {
-            "line": -5.5,
-            "price": -108
+          "Navy Midshipmen_moneyline": 350,
+          "South Florida Bulls_moneyline": -465,
+          "Navy Midshipmen_spread": {
+            "line": 10.5,
+            "price": -110
           },
-          "New Orleans Saints_spread": {
+          "South Florida Bulls_spread": {
+            "line": -10.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 64.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 64.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "8f72253f75cd68254f847d6d33c464d8",
+        "sport": "ncaa-football",
+        "homeTeam": "Pittsburgh Panthers",
+        "awayTeam": "Notre Dame Fighting Irish",
+        "commenceTime": "2025-11-15T17:00:00Z",
+        "odds": {
+          "Notre Dame Fighting Irish_moneyline": -400,
+          "Pittsburgh Panthers_moneyline": 310,
+          "Notre Dame Fighting Irish_spread": {
+            "line": -10.5,
+            "price": -110
+          },
+          "Pittsburgh Panthers_spread": {
+            "line": 10.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 57.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 57.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "b417c55071b8eb7aa75b4073707d90c7",
+        "sport": "ncaa-football",
+        "homeTeam": "Texas A&M Aggies",
+        "awayTeam": "South Carolina Gamecocks",
+        "commenceTime": "2025-11-15T17:00:00Z",
+        "odds": {
+          "South Carolina Gamecocks_moneyline": 800,
+          "Texas A&M Aggies_moneyline": -1400,
+          "South Carolina Gamecocks_spread": {
+            "line": 17.5,
+            "price": -105
+          },
+          "Texas A&M Aggies_spread": {
+            "line": -17.5,
+            "price": -115
+          },
+          "Over_total": {
+            "line": 48.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 48.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "a374973b9d0e1c2134328868cc80aabf",
+        "sport": "ncaa-football",
+        "homeTeam": "LSU Tigers",
+        "awayTeam": "Arkansas Razorbacks",
+        "commenceTime": "2025-11-15T17:45:00Z",
+        "odds": {
+          "Arkansas Razorbacks_moneyline": 168,
+          "LSU Tigers_moneyline": -205,
+          "Arkansas Razorbacks_spread": {
             "line": 5.5,
-            "price": -112
+            "price": -110
+          },
+          "LSU Tigers_spread": {
+            "line": -5.5,
+            "price": -110
           },
           "Over_total": {
-            "line": 38.5,
-            "price": -108
+            "line": 55.5,
+            "price": -104
           },
           "Under_total": {
-            "line": 38.5,
-            "price": -112
+            "line": 55.5,
+            "price": -118
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
       },
       {
-        "id": "3b1a97366685a96e6e1940ae56cc4d31",
-        "sport": "nfl",
-        "homeTeam": "Chicago Bears",
-        "awayTeam": "New York Giants",
-        "commenceTime": "2025-11-09T18:00:00Z",
+        "id": "ea4c70f2e05bf3e57e0aef9b8f22543b",
+        "sport": "ncaa-football",
+        "homeTeam": "Arizona State Sun Devils",
+        "awayTeam": "West Virginia Mountaineers",
+        "commenceTime": "2025-11-15T18:00:00Z",
         "odds": {
-          "Chicago Bears_moneyline": -218,
-          "New York Giants_moneyline": 180,
-          "Chicago Bears_spread": {
+          "Arizona State Sun Devils_moneyline": -430,
+          "West Virginia Mountaineers_moneyline": 330,
+          "Arizona State Sun Devils_spread": {
+            "line": -10.5,
+            "price": -105
+          },
+          "West Virginia Mountaineers_spread": {
+            "line": 10.5,
+            "price": -115
+          },
+          "Over_total": {
+            "line": 47.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 47.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "922d91bba05ae227e389cc67bee9aa3d",
+        "sport": "ncaa-football",
+        "homeTeam": "Tulsa Golden Hurricane",
+        "awayTeam": "Oregon State Beavers",
+        "commenceTime": "2025-11-15T18:00:00Z",
+        "odds": {
+          "Oregon State Beavers_moneyline": -114,
+          "Tulsa Golden Hurricane_moneyline": -105,
+          "Oregon State Beavers_spread": {
+            "line": -1.5,
+            "price": -105
+          },
+          "Tulsa Golden Hurricane_spread": {
+            "line": 1.5,
+            "price": -115
+          },
+          "Over_total": {
+            "line": 49.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 49.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "450441ce20015b77a67d789a077704c9",
+        "sport": "ncaa-football",
+        "homeTeam": "Georgia State Panthers",
+        "awayTeam": "Marshall Thundering Herd",
+        "commenceTime": "2025-11-15T19:00:00Z",
+        "odds": {
+          "Georgia State Panthers_moneyline": 202,
+          "Marshall Thundering Herd_moneyline": -250,
+          "Georgia State Panthers_spread": {
+            "line": 6.5,
+            "price": -105
+          },
+          "Marshall Thundering Herd_spread": {
+            "line": -6.5,
+            "price": -115
+          },
+          "Over_total": {
+            "line": 62.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 62.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "bfd46197c4ead0562ab9914ef48e8b11",
+        "sport": "ncaa-football",
+        "homeTeam": "UAB Blazers",
+        "awayTeam": "North Texas Mean Green",
+        "commenceTime": "2025-11-15T19:00:00Z",
+        "odds": {
+          "North Texas Mean Green_moneyline": -1200,
+          "UAB Blazers_moneyline": 720,
+          "North Texas Mean Green_spread": {
+            "line": -17.5,
+            "price": -110
+          },
+          "UAB Blazers_spread": {
+            "line": 17.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 70.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 70.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "942ff726f7d68269186e344b41a000f7",
+        "sport": "ncaa-football",
+        "homeTeam": "New Mexico Lobos",
+        "awayTeam": "Colorado State Rams",
+        "commenceTime": "2025-11-15T20:00:00Z",
+        "odds": {
+          "Colorado State Rams_moneyline": 500,
+          "New Mexico Lobos_moneyline": -720,
+          "Colorado State Rams_spread": {
+            "line": 14.5,
+            "price": -110
+          },
+          "New Mexico Lobos_spread": {
+            "line": -14.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 52.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 52.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "36d31c0bf72754e41d62e02ff964f34d",
+        "sport": "ncaa-football",
+        "homeTeam": "Missouri State Bears",
+        "awayTeam": "UTEP Miners",
+        "commenceTime": "2025-11-15T20:00:00Z",
+        "odds": {
+          "Missouri State Bears_spread": {
             "line": -4.5,
             "price": -110
           },
-          "New York Giants_spread": {
+          "UTEP Miners_spread": {
+            "line": 4.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "e434a92689a2c3329dbac8efa816cc89",
+        "sport": "ncaa-football",
+        "homeTeam": "Alabama Crimson Tide",
+        "awayTeam": "Oklahoma Sooners",
+        "commenceTime": "2025-11-15T20:30:00Z",
+        "odds": {
+          "Alabama Crimson Tide_moneyline": -250,
+          "Oklahoma Sooners_moneyline": 205,
+          "Alabama Crimson Tide_spread": {
+            "line": -7,
+            "price": -110
+          },
+          "Oklahoma Sooners_spread": {
+            "line": 7,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 45.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 45.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "dcc22d82135f6b6d80b76b7af4b89b5f",
+        "sport": "ncaa-football",
+        "homeTeam": "James Madison Dukes",
+        "awayTeam": "Appalachian State Mountaineers",
+        "commenceTime": "2025-11-15T20:30:00Z",
+        "odds": {
+          "Appalachian State Mountaineers_spread": {
+            "line": 19.5,
+            "price": -110
+          },
+          "James Madison Dukes_spread": {
+            "line": -19.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "acd0ed7c958d706d5f4eda180654eea0",
+        "sport": "ncaa-football",
+        "homeTeam": "Boston College Eagles",
+        "awayTeam": "Georgia Tech Yellow Jackets",
+        "commenceTime": "2025-11-15T20:30:00Z",
+        "odds": {
+          "Boston College Eagles_moneyline": 590,
+          "Georgia Tech Yellow Jackets_moneyline": -900,
+          "Boston College Eagles_spread": {
+            "line": 16.5,
+            "price": -105
+          },
+          "Georgia Tech Yellow Jackets_spread": {
+            "line": -16.5,
+            "price": -115
+          },
+          "Over_total": {
+            "line": 57.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 57.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "b5fabc4bda15869a027bae77baf8f936",
+        "sport": "ncaa-football",
+        "homeTeam": "Duke Blue Devils",
+        "awayTeam": "Virginia Cavaliers",
+        "commenceTime": "2025-11-15T20:30:00Z",
+        "odds": {
+          "Duke Blue Devils_moneyline": -235,
+          "Virginia Cavaliers_moneyline": 190,
+          "Duke Blue Devils_spread": {
+            "line": -6.5,
+            "price": -110
+          },
+          "Virginia Cavaliers_spread": {
+            "line": 6.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 59.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 59.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "98cb354e78a2e035f0e5c36736d65f7e",
+        "sport": "ncaa-football",
+        "homeTeam": "Georgia Bulldogs",
+        "awayTeam": "Texas Longhorns",
+        "commenceTime": "2025-11-15T20:30:00Z",
+        "odds": {
+          "Georgia Bulldogs_moneyline": -230,
+          "Texas Longhorns_moneyline": 190,
+          "Georgia Bulldogs_spread": {
+            "line": -6.5,
+            "price": -110
+          },
+          "Texas Longhorns_spread": {
+            "line": 6.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 48.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 48.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "a40ff33f45e8c4ecf2bc9b4f921cbca1",
+        "sport": "ncaa-football",
+        "homeTeam": "Illinois Fighting Illini",
+        "awayTeam": "Maryland Terrapins",
+        "commenceTime": "2025-11-15T20:30:00Z",
+        "odds": {
+          "Illinois Fighting Illini_moneyline": -630,
+          "Maryland Terrapins_moneyline": 450,
+          "Illinois Fighting Illini_spread": {
+            "line": -14.5,
+            "price": 100
+          },
+          "Maryland Terrapins_spread": {
+            "line": 14.5,
+            "price": -122
+          },
+          "Over_total": {
+            "line": 54.5,
+            "price": -105
+          },
+          "Under_total": {
+            "line": 54.5,
+            "price": -115
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "cea967651cf4258888de42948d1e99fa",
+        "sport": "ncaa-football",
+        "homeTeam": "USC Trojans",
+        "awayTeam": "Iowa Hawkeyes",
+        "commenceTime": "2025-11-15T20:30:00Z",
+        "odds": {
+          "Iowa Hawkeyes_moneyline": 185,
+          "USC Trojans_moneyline": -225,
+          "Iowa Hawkeyes_spread": {
+            "line": 6.5,
+            "price": -110
+          },
+          "USC Trojans_spread": {
+            "line": -6.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 49.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 49.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "a3bc2f29faa5c8d6f92b0d3909f1bae3",
+        "sport": "ncaa-football",
+        "homeTeam": "Miami Hurricanes",
+        "awayTeam": "NC State Wolfpack",
+        "commenceTime": "2025-11-15T20:30:00Z",
+        "odds": {
+          "Miami Hurricanes_moneyline": -625,
+          "NC State Wolfpack_moneyline": 455,
+          "Miami Hurricanes_spread": {
+            "line": -14.5,
+            "price": -110
+          },
+          "NC State Wolfpack_spread": {
+            "line": 14.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 55.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 55.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "adb79482ac6a03cfb466361a0acc0ad8",
+        "sport": "ncaa-football",
+        "homeTeam": "Michigan State Spartans",
+        "awayTeam": "Penn State Nittany Lions",
+        "commenceTime": "2025-11-15T20:30:00Z",
+        "odds": {
+          "Michigan State Spartans_moneyline": 235,
+          "Penn State Nittany Lions_moneyline": -295,
+          "Michigan State Spartans_spread": {
+            "line": 7.5,
+            "price": -115
+          },
+          "Penn State Nittany Lions_spread": {
+            "line": -7.5,
+            "price": -105
+          },
+          "Over_total": {
+            "line": 48.5,
+            "price": -115
+          },
+          "Under_total": {
+            "line": 48.5,
+            "price": -105
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "b258e8aed63bc16b5d5cf7e3d0cea208",
+        "sport": "ncaa-football",
+        "homeTeam": "Western Kentucky Hilltoppers",
+        "awayTeam": "Middle Tennessee Blue Raiders",
+        "commenceTime": "2025-11-15T20:30:00Z",
+        "odds": {
+          "Middle Tennessee Blue Raiders_spread": {
+            "line": 13.5,
+            "price": -110
+          },
+          "Western Kentucky Hilltoppers_spread": {
+            "line": -13.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "51cc3e112085325c2e5a4d7bb211d3c8",
+        "sport": "ncaa-football",
+        "homeTeam": "Nevada Wolf Pack",
+        "awayTeam": "San Jose State Spartans",
+        "commenceTime": "2025-11-15T20:30:00Z",
+        "odds": {
+          "Nevada Wolf Pack_moneyline": 260,
+          "San Jose State Spartans_moneyline": -330,
+          "Nevada Wolf Pack_spread": {
+            "line": 9.5,
+            "price": -115
+          },
+          "San Jose State Spartans_spread": {
+            "line": -9.5,
+            "price": -105
+          },
+          "Over_total": {
+            "line": 51.5,
+            "price": -105
+          },
+          "Under_total": {
+            "line": 51.5,
+            "price": -115
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "746eede942625764b9f241da1ad51d66",
+        "sport": "ncaa-football",
+        "homeTeam": "UL Monroe Warhawks",
+        "awayTeam": "South Alabama Jaguars",
+        "commenceTime": "2025-11-15T20:30:00Z",
+        "odds": {
+          "South Alabama Jaguars_spread": {
+            "line": -4.5,
+            "price": -110
+          },
+          "UL Monroe Warhawks_spread": {
+            "line": 4.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "e3d2cf0a6786b052ff011884e70e1a8d",
+        "sport": "ncaa-football",
+        "homeTeam": "Southern Mississippi Golden Eagles",
+        "awayTeam": "Texas State Bobcats",
+        "commenceTime": "2025-11-15T20:30:00Z",
+        "odds": {
+          "Southern Mississippi Golden Eagles_spread": {
+            "line": -6.5,
+            "price": -110
+          },
+          "Texas State Bobcats_spread": {
+            "line": 6.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "7d83d246bcce48aa3d7f9d047999af1e",
+        "sport": "ncaa-football",
+        "homeTeam": "Texas Tech Red Raiders",
+        "awayTeam": "UCF Knights",
+        "commenceTime": "2025-11-15T20:30:00Z",
+        "odds": {
+          "Texas Tech Red Raiders_moneyline": -3500,
+          "UCF Knights_moneyline": 1280,
+          "Texas Tech Red Raiders_spread": {
+            "line": -23.5,
+            "price": -115
+          },
+          "UCF Knights_spread": {
+            "line": 23.5,
+            "price": -105
+          },
+          "Over_total": {
+            "line": 47.5,
+            "price": -105
+          },
+          "Under_total": {
+            "line": 47.5,
+            "price": -115
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "7f636a75f0da1a1241c63faefda1b2bc",
+        "sport": "ncaa-football",
+        "homeTeam": "East Carolina Pirates",
+        "awayTeam": "Memphis Tigers",
+        "commenceTime": "2025-11-15T21:00:00Z",
+        "odds": {
+          "East Carolina Pirates_moneyline": -130,
+          "Memphis Tigers_moneyline": 108,
+          "East Carolina Pirates_spread": {
+            "line": -2.5,
+            "price": -110
+          },
+          "Memphis Tigers_spread": {
+            "line": 2.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 61.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 61.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "6ecff78e16c9ff8b6ce3f165615a61cf",
+        "sport": "ncaa-football",
+        "homeTeam": "Tulane Green Wave",
+        "awayTeam": "Florida Atlantic Owls",
+        "commenceTime": "2025-11-15T21:00:00Z",
+        "odds": {
+          "Florida Atlantic Owls_moneyline": 530,
+          "Tulane Green Wave_moneyline": -780,
+          "Florida Atlantic Owls_spread": {
+            "line": 16.5,
+            "price": -110
+          },
+          "Tulane Green Wave_spread": {
+            "line": -16.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 62.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 62.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "6542b8b48c9b9cff8cc4dd12c44301b3",
+        "sport": "ncaa-football",
+        "homeTeam": "Tennessee Volunteers",
+        "awayTeam": "New Mexico State Aggies",
+        "commenceTime": "2025-11-15T21:15:00Z",
+        "odds": {
+          "New Mexico State Aggies_spread": {
+            "line": 39.5,
+            "price": -110
+          },
+          "Tennessee Volunteers_spread": {
+            "line": -39.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "c659e27887d8657d921c7d1251b1f827",
+        "sport": "ncaa-football",
+        "homeTeam": "Wake Forest Demon Deacons",
+        "awayTeam": "North Carolina Tar Heels",
+        "commenceTime": "2025-11-15T21:30:00Z",
+        "odds": {
+          "North Carolina Tar Heels_moneyline": 188,
+          "Wake Forest Demon Deacons_moneyline": -230,
+          "North Carolina Tar Heels_spread": {
+            "line": 5.5,
+            "price": -105
+          },
+          "Wake Forest Demon Deacons_spread": {
+            "line": -5.5,
+            "price": -115
+          },
+          "Over_total": {
+            "line": 38.5,
+            "price": -105
+          },
+          "Under_total": {
+            "line": 38.5,
+            "price": -115
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "57c1c1686850ce008f55f69fdf062a8b",
+        "sport": "ncaa-football",
+        "homeTeam": "Florida International Panthers",
+        "awayTeam": "Liberty Flames",
+        "commenceTime": "2025-11-15T22:00:00Z",
+        "odds": {
+          "Florida International Panthers_spread": {
+            "line": 3.5,
+            "price": -110
+          },
+          "Liberty Flames_spread": {
+            "line": -3.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "0a3c900a4145e5d1e5cd73de1eb34ba7",
+        "sport": "ncaa-football",
+        "homeTeam": "Georgia Southern Eagles",
+        "awayTeam": "Coastal Carolina Chanticleers",
+        "commenceTime": "2025-11-15T23:00:00Z",
+        "odds": {
+          "Coastal Carolina Chanticleers_spread": {
+            "line": 2.5,
+            "price": -110
+          },
+          "Georgia Southern Eagles_spread": {
+            "line": -2.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "75dcf3454fcec490600dd3a21ee0b1aa",
+        "sport": "ncaa-football",
+        "homeTeam": "Baylor Bears",
+        "awayTeam": "Utah Utes",
+        "commenceTime": "2025-11-16T00:00:00Z",
+        "odds": {
+          "Baylor Bears_moneyline": 245,
+          "Utah Utes_moneyline": -310,
+          "Baylor Bears_spread": {
+            "line": 8.5,
+            "price": -115
+          },
+          "Utah Utes_spread": {
+            "line": -8.5,
+            "price": -105
+          },
+          "Over_total": {
+            "line": 60.5,
+            "price": -115
+          },
+          "Under_total": {
+            "line": 60.5,
+            "price": -105
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "5ba0b8e2033aceb0a3ea2e24491242a4",
+        "sport": "ncaa-football",
+        "homeTeam": "Sam Houston State Bearkats",
+        "awayTeam": "Delaware Blue Hens",
+        "commenceTime": "2025-11-16T00:00:00Z",
+        "odds": {
+          "Delaware Blue Hens_spread": {
+            "line": -8.5,
+            "price": -110
+          },
+          "Sam Houston State Bearkats_spread": {
+            "line": 8.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "542f9c5f191a245fb9a0d0b73b7838b7",
+        "sport": "ncaa-football",
+        "homeTeam": "Ole Miss Rebels",
+        "awayTeam": "Florida Gators",
+        "commenceTime": "2025-11-16T00:00:00Z",
+        "odds": {
+          "Florida Gators_moneyline": 410,
+          "Ole Miss Rebels_moneyline": -550,
+          "Florida Gators_spread": {
+            "line": 13.5,
+            "price": -110
+          },
+          "Ole Miss Rebels_spread": {
+            "line": -13.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 52.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 52.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "c29526decee9dfa73fa86c4b594acb76",
+        "sport": "ncaa-football",
+        "homeTeam": "Washington Huskies",
+        "awayTeam": "Purdue Boilermakers",
+        "commenceTime": "2025-11-16T00:00:00Z",
+        "odds": {
+          "Purdue Boilermakers_moneyline": 570,
+          "Washington Huskies_moneyline": -850,
+          "Purdue Boilermakers_spread": {
+            "line": 15.5,
+            "price": -110
+          },
+          "Washington Huskies_spread": {
+            "line": -15.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 52.5,
+            "price": -105
+          },
+          "Under_total": {
+            "line": 52.5,
+            "price": -115
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "0993581f0f1861095ef3ee3b9b84ddbc",
+        "sport": "ncaa-football",
+        "homeTeam": "UNLV Rebels",
+        "awayTeam": "Utah State Aggies",
+        "commenceTime": "2025-11-16T00:00:00Z",
+        "odds": {
+          "UNLV Rebels_moneyline": -220,
+          "Utah State Aggies_moneyline": 180,
+          "UNLV Rebels_spread": {
+            "line": -5.5,
+            "price": -110
+          },
+          "Utah State Aggies_spread": {
+            "line": 5.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 69.5,
+            "price": -115
+          },
+          "Under_total": {
+            "line": 69.5,
+            "price": -105
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "115a258be837f0ab18a9e2c4482f49db",
+        "sport": "ncaa-football",
+        "homeTeam": "Florida State Seminoles",
+        "awayTeam": "Virginia Tech Hokies",
+        "commenceTime": "2025-11-16T00:30:00Z",
+        "odds": {
+          "Florida State Seminoles_moneyline": -430,
+          "Virginia Tech Hokies_moneyline": 330,
+          "Florida State Seminoles_spread": {
+            "line": -10.5,
+            "price": -110
+          },
+          "Virginia Tech Hokies_spread": {
+            "line": 10.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 54.5,
+            "price": -105
+          },
+          "Under_total": {
+            "line": 54.5,
+            "price": -115
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "d4c6b7b779184709320894b0023e17e5",
+        "sport": "ncaa-football",
+        "homeTeam": "Ohio State Buckeyes",
+        "awayTeam": "UCLA Bruins",
+        "commenceTime": "2025-11-16T00:30:00Z",
+        "odds": {
+          "Ohio State Buckeyes_moneyline": -10000,
+          "UCLA Bruins_moneyline": 3000,
+          "Ohio State Buckeyes_spread": {
+            "line": -31.5,
+            "price": -110
+          },
+          "UCLA Bruins_spread": {
+            "line": 31.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 48.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 48.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "36766ef9e4777301de083b914263ee45",
+        "sport": "ncaa-football",
+        "homeTeam": "Missouri Tigers",
+        "awayTeam": "Mississippi State Bulldogs",
+        "commenceTime": "2025-11-16T00:45:00Z",
+        "odds": {
+          "Mississippi State Bulldogs_moneyline": 202,
+          "Missouri Tigers_moneyline": -250,
+          "Mississippi State Bulldogs_spread": {
+            "line": 6.5,
+            "price": -105
+          },
+          "Missouri Tigers_spread": {
+            "line": -6.5,
+            "price": -115
+          },
+          "Over_total": {
+            "line": 51.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 51.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "5a69d6f97264110b3e44ca131dff9f59",
+        "sport": "ncaa-football",
+        "homeTeam": "Jacksonville State Gamecocks",
+        "awayTeam": "Kennesaw State Owls",
+        "commenceTime": "2025-11-16T01:00:00Z",
+        "odds": {
+          "Jacksonville State Gamecocks_spread": {
+            "line": 2.5,
+            "price": -110
+          },
+          "Kennesaw State Owls_spread": {
+            "line": -2.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "d5d10c3a94ad4b0229842951f8a32115",
+        "sport": "ncaa-football",
+        "homeTeam": "Washington State Cougars",
+        "awayTeam": "Louisiana Tech Bulldogs",
+        "commenceTime": "2025-11-16T03:00:00Z",
+        "odds": {
+          "Louisiana Tech Bulldogs_spread": {
+            "line": 4.5,
+            "price": -110
+          },
+          "Washington State Cougars_spread": {
+            "line": -4.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "24d287473010335df59c46edbc012292",
+        "sport": "ncaa-football",
+        "homeTeam": "BYU Cougars",
+        "awayTeam": "TCU Horned Frogs",
+        "commenceTime": "2025-11-16T03:15:00Z",
+        "odds": {
+          "BYU Cougars_moneyline": -225,
+          "TCU Horned Frogs_moneyline": 185,
+          "BYU Cougars_spread": {
+            "line": -5.5,
+            "price": -110
+          },
+          "TCU Horned Frogs_spread": {
+            "line": 5.5,
+            "price": -110
+          },
+          "Over_total": {
+            "line": 51.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 51.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "5ad9e266182c9aa66d0763532db6b37b",
+        "sport": "ncaa-football",
+        "homeTeam": "Fresno State Bulldogs",
+        "awayTeam": "Wyoming Cowboys",
+        "commenceTime": "2025-11-16T03:30:00Z",
+        "odds": {
+          "Fresno State Bulldogs_moneyline": -194,
+          "Wyoming Cowboys_moneyline": 160,
+          "Fresno State Bulldogs_spread": {
+            "line": -4.5,
+            "price": -110
+          },
+          "Wyoming Cowboys_spread": {
             "line": 4.5,
             "price": -110
           },
           "Over_total": {
-            "line": 46.5,
-            "price": -118
+            "line": 39.5,
+            "price": -110
           },
           "Under_total": {
-            "line": 46.5,
-            "price": -102
+            "line": 39.5,
+            "price": -110
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "181186b4a0b636da7b07c536fafebdfa",
+        "sport": "ncaa-football",
+        "homeTeam": "San Diego State Aztecs",
+        "awayTeam": "Boise State Broncos",
+        "commenceTime": "2025-11-16T03:31:00Z",
+        "odds": {
+          "Boise State Broncos_moneyline": 116,
+          "San Diego State Aztecs_moneyline": -140,
+          "Boise State Broncos_spread": {
+            "line": 2.5,
+            "price": -104
+          },
+          "San Diego State Aztecs_spread": {
+            "line": -2.5,
+            "price": -118
+          },
+          "Over_total": {
+            "line": 41.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 41.5,
+            "price": -110
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      }
+    ],
+    "nfl": [
+      {
+        "id": "39e7c1f6e36d5bc4d2613ebf7bb83c10",
+        "sport": "nfl",
+        "homeTeam": "Tampa Bay Buccaneers",
+        "awayTeam": "New England Patriots",
+        "commenceTime": "2025-11-09T18:02:16Z",
+        "odds": {
+          "New England Patriots_moneyline": -130,
+          "Tampa Bay Buccaneers_moneyline": 100,
+          "New England Patriots_spread": {
+            "line": -1.5,
+            "price": -105
+          },
+          "Tampa Bay Buccaneers_spread": {
+            "line": 1.5,
+            "price": -125
+          },
+          "Over_total": {
+            "line": 48.5,
+            "price": -110
+          },
+          "Under_total": {
+            "line": 48.5,
+            "price": -120
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
       },
       {
         "id": "844b89333f293f055f8e0c147fb9fec5",
         "sport": "nfl",
         "homeTeam": "New York Jets",
         "awayTeam": "Cleveland Browns",
-        "commenceTime": "2025-11-09T18:00:00Z",
+        "commenceTime": "2025-11-09T18:02:35Z",
         "odds": {
-          "Cleveland Browns_moneyline": -130,
-          "New York Jets_moneyline": 110,
+          "Cleveland Browns_moneyline": 175,
+          "New York Jets_moneyline": -230,
           "Cleveland Browns_spread": {
-            "line": -1.5,
+            "line": 4.5,
             "price": -115
           },
           "New York Jets_spread": {
-            "line": 1.5,
-            "price": -105
+            "line": -4.5,
+            "price": -115
+          },
+          "Over_total": {
+            "line": 50.5,
+            "price": -115
+          },
+          "Under_total": {
+            "line": 50.5,
+            "price": -115
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "21f47a328fb2ab65c01360a7a2bd9571",
+        "sport": "nfl",
+        "homeTeam": "Carolina Panthers",
+        "awayTeam": "New Orleans Saints",
+        "commenceTime": "2025-11-09T18:02:43Z",
+        "odds": {
+          "Carolina Panthers_moneyline": -395,
+          "New Orleans Saints_moneyline": 280,
+          "Carolina Panthers_spread": {
+            "line": -6.5,
+            "price": -120
+          },
+          "New Orleans Saints_spread": {
+            "line": 6.5,
+            "price": -110
           },
           "Over_total": {
             "line": 37.5,
-            "price": -110
+            "price": -105
           },
           "Under_total": {
             "line": 37.5,
+            "price": -125
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "9900b89c4776c5b47dd26ca4c755edf9",
+        "sport": "nfl",
+        "homeTeam": "Minnesota Vikings",
+        "awayTeam": "Baltimore Ravens",
+        "commenceTime": "2025-11-09T18:02:49Z",
+        "odds": {
+          "Baltimore Ravens_moneyline": 120,
+          "Minnesota Vikings_moneyline": -154,
+          "Baltimore Ravens_spread": {
+            "line": 2.5,
+            "price": -105
+          },
+          "Minnesota Vikings_spread": {
+            "line": -2.5,
+            "price": -125
+          },
+          "Over_total": {
+            "line": 48.5,
+            "price": -115
+          },
+          "Under_total": {
+            "line": 48.5,
+            "price": -115
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "3c10bc18680995136017c3bfd3152334",
+        "sport": "nfl",
+        "homeTeam": "Miami Dolphins",
+        "awayTeam": "Buffalo Bills",
+        "commenceTime": "2025-11-09T18:03:02Z",
+        "odds": {
+          "Buffalo Bills_moneyline": -115,
+          "Miami Dolphins_moneyline": -115,
+          "Buffalo Bills_spread": {
+            "line": 1.5,
+            "price": -125
+          },
+          "Miami Dolphins_spread": {
+            "line": -1.5,
+            "price": -105
+          },
+          "Over_total": {
+            "line": 52.5,
+            "price": -120
+          },
+          "Under_total": {
+            "line": 52.5,
             "price": -110
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
+      },
+      {
+        "id": "3b1a97366685a96e6e1940ae56cc4d31",
+        "sport": "nfl",
+        "homeTeam": "Chicago Bears",
+        "awayTeam": "New York Giants",
+        "commenceTime": "2025-11-09T18:03:06Z",
+        "odds": {
+          "Chicago Bears_moneyline": -195,
+          "New York Giants_moneyline": 150,
+          "Chicago Bears_spread": {
+            "line": -3.5,
+            "price": -105
+          },
+          "New York Giants_spread": {
+            "line": 3.5,
+            "price": -125
+          },
+          "Over_total": {
+            "line": 45.5,
+            "price": -115
+          },
+          "Under_total": {
+            "line": 45.5,
+            "price": -115
+          }
+        },
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
       },
       {
         "id": "9dbf94f23521c7cae7fd89b2d33fc3bd",
         "sport": "nfl",
         "homeTeam": "Houston Texans",
         "awayTeam": "Jacksonville Jaguars",
-        "commenceTime": "2025-11-09T18:00:00Z",
+        "commenceTime": "2025-11-09T18:03:20Z",
         "odds": {
-          "Houston Texans_moneyline": -105,
-          "Jacksonville Jaguars_moneyline": -115,
+          "Houston Texans_moneyline": 370,
+          "Jacksonville Jaguars_moneyline": -560,
           "Houston Texans_spread": {
-            "line": 1.5,
-            "price": -120
+            "line": 9.5,
+            "price": -110
           },
           "Jacksonville Jaguars_spread": {
-            "line": -1.5,
-            "price": 100
+            "line": -9.5,
+            "price": -120
           },
           "Over_total": {
             "line": 37.5,
-            "price": -108
-          },
-          "Under_total": {
-            "line": 37.5,
-            "price": -112
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "39e7c1f6e36d5bc4d2613ebf7bb83c10",
-        "sport": "nfl",
-        "homeTeam": "Tampa Bay Buccaneers",
-        "awayTeam": "New England Patriots",
-        "commenceTime": "2025-11-09T18:00:00Z",
-        "odds": {
-          "New England Patriots_moneyline": 124,
-          "Tampa Bay Buccaneers_moneyline": -148,
-          "New England Patriots_spread": {
-            "line": 2.5,
-            "price": -110
-          },
-          "Tampa Bay Buccaneers_spread": {
-            "line": -2.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 48.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 48.5,
             "price": -105
+          },
+          "Under_total": {
+            "line": 37.5,
+            "price": -125
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
       },
       {
         "id": "740b843794cc89176c4ffe38b66d30d9",
@@ -3535,26 +2803,26 @@
         "awayTeam": "Arizona Cardinals",
         "commenceTime": "2025-11-09T21:05:00Z",
         "odds": {
-          "Arizona Cardinals_moneyline": 250,
-          "Seattle Seahawks_moneyline": -310,
+          "Arizona Cardinals_moneyline": 270,
+          "Seattle Seahawks_moneyline": -340,
           "Arizona Cardinals_spread": {
-            "line": 6.5,
-            "price": 100
-          },
-          "Seattle Seahawks_spread": {
-            "line": -6.5,
-            "price": -120
-          },
-          "Over_total": {
-            "line": 45.5,
+            "line": 7,
             "price": -115
           },
-          "Under_total": {
-            "line": 45.5,
+          "Seattle Seahawks_spread": {
+            "line": -7,
             "price": -105
+          },
+          "Over_total": {
+            "line": 44.5,
+            "price": -118
+          },
+          "Under_total": {
+            "line": 44.5,
+            "price": -102
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
       },
       {
         "id": "93365f943b3aa23705bc9e1c7b47d7f8",
@@ -3563,15 +2831,15 @@
         "awayTeam": "Detroit Lions",
         "commenceTime": "2025-11-09T21:25:00Z",
         "odds": {
-          "Detroit Lions_moneyline": -470,
-          "Washington Commanders_moneyline": 360,
+          "Detroit Lions_moneyline": -455,
+          "Washington Commanders_moneyline": 350,
           "Detroit Lions_spread": {
             "line": -8.5,
-            "price": -112
+            "price": -105
           },
           "Washington Commanders_spread": {
             "line": 8.5,
-            "price": -108
+            "price": -115
           },
           "Over_total": {
             "line": 49.5,
@@ -3582,7 +2850,7 @@
             "price": -112
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
       },
       {
         "id": "2710103fe4fb0170ae03b4e34bde8132",
@@ -3591,15 +2859,15 @@
         "awayTeam": "Los Angeles Rams",
         "commenceTime": "2025-11-09T21:25:00Z",
         "odds": {
-          "Los Angeles Rams_moneyline": -258,
-          "San Francisco 49ers_moneyline": 210,
+          "Los Angeles Rams_moneyline": -250,
+          "San Francisco 49ers_moneyline": 205,
           "Los Angeles Rams_spread": {
-            "line": -6,
-            "price": -108
+            "line": -5.5,
+            "price": -115
           },
           "San Francisco 49ers_spread": {
-            "line": 6,
-            "price": -112
+            "line": 5.5,
+            "price": -105
           },
           "Over_total": {
             "line": 49.5,
@@ -3610,7 +2878,7 @@
             "price": -110
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
       },
       {
         "id": "349d53a4f89591312ea528e81b786474",
@@ -3619,15 +2887,15 @@
         "awayTeam": "Pittsburgh Steelers",
         "commenceTime": "2025-11-10T01:20:00Z",
         "odds": {
-          "Los Angeles Chargers_moneyline": -162,
-          "Pittsburgh Steelers_moneyline": 136,
+          "Los Angeles Chargers_moneyline": -155,
+          "Pittsburgh Steelers_moneyline": 130,
           "Los Angeles Chargers_spread": {
             "line": -3,
-            "price": -105
+            "price": -102
           },
           "Pittsburgh Steelers_spread": {
             "line": 3,
-            "price": -115
+            "price": -118
           },
           "Over_total": {
             "line": 45.5,
@@ -3638,7 +2906,7 @@
             "price": -115
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
       },
       {
         "id": "438868ff90501a1fe9a0fbecbee9dc12",
@@ -3647,15 +2915,15 @@
         "awayTeam": "Philadelphia Eagles",
         "commenceTime": "2025-11-11T01:15:00Z",
         "odds": {
-          "Green Bay Packers_moneyline": -122,
-          "Philadelphia Eagles_moneyline": 102,
+          "Green Bay Packers_moneyline": -118,
+          "Philadelphia Eagles_moneyline": -102,
           "Green Bay Packers_spread": {
             "line": -1.5,
-            "price": -108
+            "price": -102
           },
           "Philadelphia Eagles_spread": {
             "line": 1.5,
-            "price": -112
+            "price": -118
           },
           "Over_total": {
             "line": 45.5,
@@ -3666,427 +2934,7 @@
             "price": -108
           }
         },
-        "lastUpdated": "2025-11-08T18:55:35.771Z"
-      },
-      {
-        "id": "32ec2bd4ac9e4c40f9f5cbed7e67f837",
-        "sport": "nfl",
-        "homeTeam": "New England Patriots",
-        "awayTeam": "New York Jets",
-        "commenceTime": "2025-11-14T01:15:00Z",
-        "odds": {
-          "New England Patriots_moneyline": -575,
-          "New York Jets_moneyline": 425,
-          "New England Patriots_spread": {
-            "line": -10.5,
-            "price": -115
-          },
-          "New York Jets_spread": {
-            "line": 10.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 46.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 46.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.772Z"
-      },
-      {
-        "id": "265f0188945bb81ec64751571eb724cb",
-        "sport": "nfl",
-        "homeTeam": "Miami Dolphins",
-        "awayTeam": "Washington Commanders",
-        "commenceTime": "2025-11-16T14:30:00Z",
-        "odds": {
-          "Miami Dolphins_moneyline": 105,
-          "Washington Commanders_moneyline": -125,
-          "Miami Dolphins_spread": {
-            "line": 1.5,
-            "price": -110
-          },
-          "Washington Commanders_spread": {
-            "line": -1.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 46.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 46.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.772Z"
-      },
-      {
-        "id": "0ae85bbc3711ad0cb94475a40e2364f0",
-        "sport": "nfl",
-        "homeTeam": "Atlanta Falcons",
-        "awayTeam": "Carolina Panthers",
-        "commenceTime": "2025-11-16T18:00:00Z",
-        "odds": {
-          "Atlanta Falcons_moneyline": -180,
-          "Carolina Panthers_moneyline": 150,
-          "Atlanta Falcons_spread": {
-            "line": -3.5,
-            "price": -105
-          },
-          "Carolina Panthers_spread": {
-            "line": 3.5,
-            "price": -115
-          },
-          "Over_total": {
-            "line": 44.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 44.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.772Z"
-      },
-      {
-        "id": "96377d2fb55e3cef733cecccdecaed5f",
-        "sport": "nfl",
-        "homeTeam": "Buffalo Bills",
-        "awayTeam": "Tampa Bay Buccaneers",
-        "commenceTime": "2025-11-16T18:00:00Z",
-        "odds": {
-          "Buffalo Bills_moneyline": -265,
-          "Tampa Bay Buccaneers_moneyline": 215,
-          "Buffalo Bills_spread": {
-            "line": -6,
-            "price": -110
-          },
-          "Tampa Bay Buccaneers_spread": {
-            "line": 6,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 50.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 50.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.772Z"
-      },
-      {
-        "id": "229a5e9ce60dcb344a8cc3c97121154e",
-        "sport": "nfl",
-        "homeTeam": "Minnesota Vikings",
-        "awayTeam": "Chicago Bears",
-        "commenceTime": "2025-11-16T18:00:00Z",
-        "odds": {
-          "Chicago Bears_moneyline": 136,
-          "Minnesota Vikings_moneyline": -162,
-          "Chicago Bears_spread": {
-            "line": 3,
-            "price": -115
-          },
-          "Minnesota Vikings_spread": {
-            "line": -3,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 46.5,
-            "price": -115
-          },
-          "Under_total": {
-            "line": 46.5,
-            "price": -105
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.772Z"
-      },
-      {
-        "id": "7147476b5d96c0ee874b838de3910ee3",
-        "sport": "nfl",
-        "homeTeam": "Pittsburgh Steelers",
-        "awayTeam": "Cincinnati Bengals",
-        "commenceTime": "2025-11-16T18:00:00Z",
-        "odds": {
-          "Cincinnati Bengals_moneyline": 200,
-          "Pittsburgh Steelers_moneyline": -245,
-          "Cincinnati Bengals_spread": {
-            "line": 5.5,
-            "price": -108
-          },
-          "Pittsburgh Steelers_spread": {
-            "line": -5.5,
-            "price": -112
-          },
-          "Over_total": {
-            "line": 49.5,
-            "price": -118
-          },
-          "Under_total": {
-            "line": 49.5,
-            "price": -102
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.772Z"
-      },
-      {
-        "id": "5c06e82838fcfade9adf1e89b8bd3081",
-        "sport": "nfl",
-        "homeTeam": "New York Giants",
-        "awayTeam": "Green Bay Packers",
-        "commenceTime": "2025-11-16T18:00:00Z",
-        "odds": {
-          "Green Bay Packers_moneyline": -325,
-          "New York Giants_moneyline": 260,
-          "Green Bay Packers_spread": {
-            "line": -7,
-            "price": -110
-          },
-          "New York Giants_spread": {
-            "line": 7,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 46.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 46.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.772Z"
-      },
-      {
-        "id": "fd2f29289d6437a7c07d4780c5f04936",
-        "sport": "nfl",
-        "homeTeam": "Tennessee Titans",
-        "awayTeam": "Houston Texans",
-        "commenceTime": "2025-11-16T18:00:00Z",
-        "odds": {
-          "Houston Texans_moneyline": -340,
-          "Tennessee Titans_moneyline": 270,
-          "Houston Texans_spread": {
-            "line": -7.5,
-            "price": -105
-          },
-          "Tennessee Titans_spread": {
-            "line": 7.5,
-            "price": -115
-          },
-          "Over_total": {
-            "line": 38.5,
-            "price": -105
-          },
-          "Under_total": {
-            "line": 38.5,
-            "price": -115
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.772Z"
-      },
-      {
-        "id": "591fd7cff37201a14cbdfbd457592445",
-        "sport": "nfl",
-        "homeTeam": "Jacksonville Jaguars",
-        "awayTeam": "Los Angeles Chargers",
-        "commenceTime": "2025-11-16T18:00:00Z",
-        "odds": {
-          "Jacksonville Jaguars_moneyline": 105,
-          "Los Angeles Chargers_moneyline": -125,
-          "Jacksonville Jaguars_spread": {
-            "line": 1.5,
-            "price": -110
-          },
-          "Los Angeles Chargers_spread": {
-            "line": -1.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 45.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 45.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.772Z"
-      },
-      {
-        "id": "91630b9c62640117918fa30d2a62d2db",
-        "sport": "nfl",
-        "homeTeam": "Arizona Cardinals",
-        "awayTeam": "San Francisco 49ers",
-        "commenceTime": "2025-11-16T21:05:00Z",
-        "odds": {
-          "Arizona Cardinals_moneyline": 105,
-          "San Francisco 49ers_moneyline": -125,
-          "Arizona Cardinals_spread": {
-            "line": 1.5,
-            "price": -110
-          },
-          "San Francisco 49ers_spread": {
-            "line": -1.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 47.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 47.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.772Z"
-      },
-      {
-        "id": "e926e654cedeb65fcfcc389a5158ef4e",
-        "sport": "nfl",
-        "homeTeam": "Los Angeles Rams",
-        "awayTeam": "Seattle Seahawks",
-        "commenceTime": "2025-11-16T21:05:00Z",
-        "odds": {
-          "Los Angeles Rams_moneyline": -142,
-          "Seattle Seahawks_moneyline": 120,
-          "Los Angeles Rams_spread": {
-            "line": -2.5,
-            "price": -110
-          },
-          "Seattle Seahawks_spread": {
-            "line": 2.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 47.5,
-            "price": -102
-          },
-          "Under_total": {
-            "line": 47.5,
-            "price": -118
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.772Z"
-      },
-      {
-        "id": "cc60225b5a907bd9ba7c27c23131fc5c",
-        "sport": "nfl",
-        "homeTeam": "Cleveland Browns",
-        "awayTeam": "Baltimore Ravens",
-        "commenceTime": "2025-11-16T21:25:00Z",
-        "odds": {
-          "Baltimore Ravens_moneyline": -380,
-          "Cleveland Browns_moneyline": 300,
-          "Baltimore Ravens_spread": {
-            "line": -7.5,
-            "price": -115
-          },
-          "Cleveland Browns_spread": {
-            "line": 7.5,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 41.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 41.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.772Z"
-      },
-      {
-        "id": "96ce7785b0980b03282c7e10d4c58d4a",
-        "sport": "nfl",
-        "homeTeam": "Denver Broncos",
-        "awayTeam": "Kansas City Chiefs",
-        "commenceTime": "2025-11-16T21:25:00Z",
-        "odds": {
-          "Denver Broncos_moneyline": 142,
-          "Kansas City Chiefs_moneyline": -170,
-          "Denver Broncos_spread": {
-            "line": 3,
-            "price": 100
-          },
-          "Kansas City Chiefs_spread": {
-            "line": -3,
-            "price": -120
-          },
-          "Over_total": {
-            "line": 43.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 43.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.772Z"
-      },
-      {
-        "id": "6d209e0e637f3b116ec958e0634f2a02",
-        "sport": "nfl",
-        "homeTeam": "Philadelphia Eagles",
-        "awayTeam": "Detroit Lions",
-        "commenceTime": "2025-11-17T01:20:00Z",
-        "odds": {
-          "Detroit Lions_moneyline": 105,
-          "Philadelphia Eagles_moneyline": -125,
-          "Detroit Lions_spread": {
-            "line": 1.5,
-            "price": -110
-          },
-          "Philadelphia Eagles_spread": {
-            "line": -1.5,
-            "price": -110
-          },
-          "Over_total": {
-            "line": 49.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 49.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.772Z"
-      },
-      {
-        "id": "80d04ba917883a6438580ebae9fb0f22",
-        "sport": "nfl",
-        "homeTeam": "Las Vegas Raiders",
-        "awayTeam": "Dallas Cowboys",
-        "commenceTime": "2025-11-18T01:15:00Z",
-        "odds": {
-          "Dallas Cowboys_moneyline": -170,
-          "Las Vegas Raiders_moneyline": 142,
-          "Dallas Cowboys_spread": {
-            "line": -3,
-            "price": -115
-          },
-          "Las Vegas Raiders_spread": {
-            "line": 3,
-            "price": -105
-          },
-          "Over_total": {
-            "line": 49.5,
-            "price": -110
-          },
-          "Under_total": {
-            "line": 49.5,
-            "price": -110
-          }
-        },
-        "lastUpdated": "2025-11-08T18:55:35.772Z"
+        "lastUpdated": "2025-11-09T18:46:33.426Z"
       }
     ]
   }
