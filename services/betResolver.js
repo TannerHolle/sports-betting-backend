@@ -14,7 +14,7 @@ class BetResolver {
     return `${year}${month}${day}`;
   }
 
-  async getLiveGameData(gameId, sport = 'nba') {
+  async getLiveGameData(gameId, sport = '') {
     try {
       let apiUrl;
       const currentDate = new Date();
@@ -115,7 +115,7 @@ class BetResolver {
 
     const betsByGame = {};
     for (const bet of pendingBets) {
-      if (!betsByGame[bet.gameId]) betsByGame[bet.gameId] = { sport: bet.sport || 'nba', bets: [] };
+      if (!betsByGame[bet.gameId]) betsByGame[bet.gameId] = { sport: bet.sport || '', bets: [] };
       betsByGame[bet.gameId].bets.push(bet);
     }
 
@@ -153,7 +153,7 @@ class BetResolver {
     }
   }
 
-  startAutoResolution(intervalMinutes = 5) {
+  startAutoResolution(intervalMinutes = 1) {
     this.processAllPendingBets();
     this.resolutionInterval = setInterval(() => {
       this.processAllPendingBets();
