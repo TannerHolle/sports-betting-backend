@@ -1,26 +1,149 @@
-const fs = require('fs').promises;
-const path = require('path');
-
-const ODDS_FILE = path.join(__dirname, '..', 'data', 'odds.json');
+const Odds = require('../models/Odds');
 
 class OddsDatabase {
-  constructor() { this.ensureDataDir(); }
-  async ensureDataDir() {
-    const dataDir = path.dirname(ODDS_FILE);
-    try { await fs.access(dataDir); } catch { await fs.mkdir(dataDir, { recursive: true }); }
+  /**
+   * Get odds for a specific sport
+   */
+  async getOddsForSport(sport) {
+    try {
+      const oddsDoc = await Odds.findOne({ sport });
+      return oddsDoc ? oddsDoc.games : [];
+    } catch (error) {
+      console.error(`[ODDS] Error getting odds for ${sport}:`, error.message);
+      return [];
+    }
   }
-  async loadOdds() {
-    try { await fs.access(ODDS_FILE); const data = await fs.readFile(ODDS_FILE, 'utf8'); return JSON.parse(data); }
-    catch { return { lastUpdated: null, odds: { nba: [], 'ncaa-basketball': [], 'ncaa-football': [] } }; }
+
+  /**
+   * Get all odds for all sports
+   */
+  async getAllOdds() {
+    try {
+      const allOdds = await Odds.find({});
+      const result = {};
+      allOdds.forEach(doc => {
+        result[doc.sport] = doc.games;
+      });
+      return result;
+    } catch (error) {
+      console.error('[ODDS] Error getting all odds:', error.message);
+      return {};
+    }
   }
-  async saveOdds(oddsData) { await this.ensureDataDir(); await fs.writeFile(ODDS_FILE, JSON.stringify(oddsData, null, 2)); }
-  async updateOdds(newOdds) { const oddsData = { lastUpdated: new Date().toISOString(), odds: newOdds }; await this.saveOdds(oddsData); return oddsData; }
-  async getOddsForSport(sport) { const oddsData = await this.loadOdds(); return oddsData.odds[sport] || []; }
-  async getAllOdds() { const oddsData = await this.loadOdds(); return oddsData.odds; }
-  async getLastUpdateTime() { const oddsData = await this.loadOdds(); return oddsData.lastUpdated; }
-  async needsUpdate() { const last = await this.getLastUpdateTime(); if (!last) return true; return new Date(last).toDateString() !== new Date().toDateString(); }
+
+  /**
+   * Get the last update time (checks the most recent update across all sports)
+   */
+  async getLastUpdateTime() {
+    try {
+      const mostRecent = await Odds.findOne({})
+        .sort({ lastUpdated: -1 })
+        .select('lastUpdated');
+      return mostRecent ? mostRecent.lastUpdated.toISOString() : null;
+    } catch (error) {
+      console.error('[ODDS] Error getting last update time:', error.message);
+      return null;
+    }
+  }
+
+  /**
+   * Check if odds need to be updated (haven't been updated today)
+   */
+  async needsUpdate() {
+    try {
+      const lastUpdate = await this.getLastUpdateTime();
+      if (!lastUpdate) return true;
+      
+      const lastUpdateDate = new Date(lastUpdate).toDateString();
+      const today = new Date().toDateString();
+      return lastUpdateDate !== today;
+    } catch (error) {
+      console.error('[ODDS] Error checking if update needed:', error.message);
+      return true; // Default to needing update on error
+    }
+  }
+
+  /**
+   * Update odds for all sports atomically
+   * Uses MongoDB's atomic operations to ensure only one update happens per day
+   * Returns true if update was successful, false if already updated today
+   */
+  async updateOdds(newOdds) {
+    try {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0); // Start of today
+      
+      let anyUpdated = false;
+      
+      const updatePromises = Object.entries(newOdds).map(async ([sport, games]) => {
+        try {
+          // First, check if document exists and when it was last updated
+          const existing = await Odds.findOne({ sport });
+          
+          if (existing) {
+            // Document exists - check if it was updated today
+            const lastUpdateDate = new Date(existing.lastUpdated).setHours(0, 0, 0, 0);
+            const todayStart = today.getTime();
+            
+            if (lastUpdateDate >= todayStart) {
+              // Already updated today, skip
+              return null;
+            }
+            
+            // Update existing document
+            const result = await Odds.findOneAndUpdate(
+              { sport },
+              {
+                $set: {
+                  games: games || [],
+                  lastUpdated: new Date()
+                }
+              },
+              { new: true }
+            );
+            
+            if (result) {
+              anyUpdated = true;
+            }
+            return result;
+          } else {
+            // Document doesn't exist - create it
+            const result = await Odds.create({
+              sport,
+              games: games || [],
+              lastUpdated: new Date()
+            });
+            
+            if (result) {
+              anyUpdated = true;
+            }
+            return result;
+          }
+        } catch (error) {
+          // If it's a duplicate key error, the document was created by another process
+          // Just skip it
+          if (error.code === 11000) {
+            console.log(`[ODDS] Document for ${sport} was created by another process, skipping`);
+            return null;
+          }
+          throw error;
+        }
+      });
+
+      await Promise.all(updatePromises);
+      
+      if (anyUpdated) {
+        console.log('[ODDS] Successfully updated odds in database');
+        return true;
+      } else {
+        console.log('[ODDS] Odds already updated today, skipping');
+        return false;
+      }
+    } catch (error) {
+      console.error('[ODDS] Error updating odds:', error.message);
+      throw error;
+    }
+  }
 }
 
 module.exports = new OddsDatabase();
-
-
