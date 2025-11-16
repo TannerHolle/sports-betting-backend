@@ -72,6 +72,7 @@ class BetResolver {
     const totalPoints = homeScore + awayScore;
 
     let betWon = false;
+    let spreadResult = null; // Used to track pushes
     switch (bet.betType) {
       case 'moneyline':
         if (this.teamNamesMatch(bet.selection, homeTeamName)) betWon = homeWon;
@@ -83,21 +84,50 @@ class BetResolver {
         // For spread bets: (teamScore + spreadLine) > opponentScore
         // Negative spread (favorite) means they must win by more than |spreadLine|
         // Positive spread (underdog) means they win if they lose by less than spreadLine or win
-        if (this.teamNamesMatch(bet.selection, homeTeamName)) betWon = (homeScore + spreadLine) > awayScore;
-        else if (this.teamNamesMatch(bet.selection, awayTeamName)) betWon = (awayScore + spreadLine) > homeScore;
+        // If (teamScore + spreadLine) === opponentScore, it's a push
+        let spreadResult;
+        if (this.teamNamesMatch(bet.selection, homeTeamName)) {
+          const adjustedScore = homeScore + spreadLine;
+          if (adjustedScore === awayScore) {
+            spreadResult = 'push';
+          } else {
+            betWon = adjustedScore > awayScore;
+          }
+        } else if (this.teamNamesMatch(bet.selection, awayTeamName)) {
+          const adjustedScore = awayScore + spreadLine;
+          if (adjustedScore === homeScore) {
+            spreadResult = 'push';
+          } else {
+            betWon = adjustedScore > homeScore;
+          }
+        }
         break;
       case 'total':
         const totalLine = this.extractLine(bet);
         if (totalLine === null) return null;
-        if (bet.selection === 'Over') betWon = totalPoints > totalLine;
-        else if (bet.selection === 'Under') betWon = totalPoints < totalLine;
+        // If total equals the line exactly, it's a push
+        if (totalPoints === totalLine) {
+          spreadResult = 'push';
+        } else if (bet.selection === 'Over') {
+          betWon = totalPoints > totalLine;
+        } else if (bet.selection === 'Under') {
+          betWon = totalPoints < totalLine;
+        }
         break;
       default:
         return null;
     }
 
+    // Determine final status: push takes precedence, then won/lost
+    let finalStatus;
+    if (spreadResult === 'push') {
+      finalStatus = 'push';
+    } else {
+      finalStatus = betWon ? 'won' : 'lost';
+    }
+
     return {
-      status: betWon ? 'won' : 'lost',
+      status: finalStatus,
       actualResult: {
         homeTeam: homeTeamName,
         awayTeam: awayTeamName,
@@ -183,6 +213,10 @@ class BetResolver {
             user.balance += bet.amount + bet.potentialWin;
             user.totalWon += bet.potentialWin;
             console.log(`      🎉 Bet WON: ${user.username} earned $${bet.potentialWin.toFixed(2)}`);
+          } else if (outcome.status === 'push') {
+            // Push: return the bet amount, no win or loss
+            user.balance += bet.amount;
+            console.log(`      ⚖️  Bet PUSH: ${user.username} received $${bet.amount.toFixed(2)} back`);
           } else {
             user.totalLost += bet.amount;
             console.log(`      ❌ Bet LOST: ${user.username} lost $${bet.amount.toFixed(2)}`);

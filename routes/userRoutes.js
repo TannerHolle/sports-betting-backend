@@ -203,6 +203,8 @@ router.put('/:username/bet/:betId', async (req, res) => {
       const totalWinnings = bet.amount + bet.potentialWin;
       user.balance += totalWinnings;
       user.totalWon += bet.potentialWin;
+    } else if (status === 'push') {
+      user.balance += bet.amount;
     } else if (status === 'lost') {
       user.totalLost += bet.amount;
     }

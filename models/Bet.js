@@ -10,7 +10,7 @@ const betSchema = new mongoose.Schema({
   line: { type: String, default: null },
   potentialWin: { type: Number, required: true, min: 0 },
   sport: { type: String, default: null },
-  status: { type: String, enum: ['pending', 'won', 'lost'], default: 'pending' },
+  status: { type: String, enum: ['pending', 'won', 'lost', 'push'], default: 'pending' },
   gameData: { type: mongoose.Schema.Types.Mixed, default: null },
   actualResult: { type: mongoose.Schema.Types.Mixed, default: null },
   resolvedAt: { type: Date, default: null }
