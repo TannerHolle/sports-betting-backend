@@ -69,6 +69,70 @@ const fetchGameResults = async (sport, date) => {
   }
 };
 
+// Fetch games from ESPN for a date range
+const fetchGamesForDateRange = async (sport, startDate, endDate) => {
+  const allGames = [];
+  const currentDate = new Date(startDate);
+  
+  while (currentDate <= endDate) {
+    const games = await fetchGameResults(sport, currentDate);
+    allGames.push(...games);
+    
+    // Move to next day
+    currentDate.setDate(currentDate.getDate() + 1);
+    
+    // Small delay to avoid rate limiting
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+  
+  return allGames;
+};
+
+// Helper function to normalize team names for matching
+const normalizeTeamName = (name) => {
+  if (!name) return '';
+  return name.toLowerCase()
+    .replace(/[^a-z0-9]/g, '')
+    .replace(/\s+/g, '')
+    .replace(/^the/, ''); // Remove "the" prefix
+};
+
+// Helper function to match teams (fuzzy matching)
+const teamsMatch = (team1, team2) => {
+  if (!team1 || !team2) return false;
+  const norm1 = normalizeTeamName(team1);
+  const norm2 = normalizeTeamName(team2);
+  // Exact match
+  if (norm1 === norm2) return true;
+  // One contains the other (for cases like "Lakers" vs "Los Angeles Lakers")
+  if (norm1.includes(norm2) || norm2.includes(norm1)) return true;
+  // Check if they share a significant substring (at least 4 chars)
+  if (norm1.length >= 4 && norm2.length >= 4) {
+    for (let i = 0; i <= norm1.length - 4; i++) {
+      const substr = norm1.substring(i, i + 4);
+      if (norm2.includes(substr)) return true;
+    }
+  }
+  return false;
+};
+
+// Extract team names from ESPN game
+const extractESPNTeams = (espnGame) => {
+  const competition = espnGame.competitions?.[0];
+  const competitors = competition?.competitors || [];
+  const homeTeam = competitors.find(c => c.homeAway === 'home');
+  const awayTeam = competitors.find(c => c.homeAway === 'away');
+  
+  if (!homeTeam || !awayTeam) return null;
+  
+  return {
+    home: homeTeam.team?.shortDisplayName || homeTeam.team?.displayName || homeTeam.team?.name || '',
+    away: awayTeam.team?.shortDisplayName || awayTeam.team?.displayName || awayTeam.team?.name || '',
+    homeId: homeTeam.team?.id,
+    awayId: awayTeam.team?.id
+  };
+};
+
 // Extract odds from stored database format
 const extractOdds = (storedOdds, homeTeam, awayTeam) => {
   const odds = {
@@ -237,18 +301,67 @@ const processGame = async (sport, storedOddsGame, espnGame) => {
   }
 };
 
+// Find matching stored odds game for an ESPN game
+const findMatchingStoredOdds = (espnGame, storedOddsGames) => {
+  const espnId = String(espnGame.id);
+  const espnTeams = extractESPNTeams(espnGame);
+  if (!espnTeams) return null;
+
+  // First try by ID
+  let match = storedOddsGames.find(g => String(g.id) === espnId);
+  if (match) return match;
+
+  // Then try by team names (check both home/away and swapped)
+  for (const storedGame of storedOddsGames) {
+    const homeMatches = teamsMatch(storedGame.homeTeam, espnTeams.home) || teamsMatch(storedGame.homeTeam, espnTeams.away);
+    const awayMatches = teamsMatch(storedGame.awayTeam, espnTeams.away) || teamsMatch(storedGame.awayTeam, espnTeams.home);
+    
+    if (homeMatches && awayMatches) {
+      return storedGame;
+    }
+  }
+  
+  return null;
+};
+
+// Find matching ESPN game for stored odds
+const findMatchingESPNGame = (storedGame, espnGames) => {
+  const storedId = String(storedGame.id);
+  
+  // First try by ID
+  let match = espnGames.find(g => String(g.id) === storedId);
+  if (match) return match;
+
+  // Then try by team names
+  for (const espnGame of espnGames) {
+    const espnTeams = extractESPNTeams(espnGame);
+    if (!espnTeams) continue;
+    
+    const homeMatches = teamsMatch(storedGame.homeTeam, espnTeams.home) || teamsMatch(storedGame.homeTeam, espnTeams.away);
+    const awayMatches = teamsMatch(storedGame.awayTeam, espnTeams.away) || teamsMatch(storedGame.awayTeam, espnTeams.home);
+    
+    if (homeMatches && awayMatches) {
+      return espnGame;
+    }
+  }
+  
+  return null;
+};
+
 // Main processing function
 const processDailyGames = async (targetDate) => {
   if (targetDate) {
     console.log(`\n📅 Processing games for: ${targetDate.toDateString()}\n`);
   } else {
-    console.log(`\n📅 Processing all games in database\n`);
+    console.log(`\n📅 Processing all games - fetching comprehensive ESPN data\n`);
   }
 
   const sports = ['nba', 'nfl', 'ncaa-basketball', 'ncaa-football'];
   let totalProcessed = 0;
   let totalCreated = 0;
   let totalUpdated = 0;
+  let totalSkippedNoOdds = 0;
+  let totalSkippedNotCompleted = 0;
 
   for (const sport of sports) {
     console.log(`\n🏀 Processing ${sport}...`);
@@ -256,112 +369,95 @@ const processDailyGames = async (targetDate) => {
     try {
       // Fetch odds from database (already stored from daily updates)
       const storedOddsGames = await oddsDatabase.getOddsForSport(sport);
+      console.log(`  📊 Found ${storedOddsGames.length} games with odds in database`);
 
-      // Filter odds for target date (or process all if no target date)
-      let gamesForDate;
-      if (targetDate) {
-        const targetDateStr = formatDateForAPI(targetDate);
-        const targetYear = targetDate.getFullYear();
-        const targetMonth = targetDate.getMonth();
-        const targetDay = targetDate.getDate();
-        
-        gamesForDate = storedOddsGames.filter(game => {
-          if (!game.commenceTime) return false;
-          const gameDate = new Date(game.commenceTime);
-          // Compare by calendar date (year, month, day) regardless of timezone
-          return gameDate.getFullYear() === targetYear &&
-                 gameDate.getMonth() === targetMonth &&
-                 gameDate.getDate() === targetDay;
-        });
-
-      } else {
-        gamesForDate = storedOddsGames.filter(game => game.commenceTime);
+      if (storedOddsGames.length === 0) {
+        console.log(`  ⚠️  No odds found for ${sport}, skipping`);
+        continue;
       }
 
-      if (gamesForDate.length === 0) continue;
-
-      // Fetch results from ESPN
-      let espnGames = [];
+      // Determine date range for ESPN API fetching
+      let startDate, endDate;
       
       if (targetDate) {
-        espnGames = await fetchGameResults(sport, targetDate);
+        // Single date
+        startDate = new Date(targetDate);
+        endDate = new Date(targetDate);
       } else {
-        // Fetch for all unique dates in games
-        const uniqueDates = new Set();
-        gamesForDate.forEach(game => {
-          if (game.commenceTime) {
-            const gameDate = new Date(game.commenceTime);
-            uniqueDates.add(formatDateForAPI(gameDate));
-          }
-        });
+        // Find date range from stored odds (with buffer)
+        const dates = storedOddsGames
+          .filter(g => g.commenceTime)
+          .map(g => new Date(g.commenceTime));
         
-        for (const dateStr of uniqueDates) {
-          const year = parseInt(dateStr.substring(0, 4));
-          const month = parseInt(dateStr.substring(4, 6)) - 1;
-          const day = parseInt(dateStr.substring(6, 8));
-          const date = new Date(year, month, day);
-          const results = await fetchGameResults(sport, date);
-          espnGames.push(...results);
+        if (dates.length === 0) {
+          console.log(`  ⚠️  No games with dates found for ${sport}`);
+          continue;
+        }
+        
+        const minDate = new Date(Math.min(...dates));
+        const maxDate = new Date(Math.max(...dates));
+        
+        // Add buffer: 7 days before and 3 days after
+        startDate = new Date(minDate);
+        startDate.setDate(startDate.getDate() - 7);
+        
+        endDate = new Date(maxDate);
+        endDate.setDate(endDate.getDate() + 3);
+        
+        // Also check today and recent past (in case of missing data)
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const thirtyDaysAgo = new Date(today);
+        thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+        
+        if (startDate > thirtyDaysAgo) {
+          startDate = thirtyDaysAgo;
+        }
+        if (endDate < today) {
+          endDate = new Date(today);
+          endDate.setDate(endDate.getDate() + 1);
         }
       }
 
-      // Helper function to normalize team names for matching
-      const normalizeTeamName = (name) => {
-        return name.toLowerCase()
-          .replace(/[^a-z0-9]/g, '')
-          .replace(/\s+/g, '');
-      };
+      console.log(`  📡 Fetching ESPN games from ${startDate.toDateString()} to ${endDate.toDateString()}`);
+      
+      // Fetch ALL games from ESPN for the date range
+      const espnGames = await fetchGamesForDateRange(sport, startDate, endDate);
+      console.log(`  📡 Fetched ${espnGames.length} games from ESPN API`);
 
-      // Helper function to match teams (fuzzy matching)
-      const teamsMatch = (team1, team2) => {
-        const norm1 = normalizeTeamName(team1);
-        const norm2 = normalizeTeamName(team2);
-        // Exact match
-        if (norm1 === norm2) return true;
-        // One contains the other (for cases like "Lakers" vs "Los Angeles Lakers")
-        if (norm1.includes(norm2) || norm2.includes(norm1)) return true;
-        return false;
-      };
+      if (espnGames.length === 0) {
+        console.log(`  ⚠️  No ESPN games found for ${sport}`);
+        continue;
+      }
 
-      // Helper function to find matching ESPN game
-      const findMatchingESPNGame = (storedGame) => {
-        // First try by ID
-        let match = espnGames.find(g => String(g.id) === String(storedGame.id));
-        if (match) return match;
-
-        // Then try by team names
-        for (const espnGame of espnGames) {
-          const competition = espnGame.competitions?.[0];
-          const competitors = competition?.competitors || [];
-          const homeTeam = competitors.find(c => c.homeAway === 'home');
-          const awayTeam = competitors.find(c => c.homeAway === 'away');
-          
-          if (!homeTeam || !awayTeam) continue;
-          
-          const espnHome = homeTeam.team?.shortDisplayName || homeTeam.team?.displayName || '';
-          const espnAway = awayTeam.team?.shortDisplayName || awayTeam.team?.displayName || '';
-          
-          // Check if teams match (both home and away)
-          const homeMatches = teamsMatch(storedGame.homeTeam, espnHome) || teamsMatch(storedGame.homeTeam, espnAway);
-          const awayMatches = teamsMatch(storedGame.awayTeam, espnAway) || teamsMatch(storedGame.awayTeam, espnHome);
-          
-          // Both teams must match (could be swapped)
-          if (homeMatches && awayMatches) {
-            return espnGame;
-          }
-        }
-        
-        return null;
-      };
-
-      // Count stats for logging
+      // Process strategy: 
+      // 1. For each stored odds game, find matching ESPN game and process
+      // 2. For each completed ESPN game, check if we have odds and process
+      
+      const processedGameIds = new Set();
       let skippedNoESPN = 0;
       let skippedNotCompleted = 0;
       let successfullyProcessed = 0;
+      let skippedNoOdds = 0;
 
-      // Process each game
-      for (const storedOddsGame of gamesForDate) {
-        const espnGame = findMatchingESPNGame(storedOddsGame);
+      // Strategy 1: Process stored odds games (primary)
+      console.log(`  🔄 Processing ${storedOddsGames.length} games with odds...`);
+      for (const storedOddsGame of storedOddsGames) {
+        // Filter by target date if specified
+        if (targetDate && storedOddsGame.commenceTime) {
+          const gameDate = new Date(storedOddsGame.commenceTime);
+          const targetYear = targetDate.getFullYear();
+          const targetMonth = targetDate.getMonth();
+          const targetDay = targetDate.getDate();
+          
+          if (gameDate.getFullYear() !== targetYear ||
+              gameDate.getMonth() !== targetMonth ||
+              gameDate.getDate() !== targetDay) {
+            continue;
+          }
+        }
+
+        const espnGame = findMatchingESPNGame(storedOddsGame, espnGames);
         
         if (!espnGame) {
           skippedNoESPN++;
@@ -377,8 +473,49 @@ const processDailyGames = async (targetDate) => {
           continue;
         }
 
+        const gameId = String(espnGame.id);
+        if (processedGameIds.has(gameId)) continue;
+
         const result = await processGame(sport, storedOddsGame, espnGame);
         if (result) {
+          processedGameIds.add(gameId);
+          successfullyProcessed++;
+          const isNew = result.createdAt.getTime() === result.updatedAt.getTime();
+          if (isNew) {
+            totalCreated++;
+          } else {
+            totalUpdated++;
+          }
+          totalProcessed++;
+        }
+      }
+
+      // Strategy 2: Process completed ESPN games that might not have been matched
+      // This catches games that exist in ESPN but weren't in our odds (or had different IDs)
+      console.log(`  🔄 Processing ${espnGames.length} ESPN games for any missed matches...`);
+      for (const espnGame of espnGames) {
+        const gameId = String(espnGame.id);
+        if (processedGameIds.has(gameId)) continue;
+
+        const competition = espnGame.competitions?.[0];
+        const status = competition?.status;
+        const completed = status?.type?.completed || false;
+        
+        if (!completed) {
+          continue;
+        }
+
+        // Try to find matching stored odds
+        const storedOddsGame = findMatchingStoredOdds(espnGame, storedOddsGames);
+        
+        if (!storedOddsGame) {
+          skippedNoOdds++;
+          continue;
+        }
+
+        const result = await processGame(sport, storedOddsGame, espnGame);
+        if (result) {
+          processedGameIds.add(gameId);
           successfullyProcessed++;
           const isNew = result.createdAt.getTime() === result.updatedAt.getTime();
           if (isNew) {
@@ -391,15 +528,24 @@ const processDailyGames = async (targetDate) => {
       }
 
       // Summary for this sport
-      if (gamesForDate.length > 0) {
-        console.log(`  ✓ ${successfullyProcessed} processed, ${skippedNoESPN} no ESPN data, ${skippedNotCompleted} not completed`);
-      }
+      console.log(`  ✓ Summary:`);
+      console.log(`    - Successfully processed: ${successfullyProcessed}`);
+      console.log(`    - Skipped (no ESPN match): ${skippedNoESPN}`);
+      console.log(`    - Skipped (not completed): ${skippedNotCompleted}`);
+      console.log(`    - Skipped (no odds): ${skippedNoOdds}`);
+      
+      totalSkippedNoOdds += skippedNoOdds;
+      totalSkippedNotCompleted += skippedNotCompleted;
     } catch (error) {
       console.error(`  ✗ Error processing ${sport}:`, error.message);
+      console.error(error.stack);
     }
   }
 
-  console.log(`\n✅ Complete: ${totalProcessed} processed (${totalCreated} created, ${totalUpdated} updated)\n`);
+  console.log(`\n✅ Complete:`);
+  console.log(`   - Total processed: ${totalProcessed} (${totalCreated} created, ${totalUpdated} updated)`);
+  console.log(`   - Skipped (not completed): ${totalSkippedNotCompleted}`);
+  console.log(`   - Skipped (no odds): ${totalSkippedNoOdds}\n`);
 };
 
 // Main execution
