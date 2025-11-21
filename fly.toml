@@ -19,15 +19,5 @@ primary_region = 'lax'
   min_machines_running = 0
   processes = ['app']
 
-# Main app process (HTTP server)
-[[processes]]
-  name = "app"
-  cmd = "node server.js"
-
-# Process for daily game outcomes (runs as scheduled task)
-[[processes]]
-  name = "daily-outcomes"
-  cmd = "node scripts/dailyGameOutcomes.js"
-
 [[vm]]
   size = 'shared-cpu-1x'
