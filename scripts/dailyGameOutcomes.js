@@ -367,9 +367,9 @@ const processDailyGames = async (targetDate) => {
     console.log(`\n🏀 Processing ${sport}...`);
     
     try {
-      // Fetch odds from database (already stored from daily updates)
-      const storedOddsGames = await oddsDatabase.getOddsForSport(sport);
-      console.log(`  📊 Found ${storedOddsGames.length} games with odds in database`);
+      // Fetch historical odds from database (for processing completed games)
+      const storedOddsGames = await oddsDatabase.getHistoricalOddsForSport(sport);
+      console.log(`  📊 Found ${storedOddsGames.length} games with historical odds in database`);
 
       if (storedOddsGames.length === 0) {
         console.log(`  ⚠️  No odds found for ${sport}, skipping`);
