@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "PORT=8080 nodemon server.js",
-    "daily-outcomes": "node scripts/dailyGameOutcomes.js"
+    "dev": "PORT=8080 nodemon server.js"
   },
   "dependencies": {
     "axios": "^1.6.0",
