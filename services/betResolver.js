@@ -142,7 +142,13 @@ class BetResolver {
 
   extractLine(bet) {
     if (bet.line !== undefined && bet.line !== null) {
-      const n = parseFloat(bet.line);
+      // Convert to string and remove common prefixes like "o" (over), "u" (under), "+", "-"
+      let lineStr = String(bet.line).trim();
+      
+      // Remove prefixes that might be added (o, u, O, U, +, -)
+      lineStr = lineStr.replace(/^[ouOU+\-]/i, '');
+      
+      const n = parseFloat(lineStr);
       return isNaN(n) ? null : n;
     }
     return null;

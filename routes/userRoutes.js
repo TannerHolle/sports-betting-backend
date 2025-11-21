@@ -383,6 +383,20 @@ router.put('/:username', async (req, res) => {
   }
 });
 
+// Helper function to normalize line value (remove o/u prefixes)
+function normalizeLineValue(line) {
+  if (line === undefined || line === null) return null;
+  
+  // Convert to string and remove common prefixes like "o" (over), "u" (under), "+", "-"
+  let lineStr = String(line).trim();
+  
+  // Remove prefixes that might be added (o, u, O, U, +, -)
+  lineStr = lineStr.replace(/^[ouOU+\-]/i, '');
+  
+  // Return the cleaned string (keep as string to preserve decimal precision)
+  return lineStr;
+}
+
 // Place bet
 router.post('/:username/bet', async (req, res) => {
   try {
@@ -394,6 +408,9 @@ router.post('/:username/bet', async (req, res) => {
     const { gameId, betType, selection, amount, odds, line, potentialWin, sport, gameData } = betData;
     if (user.balance < amount) return res.status(400).json({ error: 'Insufficient balance' });
 
+    // Normalize the line value to remove any prefixes
+    const normalizedLine = normalizeLineValue(line);
+
     const bet = new Bet({
       user: user._id,
       gameId,
@@ -401,7 +418,7 @@ router.post('/:username/bet', async (req, res) => {
       selection,
       amount,
       odds,
-      line,
+      line: normalizedLine,
       potentialWin,
       sport,
       status: 'pending',
