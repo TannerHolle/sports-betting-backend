@@ -377,6 +377,7 @@ const processDailyGames = async (targetDate) => {
       }
 
       // Determine date range for ESPN API fetching
+      // Simple: look back 7 days from today
       let startDate, endDate;
       
       if (targetDate) {
@@ -384,39 +385,14 @@ const processDailyGames = async (targetDate) => {
         startDate = new Date(targetDate);
         endDate = new Date(targetDate);
       } else {
-        // Find date range from stored odds (with buffer)
-        const dates = storedOddsGames
-          .filter(g => g.commenceTime)
-          .map(g => new Date(g.commenceTime));
-        
-        if (dates.length === 0) {
-          console.log(`  ⚠️  No games with dates found for ${sport}`);
-          continue;
-        }
-        
-        const minDate = new Date(Math.min(...dates));
-        const maxDate = new Date(Math.max(...dates));
-        
-        // Add buffer: 7 days before and 3 days after
-        startDate = new Date(minDate);
-        startDate.setDate(startDate.getDate() - 7);
-        
-        endDate = new Date(maxDate);
-        endDate.setDate(endDate.getDate() + 3);
-        
-        // Also check today and recent past (in case of missing data)
+        // Look back 7 days from today
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-        const thirtyDaysAgo = new Date(today);
-        thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+        endDate = new Date(today);
+        endDate.setDate(endDate.getDate() + 1); // Include today
         
-        if (startDate > thirtyDaysAgo) {
-          startDate = thirtyDaysAgo;
-        }
-        if (endDate < today) {
-          endDate = new Date(today);
-          endDate.setDate(endDate.getDate() + 1);
-        }
+        startDate = new Date(today);
+        startDate.setDate(startDate.getDate() - 7); // 7 days ago
       }
 
       console.log(`  📡 Fetching ESPN games from ${startDate.toDateString()} to ${endDate.toDateString()}`);
@@ -430,6 +406,16 @@ const processDailyGames = async (targetDate) => {
         continue;
       }
 
+      // Filter stored odds to only games within our date range
+      const gamesInRange = storedOddsGames.filter(game => {
+        if (!game.commenceTime) return false;
+        const gameDate = new Date(game.commenceTime);
+        gameDate.setHours(0, 0, 0, 0);
+        return gameDate >= startDate && gameDate <= endDate;
+      });
+      
+      console.log(`  📊 ${gamesInRange.length} games with odds in date range (${storedOddsGames.length - gamesInRange.length} outside range)`);
+
       // Process strategy: 
       // 1. For each stored odds game, find matching ESPN game and process
       // 2. For each completed ESPN game, check if we have odds and process
@@ -439,10 +425,11 @@ const processDailyGames = async (targetDate) => {
       let skippedNotCompleted = 0;
       let successfullyProcessed = 0;
       let skippedNoOdds = 0;
+      const unmatchedGames = []; // Track games that couldn't be matched for debugging
 
       // Strategy 1: Process stored odds games (primary)
-      console.log(`  🔄 Processing ${storedOddsGames.length} games with odds...`);
-      for (const storedOddsGame of storedOddsGames) {
+      console.log(`  🔄 Processing ${gamesInRange.length} games with odds in range...`);
+      for (const storedOddsGame of gamesInRange) {
         // Filter by target date if specified
         if (targetDate && storedOddsGame.commenceTime) {
           const gameDate = new Date(storedOddsGame.commenceTime);
@@ -461,6 +448,12 @@ const processDailyGames = async (targetDate) => {
         
         if (!espnGame) {
           skippedNoESPN++;
+          unmatchedGames.push({
+            home: storedOddsGame.homeTeam,
+            away: storedOddsGame.awayTeam,
+            id: storedOddsGame.id,
+            date: storedOddsGame.commenceTime
+          });
           continue;
         }
 
@@ -505,8 +498,8 @@ const processDailyGames = async (targetDate) => {
           continue;
         }
 
-        // Try to find matching stored odds
-        const storedOddsGame = findMatchingStoredOdds(espnGame, storedOddsGames);
+        // Try to find matching stored odds (only check games in our date range)
+        const storedOddsGame = findMatchingStoredOdds(espnGame, gamesInRange);
         
         if (!storedOddsGame) {
           skippedNoOdds++;
@@ -531,6 +524,12 @@ const processDailyGames = async (targetDate) => {
       console.log(`  ✓ Summary:`);
       console.log(`    - Successfully processed: ${successfullyProcessed}`);
       console.log(`    - Skipped (no ESPN match): ${skippedNoESPN}`);
+      if (skippedNoESPN > 0 && unmatchedGames.length > 0) {
+        console.log(`    - Unmatched games (first 5):`);
+        unmatchedGames.slice(0, 5).forEach(g => {
+          console.log(`      • ${g.away} @ ${g.home} (ID: ${g.id}, Date: ${g.date ? new Date(g.date).toDateString() : 'N/A'})`);
+        });
+      }
       console.log(`    - Skipped (not completed): ${skippedNotCompleted}`);
       console.log(`    - Skipped (no odds): ${skippedNoOdds}`);
       
