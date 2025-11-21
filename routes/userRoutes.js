@@ -4,6 +4,280 @@ const User = require('../models/User');
 const Bet = require('../models/Bet');
 const { validatePassword, hashPassword, verifyPassword } = require('../utils/passwordHelpers');
 
+// Get advanced betting statistics (must be before /:username route)
+router.get('/:username/advanced-stats', async (req, res) => {
+  try {
+    const { username } = req.params;
+    const user = await User.findOne({ username: username.toLowerCase() }).populate('bets');
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // 1. Calculate win percentage by bet type for user's bets, grouped by sport
+    const completedBets = user.bets.filter(bet => 
+      bet.status === 'won' || bet.status === 'lost' || bet.status === 'push'
+    );
+
+    // Group by sport
+    const statsByBetTypeBySport = {};
+    const userSports = new Set();
+
+    completedBets.forEach(bet => {
+      if (!bet.sport) return;
+      const sport = bet.sport;
+      userSports.add(sport);
+      
+      if (!statsByBetTypeBySport[sport]) {
+        statsByBetTypeBySport[sport] = {
+          moneyline: { won: 0, lost: 0, push: 0, total: 0 },
+          spread: { won: 0, lost: 0, push: 0, total: 0 },
+          total: { won: 0, lost: 0, push: 0, total: 0 }
+        };
+      }
+      
+      if (statsByBetTypeBySport[sport][bet.betType]) {
+        statsByBetTypeBySport[sport][bet.betType][bet.status]++;
+        statsByBetTypeBySport[sport][bet.betType].total++;
+      }
+    });
+
+    // Calculate percentages for each sport
+    const winPercentageByTypeBySport = {};
+    for (const sport of userSports) {
+      const statsByBetType = statsByBetTypeBySport[sport];
+      winPercentageByTypeBySport[sport] = {};
+      
+      Object.keys(statsByBetType).forEach(betType => {
+        const stats = statsByBetType[betType];
+        const nonPushTotal = stats.total - stats.push;
+        if (nonPushTotal > 0) {
+          winPercentageByTypeBySport[sport][betType] = {
+            winRate: ((stats.won / nonPushTotal) * 100).toFixed(1),
+            won: stats.won,
+            lost: stats.lost,
+            push: stats.push,
+            total: stats.total
+          };
+        } else {
+          winPercentageByTypeBySport[sport][betType] = {
+            winRate: '0.0',
+            won: 0,
+            lost: 0,
+            push: stats.push,
+            total: stats.total
+          };
+        }
+      });
+    }
+
+    // Calculate overall (all sports combined)
+    const overallStatsByBetType = {
+      moneyline: { won: 0, lost: 0, push: 0, total: 0 },
+      spread: { won: 0, lost: 0, push: 0, total: 0 },
+      total: { won: 0, lost: 0, push: 0, total: 0 }
+    };
+
+    completedBets.forEach(bet => {
+      if (overallStatsByBetType[bet.betType]) {
+        overallStatsByBetType[bet.betType][bet.status]++;
+        overallStatsByBetType[bet.betType].total++;
+      }
+    });
+
+    const winPercentageByType = {};
+    Object.keys(overallStatsByBetType).forEach(betType => {
+      const stats = overallStatsByBetType[betType];
+      const nonPushTotal = stats.total - stats.push;
+      if (nonPushTotal > 0) {
+        winPercentageByType[betType] = {
+          winRate: ((stats.won / nonPushTotal) * 100).toFixed(1),
+          won: stats.won,
+          lost: stats.lost,
+          push: stats.push,
+          total: stats.total
+        };
+      } else {
+        winPercentageByType[betType] = {
+          winRate: '0.0',
+          won: 0,
+          lost: 0,
+          push: stats.push,
+          total: stats.total
+        };
+      }
+    });
+
+    winPercentageByTypeBySport.all = winPercentageByType;
+
+    // 2. All games in system - use line and scores from completed bets, grouped by sport
+    const allCompletedBets = await Bet.find({ 
+      status: { $in: ['won', 'lost', 'push'] },
+      actualResult: { $exists: true, $ne: null },
+      line: { $exists: true, $ne: null }
+    });
+
+    // Group outcomes by sport
+    const gameOutcomesBySport = {};
+    const allSports = new Set();
+    const processedGamesBySport = {}; // Track processed games per sport
+
+    for (const bet of allCompletedBets) {
+      if (!bet.actualResult || !bet.gameId || !bet.line || !bet.sport) continue;
+      
+      const sport = bet.sport;
+      allSports.add(sport);
+      
+      if (!gameOutcomesBySport[sport]) {
+        gameOutcomesBySport[sport] = {
+          total: { over: 0, under: 0, push: 0, total: 0 },
+          spread: { covered: 0, push: 0, total: 0 }
+        };
+        processedGamesBySport[sport] = new Set();
+      }
+      
+      const gameOutcomes = gameOutcomesBySport[sport];
+      const processedGames = processedGamesBySport[sport];
+      
+      const homeScore = parseInt(bet.actualResult.homeScore) || 0;
+      const awayScore = parseInt(bet.actualResult.awayScore) || 0;
+      const totalPoints = parseInt(bet.actualResult.totalPoints) || 0;
+      const line = parseFloat(bet.line);
+
+      if (isNaN(line)) continue;
+
+      // For total bets - one outcome per game
+      if (bet.betType === 'total' && !processedGames.has(`total_${bet.gameId}`)) {
+        processedGames.add(`total_${bet.gameId}`);
+        
+        if (!isNaN(totalPoints)) {
+          gameOutcomes.total.total++;
+          if (totalPoints > line) {
+            gameOutcomes.total.over++;
+          } else if (totalPoints < line) {
+            gameOutcomes.total.under++;
+          } else {
+            gameOutcomes.total.push++;
+          }
+        }
+      }
+
+      // For spread bets - one outcome per game
+      if (bet.betType === 'spread' && !processedGames.has(`spread_${bet.gameId}`)) {
+        processedGames.add(`spread_${bet.gameId}`);
+        
+        if (!isNaN(homeScore) && !isNaN(awayScore)) {
+          const homeTeamName = bet.actualResult.homeTeam || '';
+          const selection = bet.selection || '';
+          
+          // Determine if bet was on home team
+          const betOnHome = homeTeamName && selection && (
+            selection.toLowerCase() === homeTeamName.toLowerCase() ||
+            homeTeamName.toLowerCase().includes(selection.toLowerCase()) ||
+            selection.toLowerCase().includes(homeTeamName.toLowerCase())
+          );
+          
+          // Normalize line to home team perspective
+          const homeTeamLine = betOnHome ? line : -line;
+          
+          gameOutcomes.spread.total++;
+          
+          // Add the spread line to home team score to see if they cover
+          const adjustedHome = homeScore + homeTeamLine;
+          
+          if (adjustedHome === awayScore) {
+            gameOutcomes.spread.push++; // Push
+          } else if (homeTeamLine < 0) {
+            // Home team is favorite (negative spread)
+            if (adjustedHome > awayScore) {
+              gameOutcomes.spread.covered++; // Favorite covered
+            }
+          } else {
+            // Away team is favorite (positive spread means home is underdog)
+            if (adjustedHome < awayScore) {
+              gameOutcomes.spread.covered++; // Favorite (away) covered
+            }
+          }
+        }
+      }
+    }
+
+    // Calculate percentages for each sport
+    const gameOutcomes = {};
+    for (const sport of allSports) {
+      const outcomes = gameOutcomesBySport[sport];
+      const totalNonPush = outcomes.total.total - outcomes.total.push;
+      const spreadNonPush = outcomes.spread.total - outcomes.spread.push;
+      
+      gameOutcomes[sport] = {
+        total: {
+          overPercentage: totalNonPush > 0 ? ((outcomes.total.over / totalNonPush) * 100).toFixed(1) : '0.0',
+          underPercentage: totalNonPush > 0 ? ((outcomes.total.under / totalNonPush) * 100).toFixed(1) : '0.0',
+          overCount: outcomes.total.over,
+          underCount: outcomes.total.under,
+          pushCount: outcomes.total.push,
+          totalGames: outcomes.total.total
+        },
+        spread: {
+          coveredPercentage: spreadNonPush > 0 ? ((outcomes.spread.covered / spreadNonPush) * 100).toFixed(1) : '0.0',
+          coveredCount: outcomes.spread.covered,
+          pushCount: outcomes.spread.push,
+          totalGames: outcomes.spread.total
+        }
+      };
+    }
+
+    // Also calculate overall (all sports combined)
+    const overallOutcomes = {
+      total: { over: 0, under: 0, push: 0, total: 0 },
+      spread: { covered: 0, push: 0, total: 0 }
+    };
+    
+    for (const sport of allSports) {
+      const outcomes = gameOutcomesBySport[sport];
+      overallOutcomes.total.over += outcomes.total.over;
+      overallOutcomes.total.under += outcomes.total.under;
+      overallOutcomes.total.push += outcomes.total.push;
+      overallOutcomes.total.total += outcomes.total.total;
+      overallOutcomes.spread.covered += outcomes.spread.covered;
+      overallOutcomes.spread.push += outcomes.spread.push;
+      overallOutcomes.spread.total += outcomes.spread.total;
+    }
+    
+    const totalNonPush = overallOutcomes.total.total - overallOutcomes.total.push;
+    const spreadNonPush = overallOutcomes.spread.total - overallOutcomes.spread.push;
+    
+    gameOutcomes.all = {
+      total: {
+        overPercentage: totalNonPush > 0 ? ((overallOutcomes.total.over / totalNonPush) * 100).toFixed(1) : '0.0',
+        underPercentage: totalNonPush > 0 ? ((overallOutcomes.total.under / totalNonPush) * 100).toFixed(1) : '0.0',
+        overCount: overallOutcomes.total.over,
+        underCount: overallOutcomes.total.under,
+        pushCount: overallOutcomes.total.push,
+        totalGames: overallOutcomes.total.total
+      },
+      spread: {
+        coveredPercentage: spreadNonPush > 0 ? ((overallOutcomes.spread.covered / spreadNonPush) * 100).toFixed(1) : '0.0',
+        coveredCount: overallOutcomes.spread.covered,
+        pushCount: overallOutcomes.spread.push,
+        totalGames: overallOutcomes.spread.total
+      }
+    };
+
+    // Combine all sports from user bets and game outcomes
+    const allAvailableSports = new Set([...userSports, ...allSports]);
+    
+    res.json({
+      winPercentageByType,
+      winPercentageByTypeBySport,
+      gameOutcomes,
+      availableSports: Array.from(allAvailableSports).sort()
+    });
+  } catch (error) {
+    console.error('Error fetching advanced stats:', error);
+    res.status(500).json({ error: 'Failed to load advanced statistics' });
+  }
+});
+
 // Get user by username
 router.get('/:username', async (req, res) => {
   try {
