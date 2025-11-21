@@ -1,5 +1,4 @@
 const Odds = require('../models/Odds');
-const HistoricalOdds = require('../models/HistoricalOdds');
 
 class OddsDatabase {
   /**
@@ -66,8 +65,6 @@ class OddsDatabase {
 
   /**
    * Update odds for all sports atomically
-   * - Updates main Odds collection (current/upcoming games only - clean replacement)
-   * - Archives all odds to HistoricalOdds collection (for daily outcomes processing)
    * Uses MongoDB's atomic operations to ensure only one update happens per day
    * Returns true if update was successful, false if already updated today
    */
@@ -77,7 +74,6 @@ class OddsDatabase {
       today.setHours(0, 0, 0, 0); // Start of today
       
       let anyUpdated = false;
-      let historicalCount = 0;
       
       const updatePromises = Object.entries(newOdds).map(async ([sport, games]) => {
         try {
@@ -92,38 +88,6 @@ class OddsDatabase {
             if (lastUpdateDate >= todayStart) {
               // Already updated today, skip
               return null;
-            }
-          }
-          
-          // Archive all new odds to HistoricalOdds collection
-          // Uses upsert to update existing games with latest odds (no duplicates)
-          if (Array.isArray(games) && games.length > 0) {
-            const bulkOps = games.map(game => ({
-              updateOne: {
-                filter: { gameId: game.id },
-                update: {
-                  $set: {
-                    sport,
-                    gameId: game.id,
-                    homeTeam: game.homeTeam,
-                    awayTeam: game.awayTeam,
-                    commenceTime: game.commenceTime,
-                    odds: game.odds,
-                    fetchedAt: new Date()
-                  }
-                },
-                upsert: true
-              }
-            }));
-            
-            try {
-              const bulkResult = await HistoricalOdds.bulkWrite(bulkOps, { ordered: false });
-              const upserted = bulkResult.upsertedCount || 0;
-              const modified = bulkResult.modifiedCount || 0;
-              historicalCount += upserted + modified;
-              console.log(`[ODDS] ${sport}: archived ${upserted + modified} games to historical odds (${upserted} new, ${modified} updated)`);
-            } catch (error) {
-              console.error(`[ODDS] Error archiving historical odds for ${sport}:`, error.message);
             }
           }
           
@@ -158,7 +122,7 @@ class OddsDatabase {
       await Promise.all(updatePromises);
       
       if (anyUpdated) {
-        console.log(`[ODDS] Successfully updated odds: ${historicalCount} games archived to history`);
+        console.log('[ODDS] Successfully updated odds in database');
         return true;
       } else {
         console.log('[ODDS] Odds already updated today, skipping');
@@ -167,95 +131,6 @@ class OddsDatabase {
     } catch (error) {
       console.error('[ODDS] Error updating odds:', error.message);
       throw error;
-    }
-  }
-
-  /**
-   * Save odds to historical collection (simple method for easy calling)
-   * This just archives odds without running the full outcomes processing
-   */
-  async saveHistoricalOdds(newOdds) {
-    try {
-      let totalArchived = 0;
-      
-      const archivePromises = Object.entries(newOdds).map(async ([sport, games]) => {
-        if (!Array.isArray(games) || games.length === 0) return 0;
-        
-        const bulkOps = games.map(game => ({
-          updateOne: {
-            filter: { gameId: game.id },
-            update: {
-              $set: {
-                sport,
-                gameId: game.id,
-                homeTeam: game.homeTeam,
-                awayTeam: game.awayTeam,
-                commenceTime: game.commenceTime,
-                odds: game.odds,
-                fetchedAt: new Date()
-              }
-            },
-            upsert: true
-          }
-        }));
-        
-        try {
-          const bulkResult = await HistoricalOdds.bulkWrite(bulkOps, { ordered: false });
-          const upserted = bulkResult.upsertedCount || 0;
-          const modified = bulkResult.modifiedCount || 0;
-          return upserted + modified;
-        } catch (error) {
-          console.error(`[ODDS] Error saving historical odds for ${sport}:`, error.message);
-          return 0;
-        }
-      });
-      
-      const results = await Promise.all(archivePromises);
-      totalArchived = results.reduce((sum, count) => sum + count, 0);
-      
-      if (totalArchived > 0) {
-        console.log(`[ODDS] Archived ${totalArchived} games to historical odds`);
-      }
-      
-      return totalArchived;
-    } catch (error) {
-      console.error('[ODDS] Error saving historical odds:', error.message);
-      throw error;
-    }
-  }
-
-  /**
-   * Get historical odds for a specific sport (for daily outcomes processing)
-   */
-  async getHistoricalOddsForSport(sport) {
-    try {
-      // Get the most recent odds snapshot for each game
-      const historicalOdds = await HistoricalOdds.aggregate([
-        { $match: { sport } },
-        { $sort: { gameId: 1, fetchedAt: -1 } },
-        {
-          $group: {
-            _id: '$gameId',
-            game: { $first: '$$ROOT' }
-          }
-        },
-        {
-          $replaceRoot: { newRoot: '$game' }
-        }
-      ]);
-      
-      // Transform to match the format expected by daily outcomes script
-      return historicalOdds.map(doc => ({
-        id: doc.gameId,
-        homeTeam: doc.homeTeam,
-        awayTeam: doc.awayTeam,
-        commenceTime: doc.commenceTime,
-        odds: doc.odds,
-        lastUpdated: doc.fetchedAt
-      }));
-    } catch (error) {
-      console.error(`[ODDS] Error getting historical odds for ${sport}:`, error.message);
-      return [];
     }
   }
 

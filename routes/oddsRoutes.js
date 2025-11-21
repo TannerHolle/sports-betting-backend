@@ -37,33 +37,12 @@ router.post('/force-update', async (req, res) => {
     for (const [sport, oddsData] of Object.entries(freshOdds)) {
       processedOdds[sport] = oddsService.processOddsData(oddsData, sport);
     }
-    const updated = await oddsDatabase.updateOdds(processedOdds);
+    await oddsDatabase.updateOdds(processedOdds);
     console.log('[ODDS] Force update completed successfully');
-    
-    // Historical odds are already saved by updateOdds
     res.json({ success: true, message: 'Odds updated successfully' });
   } catch (error) {
     console.error('[ODDS] Error force updating odds:', error);
     res.status(500).json({ error: 'Failed to force update odds', details: error.message });
-  }
-});
-
-// Save current odds to historical collection (without running full outcomes processing)
-router.post('/save-historical', async (req, res) => {
-  try {
-    console.log('[ODDS] Saving current odds to historical collection...');
-    const oddsService = require('../services/oddsService');
-    const freshOdds = await oddsService.fetchAllOdds();
-    const processedOdds = {};
-    for (const [sport, oddsData] of Object.entries(freshOdds)) {
-      processedOdds[sport] = oddsService.processOddsData(oddsData, sport);
-    }
-    const archived = await oddsDatabase.saveHistoricalOdds(processedOdds);
-    console.log('[ODDS] Historical odds saved successfully');
-    res.json({ success: true, message: `Saved ${archived} games to historical odds` });
-  } catch (error) {
-    console.error('[ODDS] Error saving historical odds:', error);
-    res.status(500).json({ error: 'Failed to save historical odds', details: error.message });
   }
 });
 
