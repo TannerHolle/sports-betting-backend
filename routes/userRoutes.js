@@ -109,22 +109,23 @@ router.get('/:username/advanced-stats', async (req, res) => {
 
     winPercentageByTypeBySport.all = winPercentageByType;
 
-    // 2. All games in system - use line and scores from completed bets, grouped by sport
-    const allCompletedBets = await Bet.find({ 
-      status: { $in: ['won', 'lost', 'push'] },
-      actualResult: { $exists: true, $ne: null },
-      line: { $exists: true, $ne: null }
+    // 2. All games in system - use GameOutcome data (from nightly script)
+    const GameOutcome = require('../models/GameOutcome');
+    
+    // Get all completed games from GameOutcome collection
+    const allGameOutcomes = await GameOutcome.find({
+      'result.completed': true,
+      processed: true
     });
 
     // Group outcomes by sport
     const gameOutcomesBySport = {};
     const allSports = new Set();
-    const processedGamesBySport = {}; // Track processed games per sport
 
-    for (const bet of allCompletedBets) {
-      if (!bet.actualResult || !bet.gameId || !bet.line || !bet.sport) continue;
+    for (const game of allGameOutcomes) {
+      if (!game.sport || !game.result.completed) continue;
       
-      const sport = bet.sport;
+      const sport = game.sport;
       allSports.add(sport);
       
       if (!gameOutcomesBySport[sport]) {
@@ -132,71 +133,36 @@ router.get('/:username/advanced-stats', async (req, res) => {
           total: { over: 0, under: 0, push: 0, total: 0 },
           spread: { covered: 0, push: 0, total: 0 }
         };
-        processedGamesBySport[sport] = new Set();
       }
       
-      const gameOutcomes = gameOutcomesBySport[sport];
-      const processedGames = processedGamesBySport[sport];
-      
-      const homeScore = parseInt(bet.actualResult.homeScore) || 0;
-      const awayScore = parseInt(bet.actualResult.awayScore) || 0;
-      const totalPoints = parseInt(bet.actualResult.totalPoints) || 0;
-      const line = parseFloat(bet.line);
+      const outcomes = gameOutcomesBySport[sport];
+      const homeScore = game.result.homeScore;
+      const awayScore = game.result.awayScore;
+      const totalPoints = game.result.totalPoints;
 
-      if (isNaN(line)) continue;
-
-      // For total bets - one outcome per game
-      if (bet.betType === 'total' && !processedGames.has(`total_${bet.gameId}`)) {
-        processedGames.add(`total_${bet.gameId}`);
+      // Process total (over/under) outcome
+      if (game.odds.total.overLine !== null && totalPoints !== null) {
+        const totalLine = game.odds.total.overLine;
+        outcomes.total.total++;
         
-        if (!isNaN(totalPoints)) {
-          gameOutcomes.total.total++;
-          if (totalPoints > line) {
-            gameOutcomes.total.over++;
-          } else if (totalPoints < line) {
-            gameOutcomes.total.under++;
-          } else {
-            gameOutcomes.total.push++;
-          }
+        if (game.outcomes.totalPush) {
+          outcomes.total.push++;
+        } else if (game.outcomes.totalOver === true) {
+          outcomes.total.over++;
+        } else if (game.outcomes.totalOver === false) {
+          outcomes.total.under++;
         }
       }
 
-      // For spread bets - one outcome per game
-      if (bet.betType === 'spread' && !processedGames.has(`spread_${bet.gameId}`)) {
-        processedGames.add(`spread_${bet.gameId}`);
+      // Process spread outcome
+      if ((game.odds.spread.homeLine !== null || game.odds.spread.awayLine !== null) && 
+          homeScore !== null && awayScore !== null) {
+        outcomes.spread.total++;
         
-        if (!isNaN(homeScore) && !isNaN(awayScore)) {
-          const homeTeamName = bet.actualResult.homeTeam || '';
-          const selection = bet.selection || '';
-          
-          // Determine if bet was on home team
-          const betOnHome = homeTeamName && selection && (
-            selection.toLowerCase() === homeTeamName.toLowerCase() ||
-            homeTeamName.toLowerCase().includes(selection.toLowerCase()) ||
-            selection.toLowerCase().includes(homeTeamName.toLowerCase())
-          );
-          
-          // Normalize line to home team perspective
-          const homeTeamLine = betOnHome ? line : -line;
-          
-          gameOutcomes.spread.total++;
-          
-          // Add the spread line to home team score to see if they cover
-          const adjustedHome = homeScore + homeTeamLine;
-          
-          if (adjustedHome === awayScore) {
-            gameOutcomes.spread.push++; // Push
-          } else if (homeTeamLine < 0) {
-            // Home team is favorite (negative spread)
-            if (adjustedHome > awayScore) {
-              gameOutcomes.spread.covered++; // Favorite covered
-            }
-          } else {
-            // Away team is favorite (positive spread means home is underdog)
-            if (adjustedHome < awayScore) {
-              gameOutcomes.spread.covered++; // Favorite (away) covered
-            }
-          }
+        if (game.outcomes.spreadPush) {
+          outcomes.spread.push++;
+        } else if (game.outcomes.spreadCovered === true) {
+          outcomes.spread.covered++;
         }
       }
     }
