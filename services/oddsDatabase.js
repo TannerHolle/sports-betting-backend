@@ -171,6 +171,60 @@ class OddsDatabase {
   }
 
   /**
+   * Save odds to historical collection (simple method for easy calling)
+   * This just archives odds without running the full outcomes processing
+   */
+  async saveHistoricalOdds(newOdds) {
+    try {
+      let totalArchived = 0;
+      
+      const archivePromises = Object.entries(newOdds).map(async ([sport, games]) => {
+        if (!Array.isArray(games) || games.length === 0) return 0;
+        
+        const bulkOps = games.map(game => ({
+          updateOne: {
+            filter: { gameId: game.id },
+            update: {
+              $set: {
+                sport,
+                gameId: game.id,
+                homeTeam: game.homeTeam,
+                awayTeam: game.awayTeam,
+                commenceTime: game.commenceTime,
+                odds: game.odds,
+                fetchedAt: new Date()
+              }
+            },
+            upsert: true
+          }
+        }));
+        
+        try {
+          const bulkResult = await HistoricalOdds.bulkWrite(bulkOps, { ordered: false });
+          const upserted = bulkResult.upsertedCount || 0;
+          const modified = bulkResult.modifiedCount || 0;
+          return upserted + modified;
+        } catch (error) {
+          console.error(`[ODDS] Error saving historical odds for ${sport}:`, error.message);
+          return 0;
+        }
+      });
+      
+      const results = await Promise.all(archivePromises);
+      totalArchived = results.reduce((sum, count) => sum + count, 0);
+      
+      if (totalArchived > 0) {
+        console.log(`[ODDS] Archived ${totalArchived} games to historical odds`);
+      }
+      
+      return totalArchived;
+    } catch (error) {
+      console.error('[ODDS] Error saving historical odds:', error.message);
+      throw error;
+    }
+  }
+
+  /**
    * Get historical odds for a specific sport (for daily outcomes processing)
    */
   async getHistoricalOddsForSport(sport) {

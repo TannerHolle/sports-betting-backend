@@ -1,7 +1,5 @@
 const oddsService = require('../services/oddsService');
 const oddsDatabase = require('../services/oddsDatabase');
-const { processDailyGames } = require('../scripts/dailyGameOutcomes');
-const mongoose = require('mongoose');
 
 // Simple in-memory lock to prevent multiple API calls within the same process
 // MongoDB's atomic operations handle cross-process protection
@@ -55,22 +53,7 @@ const checkAndUpdateOdds = async (req, res, next) => {
           const newUpdate = await oddsDatabase.getLastUpdateTime();
           console.log(`[ODDS] Completed. New update time: ${newUpdate}`);
           
-          // Run daily outcomes script in the background after odds are updated
-          // Pass null to process all games from the last 7 days
-          // Only run if mongoose is connected (server is running)
-          if (mongoose.connection.readyState === 1) {
-            console.log('[OUTCOMES] Starting daily outcomes processing after odds update...');
-            processDailyGames(null)
-              .then(() => {
-                console.log('[OUTCOMES] Daily outcomes processing completed');
-              })
-              .catch(error => {
-                console.error('[OUTCOMES] Error processing daily outcomes:', error.message);
-                // Don't throw - we don't want to fail the odds update if outcomes fail
-              });
-          } else {
-            console.log('[OUTCOMES] Skipping daily outcomes - MongoDB not connected');
-          }
+          // Historical odds are already saved by updateOdds, so we're done
         } else {
           console.log(`[ODDS] Another process already updated odds today`);
         }
