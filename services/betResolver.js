@@ -142,14 +142,21 @@ class BetResolver {
 
   extractLine(bet) {
     if (bet.line !== undefined && bet.line !== null) {
-      // Convert to string and remove common prefixes like "o" (over), "u" (under), "+", "-"
+      // Convert to string
       let lineStr = String(bet.line).trim();
       
-      // Remove prefixes that might be added (o, u, O, U, +, -)
-      lineStr = lineStr.replace(/^[ouOU+\-]/i, '');
-      
-      const n = parseFloat(lineStr);
-      return isNaN(n) ? null : n;
+      // For spread bets, preserve the sign (+ or -) as it's critical for resolution
+      // For total bets, remove "o" (over) and "u" (under) prefixes but keep the number
+      if (bet.betType === 'spread') {
+        // For spreads, keep the sign - parse directly
+        const n = parseFloat(lineStr);
+        return isNaN(n) ? null : n;
+      } else {
+        // For totals, remove "o" and "u" prefixes but keep the number
+        lineStr = lineStr.replace(/^[ouOU]/i, '');
+        const n = parseFloat(lineStr);
+        return isNaN(n) ? null : n;
+      }
     }
     return null;
   }
