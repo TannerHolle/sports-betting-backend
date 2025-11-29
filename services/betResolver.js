@@ -85,7 +85,6 @@ class BetResolver {
         // Negative spread (favorite) means they must win by more than |spreadLine|
         // Positive spread (underdog) means they win if they lose by less than spreadLine or win
         // If (teamScore + spreadLine) === opponentScore, it's a push
-        let spreadResult;
         if (this.teamNamesMatch(bet.selection, homeTeamName)) {
           const adjustedScore = homeScore + spreadLine;
           if (adjustedScore === awayScore) {
@@ -261,9 +260,21 @@ class BetResolver {
 
   teamNamesMatch(a, b) {
     if (!a || !b) return false;
-    if (a === b) return true;
-    if (a.includes(b) || b.includes(a)) return true;
-    return false;
+    const normalize = (s) => {
+      return String(s)
+        .toLowerCase()
+        // Replace ampersands with 'and' to normalize common variants
+        .replace(/&/g, 'and')
+        // Remove all non-alphanumeric (keep spaces)
+        .replace(/[^a-z0-9\s]/g, ' ')
+        // Collapse multiple spaces
+        .replace(/\s+/g, ' ')
+        .trim();
+    };
+    const na = normalize(a);
+    const nb = normalize(b);
+    // Strict normalized equality only; do NOT treat substrings as matches
+    return na === nb;
   }
 }
 
