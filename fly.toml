@@ -2,16 +2,16 @@ app = "backend-late-smoke-5186"
 primary_region = "lax"
 
 [env]
-PORT = "8080"
+  PORT = "8080"
 
 [http_service]
   internal_port = 8080
   processes = ["app"]
   force_https = true
   auto_start_machines = true
-  auto_stop_machines = false
-  min_machines_running = 2    # 2 machines always warm
+  auto_stop_machines = false   # always on
+  min_machines_running = 1     # was 2; only one machine has ever existed
 
 [[vm]]
   size = "shared-cpu-1x"
-  memory = 512                # each machine = 512MB
+  memory = 256
