@@ -33,12 +33,11 @@ class OddsService {
       return response.data;
     } catch (error) {
       console.error(`[ODDS] Error fetching odds for ${sport}:`, error.message);
-      return this.generateMockOdds(sport);
+      // null means "the fetch failed", which is different from a real empty
+      // slate (e.g. college basketball in September). Callers must not persist
+      // a failure as if it were a valid result.
+      return null;
     }
-  }
-
-  generateMockOdds(sport) {
-    return [];
   }
 
   async fetchAllOdds() {
@@ -46,11 +45,12 @@ class OddsService {
     const allOdds = {};
     console.log(`[ODDS] Fetching odds for ${sports.length} sports: ${sports.join(', ')}`);
     for (const sport of sports) {
-      try { allOdds[sport] = await this.fetchOdds(sport); } catch { allOdds[sport] = []; }
+      try { allOdds[sport] = await this.fetchOdds(sport); } catch { allOdds[sport] = null; }
     }
+    const ok = sports.filter(s => Array.isArray(allOdds[s])).length;
     this.lastFetchDate = new Date().toDateString();
     this.cachedOdds = allOdds;
-    console.log(`[ODDS] Completed fetching all odds. Total API calls made: ${sports.length}`);
+    console.log(`[ODDS] Completed fetching all odds. ${ok}/${sports.length} sports succeeded.`);
     return allOdds;
   }
 

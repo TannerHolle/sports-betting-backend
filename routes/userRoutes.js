@@ -257,6 +257,14 @@ router.delete('/:username/bet/:betId', async (req, res) => {
       return res.status(400).json({ error: 'Only pending bets can be cancelled' });
     }
 
+    // ...and only before kickoff. A bet stays 'pending' for the whole game, so
+    // without this you could bet, watch a half, and cancel for free if it was
+    // going badly. Bets with no recorded start time stay cancellable.
+    const startTime = bet.gameData?.gameStartTime ? new Date(bet.gameData.gameStartTime) : null;
+    if (startTime && !Number.isNaN(startTime.getTime()) && startTime <= new Date()) {
+      return res.status(400).json({ error: 'This game has already started - the bet can no longer be cancelled' });
+    }
+
     // Refund the bet amount to user's balance
     user.balance += bet.amount;
     user.totalWagered -= bet.amount; // Subtract from total wagered since bet is cancelled

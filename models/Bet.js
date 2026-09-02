@@ -16,6 +16,12 @@ const betSchema = new mongoose.Schema({
   resolvedAt: { type: Date, default: null }
 }, { timestamps: true });
 
+// The resolver scans pending bets every minute, and bet history is always
+// read newest-first for one user.
+betSchema.index({ status: 1 });
+betSchema.index({ user: 1, createdAt: -1 });
+betSchema.index({ gameId: 1, status: 1 });
+
 module.exports = mongoose.model('Bet', betSchema);
 
 

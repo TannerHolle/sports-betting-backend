@@ -5,6 +5,12 @@ const oddsDatabase = require('../services/oddsDatabase');
 // MongoDB's atomic operations handle cross-process protection
 let updateInProgress = null;
 
+// When a fetch fails we deliberately do NOT stamp lastUpdated, so the next
+// request will try again. This cooldown stops a dead API key from turning every
+// page load into another failed upstream call.
+let lastFailedAttempt = null;
+const FAILURE_COOLDOWN_MS = 15 * 60 * 1000;
+
 const checkAndUpdateOdds = async (req, res, next) => {
   try {
     // If an update is already in progress, wait for it
@@ -27,6 +33,10 @@ const checkAndUpdateOdds = async (req, res, next) => {
       return next();
     }
 
+    if (lastFailedAttempt && (Date.now() - lastFailedAttempt) < FAILURE_COOLDOWN_MS) {
+      return next();
+    }
+
     // We need an update - create update promise
     const updatePromise = (async () => {
       try {
@@ -42,11 +52,33 @@ const checkAndUpdateOdds = async (req, res, next) => {
         
         // Fetch fresh odds from API
         const freshOdds = await oddsService.fetchAllOdds();
+
+        // Only persist sports that actually came back. A failed fetch returns
+        // null; writing that would store an empty slate AND stamp lastUpdated,
+        // which used to take betting offline for a full day while logging
+        // "Successfully updated odds".
         const processedOdds = {};
+        const failed = [];
         for (const [sport, oddsData] of Object.entries(freshOdds)) {
-          processedOdds[sport] = oddsService.processOddsData(oddsData, sport);
+          if (Array.isArray(oddsData)) {
+            processedOdds[sport] = oddsService.processOddsData(oddsData, sport);
+          } else {
+            failed.push(sport);
+          }
         }
-        
+
+        if (failed.length) {
+          console.error(`[ODDS] Fetch failed for: ${failed.join(', ')} - leaving existing odds in place`);
+        }
+
+        if (Object.keys(processedOdds).length === 0) {
+          lastFailedAttempt = Date.now();
+          console.error('[ODDS] No sports fetched successfully; not stamping lastUpdated so this retries later');
+          return;
+        }
+
+        lastFailedAttempt = null;
+
         // Update in database (atomic - only first one succeeds if multiple processes try)
         const updated = await oddsDatabase.updateOdds(processedOdds);
         if (updated) {
