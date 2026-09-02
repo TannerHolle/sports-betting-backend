@@ -46,19 +46,17 @@ router.post('/user/:username/parlay', async (req, res) => {
       return res.status(400).json({ error: 'Insufficient balance' });
     }
 
-    // Same-game parlays are fine - you can mix spread, moneyline and total on
-    // one game. What's blocked is two picks from the SAME market on the same
-    // game, because those are opposite sides of one line (Over and Under, both
-    // moneylines, both sides of a spread) and can never both win.
+    // One leg per game. Legs from the same game are correlated (a blowout wins
+    // the spread and the over together), but the price here just multiplies the
+    // legs as if they were independent - which would be mispriced in the
+    // bettor's favour. Books solve that with a correlation model; we don't have
+    // one, so we don't sell the bet.
     const gameIds = legs.map(l => l && l.gameId);
     if (gameIds.some(id => !id)) {
       return res.status(400).json({ error: 'Every leg needs a gameId' });
     }
-    const markets = legs.map(l => `${l.gameId}:${l.betType}`);
-    if (new Set(markets).size !== markets.length) {
-      return res.status(400).json({
-        error: 'You already have a pick from that market on this game - try a different bet type'
-      });
+    if (new Set(gameIds).size !== gameIds.length) {
+      return res.status(400).json({ error: 'A parlay cannot contain two picks from the same game' });
     }
 
     const now = new Date();

@@ -7,6 +7,7 @@ const { combineLegs, calculatePayout } = require('../utils/oddsMath');
 class BetResolver {
   constructor() {
     this.resolutionInterval = null;
+    this.isResolving = false;
   }
 
   formatDateForAPI(date) {
@@ -215,27 +216,41 @@ class BetResolver {
         }
 
         try {
-          bet.status = outcome.status;
-          bet.resolvedAt = new Date();
-          bet.actualResult = outcome.actualResult;
-          await bet.save();
-
-          const user = await User.findById(bet.user);
-          if (!user) continue;
-
-          if (outcome.status === 'won') {
-            user.balance += bet.amount + bet.potentialWin;
-            user.totalWon += bet.potentialWin;
-            console.log(`      🎉 Bet WON: ${user.username} earned $${bet.potentialWin.toFixed(2)}`);
-          } else if (outcome.status === 'push') {
-            // Push: return the bet amount, no win or loss
-            user.balance += bet.amount;
-            console.log(`      ⚖️  Bet PUSH: ${user.username} received $${bet.amount.toFixed(2)} back`);
-          } else {
-            user.totalLost += bet.amount;
-            console.log(`      ❌ Bet LOST: ${user.username} lost $${bet.amount.toFixed(2)}`);
+          // Settling and paying must happen once and only once. Make the
+          // pending -> settled transition itself the lock: whoever's write
+          // matches a still-pending bet owns the payout, everyone else backs
+          // off. This holds across overlapping passes and across machines,
+          // with no lock collection and no intermediate 'resolving' state to
+          // get stuck in.
+          const claim = await Bet.updateOne(
+            { _id: bet._id, status: 'pending' },
+            { $set: {
+                status: outcome.status,
+                resolvedAt: new Date(),
+                actualResult: outcome.actualResult
+              } }
+          );
+          if (claim.modifiedCount === 0) {
+            // Already settled by another pass - do not pay it again
+            continue;
           }
-          await user.save();
+
+          const userId = bet.user?._id || bet.user;
+          const username = bet.user?.username || userId;
+
+          // $inc rather than read-modify-write, so two bets settling for the
+          // same user can't clobber each other's balance change
+          if (outcome.status === 'won') {
+            await User.updateOne({ _id: userId },
+              { $inc: { balance: bet.amount + bet.potentialWin, totalWon: bet.potentialWin } });
+            console.log(`      🎉 Bet WON: ${username} earned $${bet.potentialWin.toFixed(2)}`);
+          } else if (outcome.status === 'push') {
+            await User.updateOne({ _id: userId }, { $inc: { balance: bet.amount } });
+            console.log(`      ⚖️  Bet PUSH: ${username} received $${bet.amount.toFixed(2)} back`);
+          } else {
+            await User.updateOne({ _id: userId }, { $inc: { totalLost: bet.amount } });
+            console.log(`      ❌ Bet LOST: ${username} lost $${bet.amount.toFixed(2)}`);
+          }
           resolvedCount++;
         } catch (err) {
           console.error(`      ❌ Error resolving bet ${bet._id}:`, err.message);
@@ -292,9 +307,12 @@ class BetResolver {
       const user = await User.findById(parlay.user);
 
       if (anyLost) {
-        parlay.status = 'lost';
-        parlay.resolvedAt = new Date();
-        await parlay.save();
+        // Same rule as straight bets: the pending -> settled write is the lock
+        const claim = await Parlay.updateOne(
+          { _id: parlay._id, status: 'pending' },
+          { $set: { status: 'lost', resolvedAt: new Date(), legs: parlay.legs } }
+        );
+        if (claim.modifiedCount === 0) continue;
         if (user) {
           await User.updateOne({ _id: user._id }, { $inc: { totalLost: parlay.amount } });
           console.log(`      ❌ Parlay LOST: ${user.username} lost $${parlay.amount.toFixed(2)}`);
@@ -308,9 +326,11 @@ class BetResolver {
       const survivingDecimal = combineLegs(parlay.legs);
 
       if (survivingDecimal === null) {
-        parlay.status = 'push';
-        parlay.resolvedAt = new Date();
-        await parlay.save();
+        const claim = await Parlay.updateOne(
+          { _id: parlay._id, status: 'pending' },
+          { $set: { status: 'push', resolvedAt: new Date(), legs: parlay.legs } }
+        );
+        if (claim.modifiedCount === 0) continue;
         if (user) {
           await User.updateOne({ _id: user._id }, { $inc: { balance: parlay.amount } });
           console.log(`      ⚖️  Parlay PUSH: ${user.username} refunded $${parlay.amount.toFixed(2)}`);
@@ -321,10 +341,11 @@ class BetResolver {
 
       // Re-price on the legs that actually counted
       const payout = calculatePayout(parlay.legs, parlay.amount);
-      parlay.status = 'won';
-      parlay.potentialWin = payout;
-      parlay.resolvedAt = new Date();
-      await parlay.save();
+      const claim = await Parlay.updateOne(
+        { _id: parlay._id, status: 'pending' },
+        { $set: { status: 'won', potentialWin: payout, resolvedAt: new Date(), legs: parlay.legs } }
+      );
+      if (claim.modifiedCount === 0) continue;
       if (user) {
         await User.updateOne(
           { _id: user._id },
@@ -340,9 +361,23 @@ class BetResolver {
     if (resolvedCount) console.log(`✓ Resolved ${resolvedCount} parlay(s)\n`);
   }
 
+  // setInterval doesn't wait for the previous run, and a pass can outlast the
+  // interval (each game costs up to three sequential ESPN lookups). Without
+  // this, a slow pass overlaps the next one inside a single process.
   async resolveAll() {
-    await this.processAllPendingBets();
-    await this.processAllPendingParlays();
+    if (this.isResolving) {
+      console.log('⏭️  Resolution already in progress, skipping this tick');
+      return;
+    }
+    this.isResolving = true;
+    try {
+      await this.processAllPendingBets();
+      await this.processAllPendingParlays();
+    } catch (err) {
+      console.error('❌ Resolution pass failed:', err.message);
+    } finally {
+      this.isResolving = false;
+    }
   }
 
   startAutoResolution(intervalMinutes = 1) {
@@ -364,8 +399,11 @@ class BetResolver {
     const normalize = (s) => {
       return String(s)
         .toLowerCase()
-        // Replace ampersands with 'and' to normalize common variants
-        .replace(/&/g, 'and')
+        // Replace ampersands with 'and' to normalize common variants.
+        // Spaces matter: without them "Texas A&M" becomes "texas aandm" and
+        // stops matching "Texas A and M". Kept in step with the frontend's
+        // matcher in services/oddsService.js.
+        .replace(/&/g, ' and ')
         // Remove all non-alphanumeric (keep spaces)
         .replace(/[^a-z0-9\s]/g, ' ')
         // Collapse multiple spaces
