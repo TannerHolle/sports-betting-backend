@@ -22,7 +22,17 @@ router.get('/', async (req, res) => {
 
     const rows = await User.aggregate([
       { $match: match },
-      { $lookup: { from: 'bets', localField: '_id', foreignField: 'user', as: 'userBets' } },
+      { $lookup: { from: 'bets', localField: '_id', foreignField: 'user', as: 'straightBets' } },
+      { $lookup: { from: 'parlays', localField: '_id', foreignField: 'user', as: 'parlayBets' } },
+      // A parlay counts exactly like a straight bet here. netProfit comes from
+      // the user's running totals, which parlay resolution already updates, so
+      // leaving parlays out of these counts would drop a parlay-only player off
+      // the board entirely via the completedBets filter below.
+      {
+        $addFields: {
+          userBets: { $concatArrays: ['$straightBets', '$parlayBets'] }
+        }
+      },
       {
         $addFields: {
           totalBets: { $size: '$userBets' },

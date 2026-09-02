@@ -46,14 +46,19 @@ router.post('/user/:username/parlay', async (req, res) => {
       return res.status(400).json({ error: 'Insufficient balance' });
     }
 
-    // Two picks on the same game are correlated - books don't allow it, and it
-    // would let you parlay both sides of the same line.
+    // Same-game parlays are fine - you can mix spread, moneyline and total on
+    // one game. What's blocked is two picks from the SAME market on the same
+    // game, because those are opposite sides of one line (Over and Under, both
+    // moneylines, both sides of a spread) and can never both win.
     const gameIds = legs.map(l => l && l.gameId);
     if (gameIds.some(id => !id)) {
       return res.status(400).json({ error: 'Every leg needs a gameId' });
     }
-    if (new Set(gameIds).size !== gameIds.length) {
-      return res.status(400).json({ error: 'A parlay cannot contain two picks from the same game' });
+    const markets = legs.map(l => `${l.gameId}:${l.betType}`);
+    if (new Set(markets).size !== markets.length) {
+      return res.status(400).json({
+        error: 'You already have a pick from that market on this game - try a different bet type'
+      });
     }
 
     const now = new Date();
