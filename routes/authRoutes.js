@@ -9,7 +9,7 @@ router.post('/login', async (req, res) => {
     const { username, password } = req.body;
     if (!username || !password) return res.status(400).json({ error: 'Username and password are required' });
 
-    const user = await User.findOne({ username: username.toLowerCase() });
+    const user = await User.findOne({ username: username.toLowerCase() }).populate('bets').populate('parlays');
     if (!user) return res.status(401).json({ error: 'Invalid username or password' });
 
     const isValidPassword = await verifyPassword(password, user.password);

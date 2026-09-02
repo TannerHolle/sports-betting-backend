@@ -5,7 +5,7 @@ const betResolver = require('../services/betResolver');
 // Force resolve all pending bets
 router.post('/force-resolve', async (req, res) => {
   try {
-    await betResolver.processAllPendingBets();
+    await betResolver.resolveAll();
     res.json({ success: true, message: 'Bets resolved successfully' });
   } catch (error) {
     console.error('Error force resolving bets:', error);

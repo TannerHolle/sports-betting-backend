@@ -7,7 +7,7 @@ const { validatePassword, hashPassword, verifyPassword } = require('../utils/pas
 // Get user by username
 router.get('/:username', async (req, res) => {
   try {
-    const user = await User.findOne({ username: req.params.username }).populate('bets');
+    const user = await User.findOne({ username: req.params.username }).populate('bets').populate('parlays');
     if (!user) return res.status(404).json({ error: 'User not found' });
     const userResponse = user.toObject();
     delete userResponse.password;

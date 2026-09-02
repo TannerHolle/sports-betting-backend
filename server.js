@@ -15,6 +15,7 @@ const oddsRoutes = require('./routes/oddsRoutes');
 const suggestionRoutes = require('./routes/suggestionRoutes');
 const aiRoutes = require('./routes/aiRoutes');
 const leaderboardRoutes = require('./routes/leaderboardRoutes');
+const parlayRoutes = require('./routes/parlayRoutes');
 
 // Import models for direct routes
 const User = require('./models/User');
@@ -56,10 +57,10 @@ app.get('/api/users', async (req, res) => {
       }
       // Get member IDs directly (they're ObjectIds in the array)
       const memberIds = league.members;
-      users = await User.find({ _id: { $in: memberIds } }).populate('bets');
+      users = await User.find({ _id: { $in: memberIds } }).populate('bets').populate('parlays');
     } else {
       // Get all users
-      users = await User.find({}).populate('bets');
+      users = await User.find({}).populate('bets').populate('parlays');
     }
     
     res.json(users.map(u => { const o = u.toObject(); delete o.password; return o; }));
@@ -78,6 +79,7 @@ app.use('/api/odds', oddsRoutes);
 app.use('/api/suggestions', suggestionRoutes);
 app.use('/api/ai', aiRoutes);
 app.use('/api/leaderboard', leaderboardRoutes);
+app.use('/api', parlayRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

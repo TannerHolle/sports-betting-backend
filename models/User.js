@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
   totalWon: { type: Number, default: 0, min: 0 },
   totalLost: { type: Number, default: 0, min: 0 },
   bets: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Bet' }],
+  parlays: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Parlay' }],
   leagues: [{ type: mongoose.Schema.Types.ObjectId, ref: 'League' }]
 }, { timestamps: true });
 

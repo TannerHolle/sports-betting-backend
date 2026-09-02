@@ -1,6 +1,8 @@
 const axios = require('axios');
 const Bet = require('../models/Bet');
+const Parlay = require('../models/Parlay');
 const User = require('../models/User');
+const { combineLegs, calculatePayout } = require('../utils/oddsMath');
 
 class BetResolver {
   constructor() {
@@ -244,10 +246,109 @@ class BetResolver {
     console.log(`✓ Resolved ${resolvedCount} bet(s)\n`);
   }
 
+  async processAllPendingParlays() {
+    const pendingParlays = await Parlay.find({ status: 'pending' });
+    if (!pendingParlays.length) return;
+
+    console.log(`\n🎯 Checking ${pendingParlays.length} pending parlay(s)...`);
+
+    // One lookup per game, shared across every parlay that uses it
+    const gameCache = new Map();
+    const lookup = async (gameId, sport) => {
+      const key = `${gameId}|${sport || ''}`;
+      if (!gameCache.has(key)) gameCache.set(key, await this.findGame(gameId, sport));
+      return gameCache.get(key);
+    };
+
+    let resolvedCount = 0;
+
+    for (const parlay of pendingParlays) {
+      let changed = false;
+
+      for (const leg of parlay.legs) {
+        if (leg.status !== 'pending') continue;
+        const gameData = await lookup(leg.gameId, leg.sport);
+        if (!gameData) continue;
+        if (!gameData.competitions?.[0]?.status?.type?.completed) continue;
+
+        const outcome = this.determineBetOutcome(leg, gameData);
+        if (!outcome) continue;
+
+        leg.status = outcome.status;
+        leg.actualResult = outcome.actualResult;
+        leg.resolvedAt = new Date();
+        changed = true;
+      }
+
+      const anyLost = parlay.legs.some(leg => leg.status === 'lost');
+      const allSettled = parlay.legs.every(leg => leg.status !== 'pending');
+
+      // A single losing leg kills the parlay - no need to wait for the rest
+      if (!anyLost && !allSettled) {
+        if (changed) await parlay.save();
+        continue;
+      }
+
+      const user = await User.findById(parlay.user);
+
+      if (anyLost) {
+        parlay.status = 'lost';
+        parlay.resolvedAt = new Date();
+        await parlay.save();
+        if (user) {
+          await User.updateOne({ _id: user._id }, { $inc: { totalLost: parlay.amount } });
+          console.log(`      ❌ Parlay LOST: ${user.username} lost $${parlay.amount.toFixed(2)}`);
+        }
+        resolvedCount++;
+        continue;
+      }
+
+      // Everything settled with no losers. Pushed legs drop out of the price,
+      // so a parlay where every leg pushed is just a refund.
+      const survivingDecimal = combineLegs(parlay.legs);
+
+      if (survivingDecimal === null) {
+        parlay.status = 'push';
+        parlay.resolvedAt = new Date();
+        await parlay.save();
+        if (user) {
+          await User.updateOne({ _id: user._id }, { $inc: { balance: parlay.amount } });
+          console.log(`      ⚖️  Parlay PUSH: ${user.username} refunded $${parlay.amount.toFixed(2)}`);
+        }
+        resolvedCount++;
+        continue;
+      }
+
+      // Re-price on the legs that actually counted
+      const payout = calculatePayout(parlay.legs, parlay.amount);
+      parlay.status = 'won';
+      parlay.potentialWin = payout;
+      parlay.resolvedAt = new Date();
+      await parlay.save();
+      if (user) {
+        await User.updateOne(
+          { _id: user._id },
+          { $inc: { balance: parlay.amount + payout, totalWon: payout } }
+        );
+        const pushed = parlay.legs.filter(l => l.status === 'push').length;
+        console.log(`      🎉 Parlay WON: ${user.username} earned $${payout.toFixed(2)}` +
+          (pushed ? ` (${pushed} leg(s) pushed, re-priced)` : ''));
+      }
+      resolvedCount++;
+    }
+
+    if (resolvedCount) console.log(`✓ Resolved ${resolvedCount} parlay(s)\n`);
+  }
+
+  async resolveAll() {
+    await this.processAllPendingBets();
+    await this.processAllPendingParlays();
+  }
+
   startAutoResolution(intervalMinutes = 1) {
-    this.processAllPendingBets();
+    this.resolveAll();
     this.resolutionInterval = setInterval(() => {
-      this.processAllPendingBets();
+      this.resolveAll();
     }, intervalMinutes * 60 * 1000);
   }
 
